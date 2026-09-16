@@ -1,7 +1,7 @@
 # R4AOP — Requirements
 
 **Goal:** Give R users access to AOP-Wiki data through simple functions, so no SPARQL is needed.
-**Data source:** AOP-Wiki REST API — https://aopwiki.rdf.bigcat-bioinformatics.org/api/docs (v1, JSON/CSV, paginated: max 1000 per call, `meta.total` gives the count)
+**Data source:** AOP-Wiki REST API: https://aopwiki.rdf.bigcat-bioinformatics.org/api/docs (v1, JSON/CSV, paginated: max 1000 per call, `meta.total` gives the count)
 
 **Scope:** Every function in Section 1 maps to one existing API endpoint. Nothing outside the API is in scope for v1.0.
 

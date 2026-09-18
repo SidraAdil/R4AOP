@@ -17,13 +17,44 @@ aop_base_url <- function() {
 aop_get <- function(path, query = list()) {
   query <- Filter(Negate(is.null), query)
 
-  httr2::request(aop_base_url()) |>
+  req <- httr2::request(aop_base_url()) |>
     httr2::req_url_path_append(path) |>
     httr2::req_url_query(!!!query) |>
     httr2::req_user_agent("R4AOP (https://github.com/SidraAdil/R4AOP)") |>
     httr2::req_retry(max_tries = 3) |>
-    httr2::req_perform() |>
-    httr2::resp_body_json(simplifyVector = TRUE)
+    httr2::req_error(is_error = function(resp) FALSE)
+
+  resp <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) {
+      cli::cli_abort(
+        c("Could not reach the AOP-Wiki API.",
+          "i" = "Check your internet connection or try again later.",
+          "x" = conditionMessage(e)),
+        call = NULL
+      )
+    }
+  )
+
+  status <- httr2::resp_status(resp)
+
+  if (status == 404) {
+    cli::cli_abort("Not found: {.val {path}} does not exist in the AOP-Wiki.",
+                   call = NULL)
+  }
+  if (status >= 500) {
+    cli::cli_abort(
+      c("The AOP-Wiki API is currently unavailable (HTTP {status}).",
+        "i" = "This is a problem on the server side. Try again later."),
+      call = NULL
+    )
+  }
+  if (status >= 400) {
+    cli::cli_abort("Request failed (HTTP {status}) for {.val {path}}.",
+                   call = NULL)
+  }
+
+  httr2::resp_body_json(resp, simplifyVector = TRUE)
 }
 
 

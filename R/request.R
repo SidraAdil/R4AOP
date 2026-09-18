@@ -25,3 +25,30 @@ aop_get <- function(path, query = list()) {
     httr2::req_perform() |>
     httr2::resp_body_json(simplifyVector = TRUE)
 }
+
+
+######### TR-02 (pagination)
+
+#' Fetch all pages of a list endpoint
+#'
+#' @param path Endpoint path, e.g. "key-events".
+#' @param query Named list of filters.
+#' @param limit Records per request (max 1000).
+#' @return A tibble with all records.
+#' @keywords internal
+#' @noRd
+aop_get_all <- function(path, query = list(), limit = 1000) {
+  first <- aop_get(path, c(query, list(limit = limit, offset = 0)))
+
+  total <- first$meta$total
+  pages <- list(first$data)
+
+  offset <- limit
+  while (offset < total) {
+    page <- aop_get(path, c(query, list(limit = limit, offset = offset)))
+    pages[[length(pages) + 1]] <- page$data
+    offset <- offset + limit
+  }
+
+  tibble::as_tibble(dplyr::bind_rows(pages))
+}

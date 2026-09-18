@@ -41,6 +41,7 @@ aop_get_all <- function(path, query = list(), limit = 1000) {
   first <- aop_get(path, c(query, list(limit = limit, offset = 0)))
 
   total <- first$meta$total
+  if (is.null(total) || total == 0) return(tibble::tibble())
   pages <- list(first$data)
 
   offset <- limit

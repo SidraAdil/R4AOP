@@ -120,3 +120,20 @@ aop_genes <- function(aop_id, method = NULL) {
   res <- aop_request(paste0("aops/", aop_id, "/genes"), list(method = method))
   as_table(res$data)
 }
+
+
+#' Measurement methods used in an AOP
+#'
+#' Methods described for measuring the Key Events of an AOP.
+#'
+#' @param aop_id AOP identifier.
+#' @return A tibble of measurement methods.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_methods(1)
+#' }
+aop_methods <- function(aop_id) {
+  check_id(aop_id, "aop_id")
+  as_table(aop_request("methods", list(aop = aop_id))$data)
+}

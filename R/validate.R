@@ -43,3 +43,17 @@ check_choice <- function(x, choices, arg = "value") {
   }
   invisible(x)
 }
+
+#' Check that a value is a single non-empty string
+#'
+#' @keywords internal
+#' @noRd
+check_string <- function(x, arg = "value") {
+  if (!is.character(x) || length(x) != 1 || is.na(x) || !nzchar(x)) {
+    cli::cli_abort(
+      "{.arg {arg}} must be a single non-empty text value, not {.val {x}}.",
+      call = NULL
+    )
+  }
+  invisible(x)
+}

@@ -43,3 +43,80 @@ aop_get <- function(aop_id, include = NULL) {
   res <- aop_request(paste0("aops/", aop_id), list(include = include))
   as_row(res$data)
 }
+
+#' Key Events of an AOP
+#'
+#' @param aop_id AOP identifier.
+#' @param role Optional filter: one of "mie", "ke" or "ao".
+#' @return A tibble of Key Events.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_key_events(1)
+#' aop_key_events(1, role = "mie")
+#' }
+aop_key_events <- function(aop_id, role = NULL) {
+  check_id(aop_id, "aop_id")
+  check_choice(role, c("mie", "ke", "ao"), "role")
+  res <- aop_request(paste0("aops/", aop_id, "/key-events"), list(role = role))
+  as_table(res$data)
+}
+
+#' Key Event Relationships of an AOP
+#'
+#' @param aop_id AOP identifier.
+#' @return A tibble of KERs.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_kers(1)
+#' }
+aop_kers <- function(aop_id) {
+  check_id(aop_id, "aop_id")
+  as_table(aop_request(paste0("aops/", aop_id, "/kers"))$data)
+}
+
+#' Stressors of an AOP
+#'
+#' @param aop_id AOP identifier.
+#' @return A tibble of stressors.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_stressors(1)
+#' }
+aop_stressors <- function(aop_id) {
+  check_id(aop_id, "aop_id")
+  as_table(aop_request(paste0("aops/", aop_id, "/stressors"))$data)
+}
+
+#' Chemicals of an AOP
+#'
+#' @param aop_id AOP identifier.
+#' @return A tibble of chemicals.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_chemicals(1)
+#' }
+aop_chemicals <- function(aop_id) {
+  check_id(aop_id, "aop_id")
+  as_table(aop_request(paste0("aops/", aop_id, "/chemicals"))$data)
+}
+
+#' Genes linked to an AOP
+#'
+#' @param aop_id AOP identifier.
+#' @param method How genes were linked: one of "any", "regex", "ner" or "both".
+#' @return A tibble of genes.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_genes(1)
+#' }
+aop_genes <- function(aop_id, method = NULL) {
+  check_id(aop_id, "aop_id")
+  check_choice(method, c("any", "regex", "ner", "both"), "method")
+  res <- aop_request(paste0("aops/", aop_id, "/genes"), list(method = method))
+  as_table(res$data)
+}

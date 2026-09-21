@@ -97,3 +97,13 @@ as_row <- function(x) {
   })
   tibble::as_tibble(cols)
 }
+
+#' Convert an API "data" array into a tibble
+#'
+#' @keywords internal
+#' @noRd
+as_table <- function(x) {
+  if (is.null(x) || length(x) == 0) return(tibble::tibble())
+  tibble::as_tibble(x)
+}
+

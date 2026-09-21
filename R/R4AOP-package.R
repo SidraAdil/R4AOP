@@ -13,3 +13,7 @@
 ## mockable bindings: start
 ## mockable bindings: end
 NULL
+
+#'   \item{`R4AOP.cache`}{If `TRUE` (the default), API responses are cached for
+#'     the current session. Set to `FALSE` to always fetch fresh data, or call
+#'     [aop_cache_clear()] to empty the cache.}

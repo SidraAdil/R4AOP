@@ -14,7 +14,7 @@ aop_base_url <- function() {
 #' @return The parsed JSON response as a list.
 #' @keywords internal
 #' @noRd
-aop_request <- function(path, query = list()) {
+aop_request_impl <- function(path, query = list()) {
   query <- Filter(Negate(is.null), query)
 
   req <- httr2::request(aop_base_url()) |>
@@ -57,7 +57,36 @@ aop_request <- function(path, query = list()) {
   httr2::resp_body_json(resp, simplifyVector = TRUE)
 }
 
+# Filled in by .onLoad()
+aop_request_cached <- NULL
 
+#' Perform a request, using the session cache when enabled
+#'
+#' @keywords internal
+#' @noRd
+aop_request <- function(path, query = list()) {
+  if (isTRUE(getOption("R4AOP.cache", TRUE))) {
+    aop_request_cached(path, query)
+  } else {
+    aop_request_impl(path, query)
+  }
+}
+
+#' Clear the R4AOP response cache
+#'
+#' Responses are cached for the current R session. Clear the cache to force
+#' fresh requests, for example after the AOP-Wiki data has been updated.
+#'
+#' @return Invisibly TRUE.
+#' @export
+#' @examples
+#' \dontrun{
+#' aop_cache_clear()
+#' }
+aop_cache_clear <- function() {
+  memoise::forget(aop_request_cached)
+  invisible(TRUE)
+}
 ######### TR-02 (pagination)
 
 #' Fetch all pages of a list endpoint

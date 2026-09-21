@@ -4,12 +4,17 @@
 \name{R4AOP-package}
 \alias{R4AOP}
 \alias{R4AOP-package}
-\title{R4AOP: What the Package Does (One Line, Title Case)}
+\title{R4AOP: Access the AOP-Wiki Through Its REST API}
 \description{
-What the package does (one paragraph).
+Provides functions to retrieve Adverse Outcome Pathways (AOPs), Key Events, Key Event Relationships, stressors, chemicals and genes from the AOP-Wiki through its REST API, without writing SPARQL queries.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: Sidra Adil \email{sidra.adil@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0002-3044-3561}{ORCID})
+
+Authors:
+\itemize{
+  \item Marvin Martens \email{marvin.martens@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0003-2230-0840}{ORCID})
+}
 
 }
 \keyword{internal}

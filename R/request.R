@@ -14,7 +14,7 @@ aop_base_url <- function() {
 #' @return The parsed JSON response as a list.
 #' @keywords internal
 #' @noRd
-aop_get <- function(path, query = list()) {
+aop_request <- function(path, query = list()) {
   query <- Filter(Negate(is.null), query)
 
   req <- httr2::request(aop_base_url()) |>
@@ -68,8 +68,8 @@ aop_get <- function(path, query = list()) {
 #' @return A tibble with all records.
 #' @keywords internal
 #' @noRd
-aop_get_all <- function(path, query = list(), limit = 1000) {
-  first <- aop_get(path, c(query, list(limit = limit, offset = 0)))
+aop_request_all <- function(path, query = list(), limit = 1000) {
+  first <- aop_request(path, c(query, list(limit = limit, offset = 0)))
 
   total <- first$meta$total
   if (is.null(total) || total == 0) return(tibble::tibble())
@@ -77,10 +77,23 @@ aop_get_all <- function(path, query = list(), limit = 1000) {
 
   offset <- limit
   while (offset < total) {
-    page <- aop_get(path, c(query, list(limit = limit, offset = offset)))
+    page <- aop_request(path, c(query, list(limit = limit, offset = offset)))
     pages[[length(pages) + 1]] <- page$data
     offset <- offset + limit
   }
 
   tibble::as_tibble(dplyr::bind_rows(pages))
+}
+
+#' Convert one API record into a one-row tibble
+#'
+#' @keywords internal
+#' @noRd
+as_row <- function(x) {
+  cols <- lapply(x, function(v) {
+    if (is.null(v)) NA
+    else if (length(v) == 1 && !is.list(v)) v
+    else list(v)          # keep arrays as a list-column
+  })
+  tibble::as_tibble(cols)
 }

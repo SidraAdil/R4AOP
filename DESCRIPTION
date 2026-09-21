@@ -18,10 +18,10 @@ Depends:
     R (>= 4.1)
 Imports:
     cli,
-    dplyr,
     httr2,
     memoise,
-    tibble
+    tibble,
+    vctrs
 Suggests:
     httptest2,
     testthat (>= 3.0.0)

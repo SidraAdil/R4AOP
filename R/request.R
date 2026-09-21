@@ -115,7 +115,7 @@ aop_request_all <- function(path, query = list(), limit = 1000) {
     offset <- offset + limit
   }
 
-  out <- tibble::as_tibble(dplyr::bind_rows(pages))
+  out <- tibble::as_tibble(vctrs::vec_rbind(!!!pages))
   attr(out, "dataset_version") <- first$meta$dataset_version
   out
 }

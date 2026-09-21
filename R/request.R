@@ -72,7 +72,11 @@ aop_request_all <- function(path, query = list(), limit = 1000) {
   first <- aop_request(path, c(query, list(limit = limit, offset = 0)))
 
   total <- first$meta$total
-  if (is.null(total) || total == 0) return(tibble::tibble())
+  if (is.null(total) || total == 0) {
+    out <- tibble::tibble()
+    attr(out, "dataset_version") <- first$meta$dataset_version
+    return(out)
+  }
   pages <- list(first$data)
 
   offset <- limit
@@ -82,7 +86,9 @@ aop_request_all <- function(path, query = list(), limit = 1000) {
     offset <- offset + limit
   }
 
-  tibble::as_tibble(dplyr::bind_rows(pages))
+  out <- tibble::as_tibble(dplyr::bind_rows(pages))
+  attr(out, "dataset_version") <- first$meta$dataset_version
+  out
 }
 
 #' Convert one API record into a one-row tibble

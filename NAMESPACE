@@ -2,6 +2,7 @@
 
 export(ao_list)
 export(aop_chemicals)
+export(aop_data_version)
 export(aop_dataset_info)
 export(aop_genes)
 export(aop_get)

@@ -58,8 +58,7 @@ aop_get <- function(aop_id, include = NULL) {
 aop_key_events <- function(aop_id, role = NULL) {
   check_id(aop_id, "aop_id")
   check_choice(role, c("mie", "ke", "ao"), "role")
-  res <- aop_request(paste0("aops/", aop_id, "/key-events"), list(role = role))
-  as_table(res$data)
+  fetch_table(paste0("aops/", aop_id, "/key-events"), list(role = role))
 }
 
 #' Key Event Relationships of an AOP
@@ -73,7 +72,7 @@ aop_key_events <- function(aop_id, role = NULL) {
 #' }
 aop_kers <- function(aop_id) {
   check_id(aop_id, "aop_id")
-  as_table(aop_request(paste0("aops/", aop_id, "/kers"))$data)
+  fetch_table(paste0("aops/", aop_id, "/kers"))
 }
 
 #' Stressors of an AOP
@@ -87,7 +86,7 @@ aop_kers <- function(aop_id) {
 #' }
 aop_stressors <- function(aop_id) {
   check_id(aop_id, "aop_id")
-  as_table(aop_request(paste0("aops/", aop_id, "/stressors"))$data)
+  fetch_table(paste0("aops/", aop_id, "/stressors"))
 }
 
 #' Chemicals of an AOP
@@ -101,7 +100,7 @@ aop_stressors <- function(aop_id) {
 #' }
 aop_chemicals <- function(aop_id) {
   check_id(aop_id, "aop_id")
-  as_table(aop_request(paste0("aops/", aop_id, "/chemicals"))$data)
+  fetch_table(paste0("aops/", aop_id, "/chemicals"))
 }
 
 #' Genes linked to an AOP
@@ -117,8 +116,7 @@ aop_chemicals <- function(aop_id) {
 aop_genes <- function(aop_id, method = NULL) {
   check_id(aop_id, "aop_id")
   check_choice(method, c("any", "regex", "ner", "both"), "method")
-  res <- aop_request(paste0("aops/", aop_id, "/genes"), list(method = method))
-  as_table(res$data)
+  fetch_table(paste0("aops/", aop_id, "/genes"), list(method = method))
 }
 
 
@@ -135,5 +133,5 @@ aop_genes <- function(aop_id, method = NULL) {
 #' }
 aop_methods <- function(aop_id) {
   check_id(aop_id, "aop_id")
-  as_table(aop_request("methods", list(aop = aop_id))$data)
+  fetch_table("methods", list(aop = aop_id))
 }

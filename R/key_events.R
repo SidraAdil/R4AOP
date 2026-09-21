@@ -88,8 +88,8 @@ ke_get <- function(ke_id) {
 ke_aops <- function(ke_id, role = NULL) {
   check_id(ke_id, "ke_id")
   check_choice(role, c("mie", "ke", "ao"), "role")
-  as_table(aop_request(paste0("key-events/", ke_id, "/aops"),
-                       list(role = role))$data)
+  fetch_table(paste0("key-events/", ke_id, "/aops"),
+                       list(role = role))
 }
 
 #' Key Events downstream of a Key Event
@@ -107,8 +107,8 @@ ke_aops <- function(ke_id, role = NULL) {
 ke_downstream <- function(ke_id, depth = 1) {
   check_id(ke_id, "ke_id")
   check_range(depth, 1, 3, "depth")
-  as_table(aop_request(paste0("key-events/", ke_id, "/downstream"),
-                       list(depth = depth))$data)
+  fetch_table(paste0("key-events/", ke_id, "/downstream"),
+                       list(depth = depth))
 }
 
 #' Key Events upstream of a Key Event
@@ -125,8 +125,8 @@ ke_downstream <- function(ke_id, depth = 1) {
 ke_upstream <- function(ke_id, depth = 1) {
   check_id(ke_id, "ke_id")
   check_range(depth, 1, 3, "depth")
-  as_table(aop_request(paste0("key-events/", ke_id, "/upstream"),
-                       list(depth = depth))$data)
+  fetch_table(paste0("key-events/", ke_id, "/upstream"),
+                       list(depth = depth))
 }
 
 #' Adverse Outcomes linked to a Key Event
@@ -143,8 +143,8 @@ ke_upstream <- function(ke_id, depth = 1) {
 ke_adverse_outcomes <- function(ke_id, as = NULL) {
   check_id(ke_id, "ke_id")
   check_choice(as, c("mie", "any"), "as")
-  as_table(aop_request(paste0("key-events/", ke_id, "/adverse-outcomes"),
-                       list(as = as))$data)
+  fetch_table(paste0("key-events/", ke_id, "/adverse-outcomes"),
+                       list(as = as))
 }
 
 #' Molecular Initiating Events linked to a Key Event
@@ -161,9 +161,9 @@ ke_adverse_outcomes <- function(ke_id, as = NULL) {
 ke_mies <- function(ke_id, as = NULL) {
   check_id(ke_id, "ke_id")
   check_choice(as, c("ao", "any"), "as")
-  as_table(aop_request(paste0("key-events/", ke_id,
+  fetch_table(paste0("key-events/", ke_id,
                               "/molecular-initiating-events"),
-                       list(as = as))$data)
+                       list(as = as))
 }
 
 #' Stressors of a Key Event
@@ -177,7 +177,7 @@ ke_mies <- function(ke_id, as = NULL) {
 #' }
 ke_stressors <- function(ke_id) {
   check_id(ke_id, "ke_id")
-  as_table(aop_request(paste0("key-events/", ke_id, "/stressors"))$data)
+  fetch_table(paste0("key-events/", ke_id, "/stressors"))
 }
 
 #' Chemicals of a Key Event
@@ -191,5 +191,5 @@ ke_stressors <- function(ke_id) {
 #' }
 ke_chemicals <- function(ke_id) {
   check_id(ke_id, "ke_id")
-  as_table(aop_request(paste0("key-events/", ke_id, "/chemicals"))$data)
+  fetch_table(paste0("key-events/", ke_id, "/chemicals"))
 }

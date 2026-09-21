@@ -102,7 +102,7 @@ aop_request_all <- function(path, query = list(), limit = 1000) {
 
   total <- first$meta$total
   if (is.null(total) || total == 0) {
-    out <- tibble::tibble()
+    out <- empty_like(path)
     attr(out, "dataset_version") <- first$meta$dataset_version
     return(out)
   }
@@ -142,3 +142,47 @@ as_table <- function(x) {
   tibble::as_tibble(x)
 }
 
+#' Build an empty tibble with the columns an endpoint returns
+#'
+#' @keywords internal
+#' @noRd
+empty_like <- function(path) {
+  res <- try(aop_request(path, list(limit = 1)), silent = TRUE)
+  if (inherits(res, "try-error") || is.null(res$data) || length(res$data) == 0) {
+    return(tibble::tibble())
+  }
+  tibble::as_tibble(res$data)[0, ]
+}
+
+#' Request an endpoint and return a tibble, keeping columns when empty
+#'
+#' @keywords internal
+#' @noRd
+fetch_table <- function(path, query = list()) {
+  out <- as_table(aop_request(path, query)$data)
+  if (ncol(out) == 0) {
+    proto <- recall_proto(path)
+    return(if (!is.null(proto)) proto else empty_like(path))
+  }
+  remember_proto(path, out)
+  out
+}
+
+# Remembered column prototypes, keyed by endpoint shape
+.aop_protos <- new.env(parent = emptyenv())
+
+path_template <- function(path) gsub("[0-9]+", "{id}", path)
+
+remember_proto <- function(path, tbl) {
+  if (ncol(tbl) > 0) assign(path_template(path), tbl[0, ], envir = .aop_protos)
+  invisible(NULL)
+}
+
+recall_proto <- function(path) {
+  key <- path_template(path)
+  if (exists(key, envir = .aop_protos, inherits = FALSE)) {
+    get(key, envir = .aop_protos)
+  } else {
+    NULL
+  }
+}

@@ -13,8 +13,7 @@
 #' }
 aop_search <- function(q, types = NULL, limit = 100) {
   check_string(q, "q")
-  res <- aop_request("search", list(q = q, types = types, limit = limit))
-  as_table(res$data)
+  fetch_table("search", list(q = q, types = types, limit = limit))
 }
 
 #' Dataset information

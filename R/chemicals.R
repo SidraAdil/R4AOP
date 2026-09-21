@@ -50,7 +50,7 @@ chemical_get <- function(cas) {
 #' }
 chemical_aops <- function(cas) {
   check_string(cas, "cas")
-  as_table(aop_request(paste0("chemicals/", cas, "/aops"))$data)
+  fetch_table(paste0("chemicals/", cas, "/aops"))
 }
 
 #' Key Events linked to a chemical
@@ -66,8 +66,8 @@ chemical_aops <- function(cas) {
 chemical_key_events <- function(cas, role = NULL) {
   check_string(cas, "cas")
   check_choice(role, c("mie", "ke", "ao"), "role")
-  as_table(aop_request(paste0("chemicals/", cas, "/key-events"),
-                       list(role = role))$data)
+  fetch_table(paste0("chemicals/", cas, "/key-events"),
+                       list(role = role))
 }
 
 #' WikiPathways containing a chemical
@@ -81,5 +81,5 @@ chemical_key_events <- function(cas, role = NULL) {
 #' }
 chemical_pathways <- function(cas) {
   check_string(cas, "cas")
-  as_table(aop_request(paste0("chemicals/", cas, "/pathways"))$data)
+  fetch_table(paste0("chemicals/", cas, "/pathways"))
 }

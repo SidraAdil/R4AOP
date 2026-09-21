@@ -1,0 +1,190 @@
+{
+    "data": [
+        {
+            "hgnc_id": 348,
+            "symbol": "AHR",
+            "entity_type": "ker",
+            "entity_id": 1229,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1582,
+            "symbol": "CCND1",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1722,
+            "symbol": "CDK1",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1773,
+            "symbol": "CDK4",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2329,
+            "symbol": "CPT1B",
+            "entity_type": "key_event",
+            "entity_id": 227,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4056,
+            "symbol": "G6PC1",
+            "entity_type": "key_event",
+            "entity_id": 1171,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4638,
+            "symbol": "GSTP1",
+            "entity_type": "key_event",
+            "entity_id": 1171,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5991,
+            "symbol": "IL1A",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5992,
+            "symbol": "IL1B",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6036,
+            "symbol": "FOXK2",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6677,
+            "symbol": "LPL",
+            "entity_type": "key_event",
+            "entity_id": 227,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7553,
+            "symbol": "MYC",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 7969,
+            "symbol": "NR1I3",
+            "entity_type": "ker",
+            "entity_id": 1229,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7985,
+            "symbol": "NR6A1",
+            "entity_type": "key_event",
+            "entity_id": 227,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8729,
+            "symbol": "PCNA",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9232,
+            "symbol": "PPARA",
+            "entity_type": "key_event",
+            "entity_id": 227,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9232,
+            "symbol": "PPARA",
+            "entity_type": "key_event",
+            "entity_id": 1171,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9232,
+            "symbol": "PPARA",
+            "entity_type": "ker",
+            "entity_id": 1229,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9232,
+            "symbol": "PPARA",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11916,
+            "symbol": "TNFRSF1A",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11920,
+            "symbol": "FAS",
+            "entity_type": "key_event",
+            "entity_id": 1171,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 14981,
+            "symbol": "PAPOLA",
+            "entity_type": "key_event",
+            "entity_id": 227,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 16437,
+            "symbol": "GGTLC1",
+            "entity_type": "key_event",
+            "entity_id": 1171,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 23198,
+            "symbol": "CYP4V2",
+            "entity_type": "key_event",
+            "entity_id": 227,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 31480,
+            "symbol": "MIRLET7C",
+            "entity_type": "ker",
+            "entity_id": 1230,
+            "detected_by": "ner"
+        }
+    ],
+    "meta": {
+        "total": 26,
+        "dataset_version": "2026.09.19-103c6e9"
+    }
+}

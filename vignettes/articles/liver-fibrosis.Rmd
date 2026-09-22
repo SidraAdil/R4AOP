@@ -1,5 +1,5 @@
 ---
-title: "From a research question to a gene set: liver fibrosis"
+title: "Exploring liver fibrosis AOPs with R4AOP"
 output: rmarkdown::html_document
 ---
 
@@ -23,8 +23,7 @@ query language.
 This article answers one such question end to end, using only R4AOP functions.
 The question is:
 
-> Which Adverse Outcome Pathways describe liver fibrosis, how is one of them
-> structured, and which genes are linked to it?
+> What does AOP-Wiki store about liver fibrosis, and which genes are involved?
 
 ```{r setup}
 library(R4AOP)
@@ -136,65 +135,76 @@ head(genes)
 table(genes$detected_by)
 ```
 
-The three groups are not equally trustworthy. Genes found by both methods are
-the most conservative set; genes found by a single method are broader but
-noisier. Making that distinction visible is the point of keeping the column.
+The `detected_by` column lets the three groups be compared directly.
 
 ```{r fig-methods, fig.cap = "Distinct genes per detection method."}
 per_method <- aggregate(symbol ~ detected_by, data = genes,
                         FUN = function(x) length(unique(x)))
 names(per_method)[2] <- "n_genes"
-
-ggplot(per_method, aes(x = reorder(detected_by, n_genes), y = n_genes)) +
-  geom_col(fill = "#1F4E79", width = 0.6) +
-  geom_text(aes(label = n_genes), hjust = -0.25, size = 3.5) +
-  coord_flip() +
-  labs(x = "Detection method", y = "Distinct genes") +
-  theme_minimal(base_size = 12)
+per_method
 ```
 
 ## 4. Genes per Key Event
 
-Because each gene record names the entity it was linked to, gene sets can be
-built per Key Event rather than for the pathway as a whole. This is what makes
-the data usable for transcriptomics: each Key Event becomes a candidate gene
-set.
+Gene links are attached to individual Key Events, not only to the AOP as a
+whole, so each Key Event can be treated as a candidate gene set. This is what
+makes the data usable in a transcriptomics analysis.
 
-```{r ke-genes}
-ke_genes <- merge(
-  genes[genes$entity_type == "key_event", ],
-  data.frame(entity_id = kes$id, ke_title = kes$title, role = kes$role),
-  by = "entity_id"
-)
+`aop_gene_summary()` returns those counts, and `aop_plot_genes()` draws them:
 
-ke_counts <- aggregate(symbol ~ ke_title + detected_by, data = ke_genes,
-                       FUN = function(x) length(unique(x)))
-names(ke_counts)[3] <- "n_genes"
-head(ke_counts)
+```{r ke-summary}
+summary_tbl <- aop_gene_summary(aop_id)
+summary_tbl
 ```
 
 ```{r fig-ke, fig.height = 4, fig.cap = "Genes linked to each Key Event, split by detection method."}
-ggplot(ke_counts, aes(x = reorder(ke_title, n_genes), y = n_genes,
-                      fill = detected_by)) +
-  geom_col(width = 0.65) +
-  coord_flip() +
-  scale_fill_manual(values = c(both = "#1F4E79", ner = "#7FA8C9",
-                               regex = "#C9D9E8")) +
-  labs(x = NULL, y = "Distinct genes", fill = "Detected by") +
-  theme_minimal(base_size = 12) +
-  theme(legend.position = "bottom")
+aop_plot_genes(aop_id)
 ```
 
-A gene set for one Key Event, ready for enrichment analysis, is then one line:
+The plot is an ordinary ggplot object, so it can be adjusted like any other,
+for example with a different theme or colour scale.
+
+A gene set for one Key Event, ready for enrichment analysis, is one line:
 
 ```{r gene-set}
 mie_id <- kes$id[kes$role == "mie"]
-mie_genes <- unique(ke_genes$symbol[ke_genes$entity_id == mie_id])
+mie_genes <- unique(genes$symbol[genes$entity_id == mie_id])
 length(mie_genes)
 head(mie_genes, 10)
 ```
 
-## 5. Reproducibility
+## 5. Other questions about the same pathway
+
+The same pathway can be approached from several directions, each a single call.
+
+What is known to trigger it:
+
+```{r triggers}
+aop_stressors(aop_id)[, c("id", "title")]
+aop_chemicals(aop_id)
+```
+
+Whether a particular gene belongs to this AOP, and how the link was made:
+
+```{r one-gene}
+"TGFB1" %in% genes$symbol
+genes[genes$symbol == "TGFB1", ]
+```
+
+Key Events can be
+filtered by gene, and each Key Event reports the AOPs it belongs to:
+
+```{r gene-to-aop}
+kes_with_gene <- ke_list(gene = "TGFB1")
+nrow(kes_with_gene)
+
+aops_with_gene <- unique(unlist(
+  lapply(head(kes_with_gene$id, 5), function(i) ke_aops(i)$id)
+))
+aops_with_gene
+```
+
+## 6. Reproducibility
 
 AOP-Wiki is curated continuously, so results depend on the version of the data
 that was queried. Every R4AOP result carries that version, and it can be
@@ -204,7 +214,7 @@ reported alongside the findings.
 aop_data_version(fibrosis)
 ```
 
-## 6. What this replaces
+## 7. What this replaces
 
 Retrieving the same information directly from the RDF endpoint means one SPARQL
 query per step: declaring prefixes, matching the AOP to its Key Events through
@@ -212,7 +222,7 @@ query per step: declaring prefixes, matching the AOP to its Key Events through
 topology, and joining the enriched gene links. Each query has to be written
 against the RDF schema and kept in step with it, in every project that needs it.
 
-With R4AOP the six steps above are six function calls. The package covers the
+With R4AOP each of those steps is a single function call. The package covers the
 routine tasks that most analyses begin with: listing AOPs, filtering them,
 following the links to Key Events, Key Event Relationships, stressors,
 chemicals and genes, and pulling the results into tibbles that fit directly

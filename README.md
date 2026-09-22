@@ -8,47 +8,106 @@
 [![R-CMD-check](https://github.com/SidraAdil/R4AOP/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SidraAdil/R4AOP/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of R4AOP is to …
+R4AOP gives R users access to the [AOP-Wiki](https://aopwiki.org)
+through its REST API. Adverse Outcome Pathways, Key Events, Key Event
+Relationships, stressors, chemicals and genes are retrieved by calling a
+function with arguments, and are returned as tibbles that fit straight
+into an R workflow. The AOP-Wiki RDF data are normally queried with
+SPARQL; for the routine tasks covered here, the package removes that
+step.
 
 ## Installation
 
-You can install the development version of R4AOP from
-[GitHub](https://github.com/) with:
-
 ``` r
-# install.packages("pak")
-pak::pak("SidraAdil/R4AOP")
+# install.packages("remotes")
+remotes::install_github("SidraAdil/R4AOP")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Find the Adverse Outcome Pathways that describe liver fibrosis, then
+follow one of them to its Key Events and genes.
 
 ``` r
 library(R4AOP)
-## basic example code
-```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+fibrosis <- aop_list(q = "liver fibrosis")
+fibrosis[, c("id", "title", "oecd_status")]
+#> # A tibble: 4 × 3
+#>      id title                                                        oecd_status
+#>   <int> <chr>                                                        <chr>      
+#> 1    38 Protein Alkylation leading to Liver Fibrosis                 WPHA/WNT E…
+#> 2   144 Endocytic lysosomal uptake leading to liver fibrosis         Under Revi…
+#> 3   383 Inhibition of Angiotensin-converting enzyme 2 leading to li… Under Deve…
+#> 4   494 AhR activation leading to liver fibrosis                     <NA>
+```
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+kes <- aop_key_events(38)
+kes[, c("id", "title", "role")]
+#> # A tibble: 7 × 3
+#>      id title                                      role 
+#>   <int> <chr>                                      <chr>
+#> 1    55 Increase, Cell injury/death                ke   
+#> 2    68 Increase, Collagen accumulation            ke   
+#> 3   244 Alkylation, Protein                        mie  
+#> 4   265 Increase, Hepatic stellate cell activation ke   
+#> 5   344 Increase, Liver fibrosis                   ao   
+#> 6  1492 Tissue resident cell activation            ke   
+#> 7  1493 Increased Pro-inflammatory mediators       ke
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+``` r
+genes <- aop_genes(38)
+nrow(genes)
+#> [1] 245
+table(genes$detected_by)
+#> 
+#>  both   ner regex 
+#>    52   184     9
+```
 
-You can also embed plots, for example:
+Genes are linked to individual Key Events, so each Key Event can be
+treated as a candidate gene set:
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+aop_plot_genes(38)
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+<img src="man/figures/README-plot-1.png" width="100%" />
+
+## Main functions
+
+| Topic | Functions |
+|----|----|
+| AOPs | `aop_list()`, `aop_get()`, `aop_key_events()`, `aop_kers()`, `aop_stressors()`, `aop_chemicals()`, `aop_genes()`, `aop_methods()` |
+| Key Events | `ke_list()`, `mie_list()`, `ao_list()`, `ke_get()`, `ke_aops()`, `ke_upstream()`, `ke_downstream()`, `ke_mies()`, `ke_adverse_outcomes()`, `ke_stressors()`, `ke_chemicals()` |
+| Relationships | `ker_list()`, `ker_get()` |
+| Stressors and chemicals | `stressor_list()`, `stressor_get()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
+| Genes and search | `gene_list()`, `gene_get()`, `aop_search()` |
+| Summaries | `aop_gene_summary()`, `aop_plot_genes()` |
+| Dataset | `aop_dataset_info()`, `aop_data_version()`, `aop_cache_clear()` |
+
+Responses are cached for the session, and list endpoints are paginated
+automatically, so a call such as `ke_list()` returns all Key Events
+rather than the first page.
+
+## Reproducibility
+
+AOP-Wiki is curated continuously. Every result carries the version of
+the data it came from, which can be reported alongside an analysis:
+
+``` r
+aop_data_version(fibrosis)
+#> [1] "2026.09.19-103c6e9"
+```
+
+## Data source and licence
+
+Data come from the [AOP-Wiki
+RDF](https://aopwiki.rdf.bigcat-bioinformatics.org) API, maintained by
+the BiGCaT group at Maastricht University, and are licensed [CC BY-SA
+4.0](https://creativecommons.org/licenses/by-sa/4.0/). The package code
+is licensed GPL-3.
+
+When using R4AOP, please cite both the package and AOP-Wiki.

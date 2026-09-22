@@ -1,0 +1,11 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "R4AOP: Access the AOP-Wiki Through Its REST API",
+  author   = c(
+    person("Sidra", "Adil"),
+    person("Marvin", "Martens")
+  ),
+  year     = "2026",
+  note     = "R package version 0.2.0",
+  url      = "https://github.com/SidraAdil/R4AOP"
+)

@@ -3,7 +3,7 @@
 **Goal:** Give R users access to AOP-Wiki data through simple functions, so no SPARQL is needed.
 **Data source:** AOP-Wiki REST API: https://aopwiki.rdf.bigcat-bioinformatics.org/api/docs (v1, JSON/CSV, paginated: max 1000 per call, `meta.total` gives the count)
 
-**Scope:** Every function in Section 1 maps to one existing API endpoint. Nothing outside the API is in scope for v1.0.
+**Scope:** Every function in Sections 1.1 to 1.6 maps to one existing API endpoint. Section 1.7 adds a small number of convenience functions that are built entirely on those endpoints, where doing the same by hand would take many lines of user code. No other functionality is in scope for v1.0.
 
 **How to read this file**
 
@@ -97,21 +97,30 @@
 
 \---
 
+### 1.7 Convenience functions (built on the endpoints above)
+
+|ID|Function|Description|Priority|
+|-|-|-|-|
+|FR-25|`aop_gene_summary(aop_id)`|Distinct genes per Key Event and detection method, as a tibble|S|
+|FR-26|`aop_plot_genes(aop_id)`|Bar chart of the same counts, returned as a ggplot object (ggplot2 in Suggests)|S|
+
+\---
+
 ## 4\. Milestones
 
 |Version|Content|
 |-|-|
 |**v0.1**|TR-01 to TR-06, FR-01 to FR-07, QR-01 to QR-03|
 |**v0.2**|All remaining **M** and **S** FRs|
-|**v1.0**|QR-04 to QR-08 → public release + application note|
+|**v1.0**|FR-25, FR-26, QR-04 to QR-08 → public release + application note|
 
 \---
 
 ## 5\. Out of scope for v1.0 (possible later extensions, NOT in the API)
 
 * Build an `igraph` network of an AOP (from FR-03 + FR-04 output)
-* Plot AOP networks
-* KE → gene sets ready for enrichment analysis
+* Plot the AOP network itself (Key Events and their relationships as a graph)
+* Enrichment analysis of Key Event gene sets
 
 ## 6\. Open questions (for API team)
 

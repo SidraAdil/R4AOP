@@ -11,21 +11,53 @@
 #' @param stressor Stressor identifier.
 #' @param chemical Chemical identifier (CAS number).
 #' @param modified_since Only AOPs modified after this date ("YYYY-MM-DD").
+#' @param resolve_titles If `TRUE`, add the list-columns `mie_titles` and
+#'   `ao_titles` holding the titles of the Molecular Initiating Events and
+#'   Adverse Outcomes named in `mie_ids` and `ao_ids`. The titles are looked up
+#'   with a single additional request for all Key Events, which is cached for
+#'   the session.
 #' @return A tibble with one row per AOP.
 #' @export
 #' @examples
 #' \dontrun{
 #' aop_list(q = "liver")
+#' aop_list(q = "liver fibrosis", resolve_titles = TRUE)
 #' }
 aop_list <- function(q = NULL, status = NULL, taxon = NULL, ke = NULL,
                      mie = NULL, ao = NULL, stressor = NULL,
-                     chemical = NULL, modified_since = NULL) {
-  aop_request_all(
+                     chemical = NULL, modified_since = NULL,
+                     resolve_titles = FALSE) {
+  out <- aop_request_all(
     "aops",
     list(q = q, status = status, taxon = taxon, ke = ke, mie = mie,
          ao = ao, stressor = stressor, chemical = chemical,
          modified_since = modified_since)
   )
+  if (isTRUE(resolve_titles)) out <- add_ke_titles(out)
+  out
+}
+
+#' Add Key Event titles for the MIE and AO ids of an AOP table
+#'
+#' @keywords internal
+#' @noRd
+add_ke_titles <- function(aops) {
+  if (nrow(aops) == 0) return(aops)
+
+  version <- attr(aops, "dataset_version")
+  kes <- aop_request_all("key-events")
+  lookup <- stats::setNames(kes$title, as.character(kes$id))
+
+  titles_of <- function(ids) {
+    if (is.null(ids) || length(ids) == 0) return(character(0))
+    unname(lookup[as.character(ids)])
+  }
+
+  if ("mie_ids" %in% names(aops)) aops$mie_titles <- lapply(aops$mie_ids, titles_of)
+  if ("ao_ids" %in% names(aops))  aops$ao_titles  <- lapply(aops$ao_ids, titles_of)
+
+  attr(aops, "dataset_version") <- version
+  aops
 }
 
 #' Get a single Adverse Outcome Pathway

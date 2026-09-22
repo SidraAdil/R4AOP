@@ -13,7 +13,8 @@ aop_list(
   ao = NULL,
   stressor = NULL,
   chemical = NULL,
-  modified_since = NULL
+  modified_since = NULL,
+  resolve_titles = FALSE
 )
 }
 \arguments{
@@ -31,6 +32,12 @@ or Adverse Outcome that the AOP must contain.}
 \item{chemical}{Chemical identifier (CAS number).}
 
 \item{modified_since}{Only AOPs modified after this date ("YYYY-MM-DD").}
+
+\item{resolve_titles}{If \code{TRUE}, add the list-columns \code{mie_titles} and
+\code{ao_titles} holding the titles of the Molecular Initiating Events and
+Adverse Outcomes named in \code{mie_ids} and \code{ao_ids}. The titles are looked up
+with a single additional request for all Key Events, which is cached for
+the session.}
 }
 \value{
 A tibble with one row per AOP.
@@ -42,5 +49,6 @@ optional; unused ones are not sent to the API.
 \examples{
 \dontrun{
 aop_list(q = "liver")
+aop_list(q = "liver fibrosis", resolve_titles = TRUE)
 }
 }

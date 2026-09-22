@@ -23,6 +23,9 @@ Imports:
     tibble,
     vctrs
 Suggests:
+    ggplot2,
     httptest2,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tidyr
 Config/testthat/edition: 3
+Config/Needs/website: rmarkdown

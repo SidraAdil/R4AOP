@@ -1,0 +1,197 @@
+{
+    "data": {
+        "id": 68,
+        "iri": "https://identifiers.org/aop.events/68",
+        "label": "KE 68",
+        "title": "Increase, Collagen accumulation",
+        "short_name": "Increase, Collagen accumulation",
+        "level": "Tissue",
+        "aop_ids": [
+            38,
+            144,
+            173,
+            241,
+            319,
+            382,
+            494,
+            624,
+            625,
+            626,
+            627,
+            628,
+            629
+        ],
+        "mie_in_aop_ids": [
+
+        ],
+        "ao_in_aop_ids": [
+
+        ],
+        "is_mie": false,
+        "is_ao": false,
+        "aopwiki_url": "https://aopwiki.org/events/68",
+        "description": "Collagen is mostly found in fibrous tissues such as tendons, ligaments and skin. It is also abundant in corneas, cartilage, bones, blood vessels, the gut, intervertebral discs, and the dentin in teeth. In muscle tissue, it serves as a major component of the endomysium. Collagen is the main structural protein in the extracellular space in the various connective tissues, making up from 25% to 35% of the whole-body protein content. In normal tissues, collagen provides strength, integrity, and structure. When tissues are disrupted following injury, collagen is needed to repair the defect. If too much collagen is deposited, normal anatomical structure is lost, function is compromised, and fibrosis results.\n\nThe fibroblast is the most common collagen producing cell. Collagen-producing cells may also arise from the process of transition of differentiated epithelial cells into mesenchymal cells. This has been observed e.g. during renal fibrosis (transformation of tubular epithelial cells into fibroblasts) and in liver injury (transdifferentiation of hepatocytes and cholangiocytes into fibroblasts) (Henderson and Iredale, 2007).\n\nThere are close to 20 different types of collagen found with the predominant form being type I collagen. This fibrillar form of collagen represents over 90 percent of our total collagen and is composed of three very long protein chains which are wrapped around each other to form a triple helical structure called a collagen monomer. Collagen is produced initially as a larger precursor molecule called procollagen. As the procollagen is secreted from the cell, procollagen proteinases remove the extension peptides from the ends of the molecule. The processed molecule is referred to as collagen and is involved in fiber formation. In the extracellular spaces the triple helical collagen molecules line up and begin to form fibrils and then fibers. Formation of stable crosslinks within and between the molecules is promoted by the enzyme lysyl oxidase and gives the collagen fibers tremendous strength (Diegelmann,2001). The overall amount of collagen deposited by fibroblasts is a regulated balance between collagen synthesis and collagen catabolism. Disturbance of this balance leads to changes in the amount and composition of collagen. Changes in the composition of the extracellular matrix initiate positive feedback pathways that increase collagen production.\n\nNormally, collagen in connective tissues has a slow turn over; degradating enzymes are collagenases, belonging to the family of matrix metalloproteinases. Other cells that can synthesize and release collagenase are macrophages, neutrophils, osteoclasts, and tumor cells (Di Lullo et al., 2002; Kivirikko and Risteli, 1976; Miller and Gay, 1987; Prockop and Kivirikko, 1995).",
+        "measurement_methods": "Determination of the amount of collagen produced in vitro can be done in a variety of ways ranging from simple colorimetric assays to elaborate chromatographic procedures using radioactive and non-radioactive material. What most of these procedures have in common is the need to destroy the cell layer to obtain solubilized collagen from the pericellular matrix. Rishikof et al. describe several methods to assess the in vitro production of type I collagen: Western immunoblotting of intact alpha1(I) collagen using antibodies directed to alpha1(I) collagen amino and carboxyl propeptides, the measurement of alpha1(I) collagen mRNA levels using real-time polymerase chain reaction, and methods to determine the transcriptional regulation of alpha1(I) collagen using a nuclear run-on assay (Rishikof et al., 2005). \n\nHistological staining with stains such as Masson Trichrome, Picro-sirius red are used to identify the tissue/cellular distribution of collagen, which can be quantified using morphometric analysis both in vivo and in vitro. The assays are routinely used and are quantitative.\n\nSircol Collagen Assay for collagen quantification:\n\nThe Serius dye has been used for many decades to detect collagen in histology samples. The Serius Red F3BA selectively binds to collagen and the signal can be read at 540 nm (Chen and Raghunath, 2009; Nikota et al., 2017).\n\nHydroxyproline assay:\n\nHydroxyproline is a non-proteinogenic amino acid formed by the prolyl-4-hydroxylase. Hydroxyproline is only found in collagen and thus, it serves as a direct measure of the amount of collagen present in cells or tissues. Colorimetric methods are readily available and have been extensively used to quantify collagen using this assay (Chen and Raghunath, 2009; Nikota et al., 2017).\n\nEx vivo precision cut tissue slices\n\nPrecision cut tissue slices mimic the whole organ response and allow histological assessment, an endpoint of interest in regulatory decision making. While this technique uses animals, the number of animals required to conduct a dose-response study can be reduced to 1/4th of what will be used in whole animal exposure studies (Rahman et al., 2020).",
+        "domain_of_applicability": "Humans: Bataller and  Brenner, 2005; Decaris et al., 2015.  \n\nMice: Dalton et al., 2009; Leung et al., 2008; Nan et al., 2013.\n\nRats: Hamdy and El-Demerdash, 2012; Li et al., 2012; Luckey and Petersen, 2001; Natajaran et al., 2006.",
+        "sexes": [
+            "Unspecific"
+        ],
+        "life_stages": [
+            "All life stages"
+        ],
+        "taxa": [
+            {
+                "id": 10090,
+                "iri": "http://purl.bioontology.org/ontology/NCBITAXON/10090",
+                "names": [
+                    "CD-1 mouse",
+                    "Mus musculus",
+                    "mouse"
+                ]
+            },
+            {
+                "id": 10116,
+                "iri": "http://purl.bioontology.org/ontology/NCBITAXON/10116",
+                "names": [
+                    "F344 rat",
+                    "Rattus norvegicus",
+                    "SD rat",
+                    "rat",
+                    "rats"
+                ]
+            }
+        ],
+        "taxa_text": [
+            "WCS_9606"
+        ],
+        "organ": {
+            "id": "UBERON:0002384",
+            "iri": "http://purl.obolibrary.org/obo/UBERON_0002384",
+            "title": "connective tissue"
+        },
+        "cell_type": null,
+        "biological_events": [
+            {
+                "process": {
+                    "id": "GO:0032964",
+                    "iri": "http://purl.obolibrary.org/obo/GO_0032964",
+                    "title": "collagen biosynthetic process"
+                },
+                "object": {
+                    "id": "CHEBI:3815",
+                    "iri": "http://purl.obolibrary.org/obo/CHEBI_3815",
+                    "title": "collagen"
+                },
+                "action": "increased"
+            }
+        ],
+        "aops": [
+            {
+                "id": 38,
+                "title": "Protein Alkylation leading to Liver Fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 144,
+                "title": "Endocytic lysosomal uptake leading to liver fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 173,
+                "title": "Substance interaction with the pulmonary resident cell membrane components leading to pulmonary fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 241,
+                "title": "Latent Transforming Growth Factor beta1 activation leads to pulmonary fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 319,
+                "title": "Binding to ACE2 leading to lung fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 382,
+                "title": "Angiotensin II type 1 receptor (AT1R) agonism leading to lung fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 494,
+                "title": "AhR activation leading to liver fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 624,
+                "title": "Increased 11β-Hydroxysteroid dehydrogenase type 1 activity leading to MASLD progression via insulin resistance-associated mitochondrial dysfunction",
+                "role": "ke"
+            },
+            {
+                "id": 625,
+                "title": "Increased 11β-Hydroxysteroid dehydrogenase type 1 activity leading to MASLD progression via insulin resistance-associated oxidative stress",
+                "role": "ke"
+            },
+            {
+                "id": 626,
+                "title": "Increased 11β-Hydroxysteroid dehydrogenase type 1 activity leading to MASLD progression via insulin resistance-associated endoplasmic reticulum stress",
+                "role": "ke"
+            },
+            {
+                "id": 627,
+                "title": "Increased 11β-Hydroxysteroid dehydrogenase type 1 activity leading to MASLD progression via lipogenesis-associated mitochondrial dysfunction",
+                "role": "ke"
+            },
+            {
+                "id": 628,
+                "title": "Increased 11β-Hydroxysteroid dehydrogenase type 1 activity leading to MASLD progression via lipogenesis-associated oxidative stress",
+                "role": "ke"
+            },
+            {
+                "id": 629,
+                "title": "Increased 11β-Hydroxysteroid dehydrogenase type 1 activity leading to MASLD progression via lipogenesis-associated endoplasmic reticulum stress",
+                "role": "ke"
+            }
+        ],
+        "genes": [
+            {
+                "hgnc_id": 34072,
+                "symbol": "C1QTNF9B",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 2197,
+                "symbol": "COL1A1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 2198,
+                "symbol": "COL1A2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 2200,
+                "symbol": "COL2A1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6664,
+                "symbol": "LOX",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 7155,
+                "symbol": "MMP1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 9358,
+                "symbol": "PREP",
+                "detected_by": "ner"
+            }
+        ]
+    },
+    "meta": {
+        "total": 1,
+        "dataset_version": "2026.09.19-103c6e9"
+    }
+}

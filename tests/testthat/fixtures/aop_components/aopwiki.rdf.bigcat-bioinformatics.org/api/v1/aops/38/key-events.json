@@ -1,0 +1,50 @@
+{
+    "data": [
+        {
+            "id": 55,
+            "title": "Increase, Cell injury/death",
+            "level": "Cellular",
+            "role": "ke"
+        },
+        {
+            "id": 68,
+            "title": "Increase, Collagen accumulation",
+            "level": "Tissue",
+            "role": "ke"
+        },
+        {
+            "id": 244,
+            "title": "Alkylation, Protein",
+            "level": "Molecular",
+            "role": "mie"
+        },
+        {
+            "id": 265,
+            "title": "Increase, Hepatic stellate cell activation",
+            "level": "Cellular",
+            "role": "ke"
+        },
+        {
+            "id": 344,
+            "title": "Increase, Liver fibrosis",
+            "level": "Organ",
+            "role": "ao"
+        },
+        {
+            "id": 1492,
+            "title": "Tissue resident cell activation",
+            "level": "Cellular",
+            "role": "ke"
+        },
+        {
+            "id": 1493,
+            "title": "Increased Pro-inflammatory mediators",
+            "level": "Tissue",
+            "role": "ke"
+        }
+    ],
+    "meta": {
+        "total": 7,
+        "dataset_version": "2026.09.19-103c6e9"
+    }
+}

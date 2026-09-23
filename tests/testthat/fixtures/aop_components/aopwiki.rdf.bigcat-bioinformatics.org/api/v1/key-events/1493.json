@@ -1,0 +1,321 @@
+{
+    "data": {
+        "id": 1493,
+        "iri": "https://identifiers.org/aop.events/1493",
+        "label": "KE 1493",
+        "title": "Increased Pro-inflammatory mediators",
+        "short_name": "Increased pro-inflammatory mediators",
+        "level": "Tissue",
+        "aop_ids": [
+            17,
+            38,
+            144,
+            293,
+            294,
+            377,
+            432,
+            470
+        ],
+        "mie_in_aop_ids": [
+
+        ],
+        "ao_in_aop_ids": [
+
+        ],
+        "is_mie": false,
+        "is_ao": false,
+        "aopwiki_url": "https://aopwiki.org/events/1493",
+        "description": "Inflammatory mediators are soluble, diffusible molecules that act locally at the site of tissue damage and infection, and at more distant sites. They can be divided into exogenous and endogenous mediators. \n\nExogenous mediators of inflammation are bacterial products or toxins like endotoxin or lipopolysaccharides (LPS). Endogenous mediators of inflammation are produced from within the (innate and adaptive) immune system itself, as well as other systems. They can be derived from molecules that are normally present in the plasma in an inactive form, such as peptide fragments of some components of complement, coagulation, and kinin systems. Or they can be released at the site of injury by a number of cell types that either contain them as preformed molecules within storage granules, e.g. histamine, or which can rapidly switch on the machinery required to synthesize the mediators. \n\nThis event occurs equally in various tissues and does not require tissue-specific descriptions. Nevertheless, there are some specificities such as the release of glutamate by brain reactive glial cells (Brown & Bal-Price, 2003; Vesce et al., 2007). The differences may rather reside in the type of insult favouring the increased expression and/or release of a specific class of inflammatory mediators, as well the time after the insult reflecting different stages of the inflammatory process. For these reasons, the analyses of the changes of a battery of inflammatory mediators rather than of a single one is a more adequate measurement of this KE\n\nTable1: A non-exhaustive list of examples for pro-inflammatory mediators.\n\n\n\t\n\t\t\n\t\t\t\n\t\t\tClasses of inflammatory mediators\n\t\t\t\n\t\t\t\n\t\t\tExamples\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tPro-inflammatory cytokines\n\t\t\t\n\t\t\t\n\t\t\tTNF-a, Interleukins (IL-1, IL-6, IL-8), Interferons  (IFN-g), chemokines (CXCL, CCL, GRO-α, MCP-1), GM-CSF\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tProstaglandins\n\t\t\t\n\t\t\t\n\t\t\tPGE2\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tBradykinin\n\t\t\t\n\t\t\t\n\t\t\t \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tVasoactive amines\n\t\t\t\n\t\t\t\n\t\t\thistamine, serotonin\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tReactive oxygen species (ROS)\n\t\t\t\n\t\t\t\n\t\t\tO2-, H2O2\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tReactive nitrogen species (RNS)\n\t\t\t\n\t\t\t\n\t\t\tNO, iNOS\n\t\t\t\n\t\t\n\t\n\n\nThe increased production of pro-inflammatory mediators can have negative consequences on the parenchymal cells leading even to cell death, as described for TNF-a or peroxynitrite on neurons (Chao et al, 1995; Brown and Bal-Price, 2003). Along with TNF-α, IL-1β and IL-6 have been shown to exhibit negative consequences on neurogenesis and neuronal precursor cell proliferation when overexpressed. IFN-γ is also associated with neuronal damage, although it is not as extensively studied compared to TNF-α, IL-1β and IL-6.  In addition, via a feedback loop, they can act on the reactive resident cells thus maintaining or exacerbating their reactive state; and by modifying elements of their signalling pathways, they can favour the M1 phenotypic polarization and the chronicity of the inflammatory process (Taetzsch et al., 2015).\n\nBasically, this event occurs equally in various tissues and does not require tissue-specific descriptions. Nevertheless, there are some specificities such as the release of glutamate by brain reactive glial cells (Brown and Bal-Price, 2003; Vesce et al., 2007). The differences may rather reside in the type of insult favouring the increased expression and/or release of a specific class of inflammatory mediators, as well the time after the insult reflecting different stages of the inflammatory process. For these reasons, the analyses of the changes of a battery of inflammatory mediators rather than of a single one is a more adequate measurement of this KE.\n\nRegulatory examples using the KE\n\nCD54 and CD 86 as well as IL-8 expression is used to assess skin sensitization potential (OECD TG 442E). IL-2 expression is used to assess immunotoxicity (and will become an OECD test guideline); for the latter see also doi: 10.1007/s00204-018-2199-7. \n\n \n\nLIVER:\n\nWhen activated, resident macrophages (Kupffer cells) release inflammatory mediators including cytokines, chemokines, lysosomal, and proteolytic enzymes and are a main source of TGF-β1 - the most potent pro-fibrogenic cytokine. Following the role of TGF-β is described in more detail.\n\nTransforming growth factor β (TGF-β) is a pleiotropic cytokine with potent regulatory and inflammatory activity [Sanjabi et al., 2009; Li and Flavell, 2008a;2008b]. The multi-faceted effects of TGF-β on numerous immune functions are cellular and environmental context dependent [Li et al., 2006]. TGF-β binds to TGF-β receptor II (TGF-βRII) triggering the kinase activity of the cytoplasmic domain that in turn activates TGF-βRI. The activated receptor complex leads to nuclear translocation of Smad molecules, and transcription of target genes [Li et al., 2006a]. The role of TGF-β as an immune modulator of T cell activity is best exemplified by the similarities between TGF-β1 knockout and T cell specific TGF-β receptor II knockout mice [Li et al., 2006b; Marie et al., 2006;Shull et al., 1992]. The animals in both of these models develop severe multi-organ autoimmunity and succumb to death within a few weeks after birth [Li et al., 2006b; Marie et al., 2006; Shull et al., 1992]. In addition, in mice where TGF-β signaling is blocked specifically in T cells, the development of natural killer T (NKT) cells, natural regulatory T (nTreg) cells, and CD8+ T cells was shown to be dependent on TGF-β signaling in the thymus [Li et al., 2006b; Marie et al., 2006].\n\nTGF-β plays a major role under inflammatory conditions. TGF-β in the presence of IL-6 drives the differentiation of T helper 17 (Th17) cells, which can promote further inflammation and augment autoimmune conditions [Korn et al., 2009]. TGF-β orchestrates the differentiation of both Treg and Th17 cells in a concentration-dependent manner [Korn et al., 2008]. In addition, TGF-β in combination with IL-4, promotes the differentiation of IL-9- and IL-10-producing T cells, which lack suppressive function and also promote tissue inflammation [Dardalhon  et al., 2008; Veldhoen et al., 2008]. The biological effects of TGF-β under inflammatory conditions on effector and memory CD8+ T cells are much less understood. In a recent study, it was shown that TGF-β has a drastically opposing role on naïve compared to antigen-experienced/memory CD8+ T cells [Filippi et al., 2008]. When cultured in vitro, TGF-β suppressed naïve CD8+ T cell activation and IFN-γ production, whereas TGF-β enhanced survival of memory CD8+ T cells and increased the production of IL-17 and IFN-γ [Filippi et al., 2008]. TGF-β also plays an important role in suppressing the cells of the innate immune system.\n\nThe transforming growth factor beta (TGF-β) family of cytokines are ubiquitous, multifunctional, and essential to survival. They play important roles in growth and development, inflammation and repair, and host immunity. The mammalian TGF-β isoforms (TGF-β1, β2 and β3) are secreted as latent precursors and have multiple cell surface receptors of which at least two mediate signal transduction. Autocrine and paracrine effects of TGF-βs can be modified by extracellular matrix, neighbouring cells and other cytokines. The vital role of the TGF-β family is illustrated by the fact that approximately 50% of TGF-1 gene knockout mice die in utero and the remainder succumb to uncontrolled inflammation after birth. The role of TGF-β in homeostatic and pathogenic processes suggests numerous applications in the diagnosis and treatment of various diseases characterised by inflammation and fibrosis. [Clark and Coker, 1998; Santibañez et al., 2011; Pohlers et al., 2009] Abnormal TGF-β regulation and function are implicated in a growing number of fibrotic and inflammatory pathologies, including pulmonary fibrosis, liver cirrhosis, glomerulonephritis and diabetic nephropathy, congestive heart failure, rheumatoid arthritis, Marfan syndrome, hypertrophic scars, systemic sclerosis, myocarditis, and Crohn’s disease. [Gordon and Globe,2008] TGF-β1 is a polypeptide member of the TGF-β superfamily of cytokines. TGF-β is synthesized as a non-active pro-form, forms a complex with two latent associated proteins latency-associated protein (LAP) and latent TGF- β binding protein (LTBP) and undergoes protolithic cleavage by the endopeptidase furin to generate the mature TGF-β dimer. Among the TGF-βs, six distinct isoforms have been discovered although only the TGF-β1, TGF-β2 and TGF-β3 isoforms are expressed in mammals, and their human genes are located on chromosomes 19q13, 1q41 and 14q24, respectively. Out of the three TGF-β isoforms (β1, β2 and β3) only TGF-β1 was linked to fibrogenesis and is the most potent fibrogenic factor for hepatic stellate cells. [Roberts, 1998; Govinden and Bhoola, 2003]. During fibrogenesis, tissue and blood levels of active TGF-β are elevated and overexpression of TGF-β1 in transgenic mice can induce fibrosis. Additionally, experimental fibrosis can be inhibited by anti-TGF-β treatments with neutralizing antibodies or soluble TGF-β receptors [Qi et al.; 1999; Shek and Benyon , 2004; De Gouville et al., 2005; Chen et al., 2009]. TGF-β1 induces its own mRNA to sustain high levels in local sites of injury. The effects of TGF-β1 are classically mediated by intracellular signalling via Smad proteins. Smads 2 and 3 are stimulatory whereas Smad 7 is inhibitory. [Parsons et al., 2013; Friedman, 2008; Kubiczkova et al., 2012] Smad1/5/8, MAP kinase (mitogen-activated protein) and PI3 kinase are further signalling pathways in different cell types for TGF-β1 effects.\n\nTGF-β is found in all tissues, but is particularly abundant in bone, lung, kidney and placental tissue. TGF-β is produced by many, but not all parenchymal cell types, and is also produced or released by infiltrating cells such as lymphocytes, monocytes/macrophages, and platelets. Following wounding or inflammation, all these cells are potential sources of TGF-β. In general, the release and activation of TGF-β stimulates the production of various extracellular matrix proteins and inhibits the degradation of these matrix proteins [Branton and Kopp, 1999]. TGF-β 1 is produced by every leukocyte lineage, including lymphocytes, macrophages, and dendritic cells, and its expression serves in both autocrine and paracrine modes to control the differentiation, proliferation, and state of activation of these immune cells. [Letterio and Roberts; 1998]\n\nIn the liver TGF-β1 is released by activated Kupffer cells, liver sinusoidal endothelial cells, and platelets; in the further course of events also activated hepatic stellate cells express TGF-β1. Hepatocytes do not produce TGF-β1 but are implicated in intracellular activation of latent TGF-β1. [Roth et al., 1998; Kisseleva and Brenner, 2007; Kisseleva and Brenner, 2008; Poli, 2000; Liu et al., 2006]\n\nTGF-β1 is the most established mediator and regulator of epithelial-mesenchymal-transition (EMT) which further contributes to the production of extracellular matrix. It has been shown that TGF-β1 mediates EMT by inducing snail-1 transcription factor and tyrosine phosphorylation of Smad2/3 with subsequent recruitment of Smad4. [Kolios et al., 2006; Bataller and Brenner, 2005; Guo and Friedman,2007; Brenner,2009; Kaimori et al., 2007; Gressner et al., 2002; Kershenobich Stalnikowitz and Weisssbrod, 2003; Li et al., 2008; Matsuoka and Tsukamoto, 1990; Kisseleva and Brenner, 2008; Poli, 200; Parsons et al., 2007; Friedman 2008; Liu et al., 2006]\n\nTGF-β1 induces apoptosis and angiogenesis in vitro and in vivo through the activation of vascular endothelial growth factor (VEGF) High levels of VEGF and TGF-β1 are present in many tumors. Crosstalk between the signalling pathways activated by these growth factors controls endothelial cell apoptosis and angiogenesis. [Clark and Coker; 1998]",
+        "measurement_methods": "Listed below are common methods for detecting the KE, however there may be other comparable methods that are not listed. \n\n\n\t\n\t\t\n\t\t\t\n\t\t\tAssay \n\t\t\t\n\t\t\t\n\t\t\tReference \n\t\t\t\n\t\t\t\n\t\t\tDescription \n\t\t\t\n\t\t\t\n\t\t\tOECD Approved Assay \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\tRT-qPCR \n\t\t\t\t\n\t\t\t\n\n\t\t\t\n\t\t\t\t\n\t\t\t\tQ-PCR \n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t(Veremeyko et al., 2012; Alwine et al, 1977; Forlenza et al., 2012) \n\t\t\t\n\t\t\t\n\t\t\tMeasures mRNA expression of cytokines, chemokines and inflammatory markers  \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tImmunoblotting (western blotting) \n\t\t\t\n\t\t\t\n\t\t\t(Lee et al., 2008) \n\t\t\t\n\t\t\t\n\t\t\tUses antibodies specific to proteins of interest, can used to detect presence of pro-inflammatory mediators in samples of cell or tissue lysate \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tWhole blood stimulation assay \n\t\t\t\n\t\t\t\n\t\t\t(Thurm & Halsey, 2005) \n\t\t\t\n\t\t\t\n\t\t\t Detects inflammatory cytokines in blood \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tImaging tests \n\t\t\t\n\t\t\t\n\t\t\t(Rollins & Miskolci, 2014) \n\t\t\t\n\t\t\t\n\t\t\tA qualitative technique using a cytokine specific antibodies and fluorophores can be used to visualize expression patterns, subcellular location of the target and protein-protein interactions.  \n\n\t\t\tCommon examples include double immunofluorescence confocal microscopy or other molecular imaging modalities. \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tFlow-cytometry \n\t\t\t\n\t\t\t\n\t\t\t(Karanikas et al., 2000) \n\t\t\t\n\t\t\t\n\t\t\tDetects the intracellular cytokines with stimulation. \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tImmunoassays (ex. enzyme-linked immunosorbent assay (ELISA), enzyme-linked immunospot (ELISpot), radioimmunoassay) \n\t\t\t\n\t\t\t\n\t\t\t(Amsen et al., 2009; Engvall & Perlmann, 1972; Ji & Forsthuber, 2016; Goldsmith, 1975) \n\t\t\t\n\t\t\t\n\t\t\tPlate based assay technique using antibodies to detect presence of a protein in a liquid sample.  \n\n\t\t\tCan be used to identify presence of an inflammatory cytokine of interest especially when in low concentrations.  \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tInflammatory cytokine arrays \n\n\t\t\t \n\t\t\t\n\t\t\t\n\t\t\t(Amsen et al., 2009) \n\n\t\t\t \n\t\t\t\n\t\t\t\n\t\t\tSimilar to the ELISA, except using a membrane-based rather than plate-based approach. Can be used to measure multiple cytokine targets concurrently.  \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tImmunohistochemistry (IHC) \n\t\t\t\n\t\t\t\n\t\t\t(Amsen et al., 2009; Coons et al., 1942) \n\t\t\t\n\t\t\t\n\t\t\tImmobilized tissue or cell cultures are stained using antibodies for specificity of ligands of interest. Versions of the assays can be used to visualize localization of inflammatory cytokines.  \n\t\t\t\n\t\t\t\n\t\t\tNo \n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tOlink \n\t\t\t\n\t\t\t\n\t\t\t(Wang et al., 2022); \n\t\t\t\n\t\t\t\n\t\t\tHighly specific and sensitive proximity extension assay technology which uses an inflammation panel to categorize pro-inflammatory markers. \n\t\t\t\n\t\t\t\n\t\t\tNo",
+        "domain_of_applicability": "Taxonomic applicability: The inflammatory response and increase of the pro-inflammatory mediators has been observed across species from simple invertebrates such as Daphnia to higher order vertebrates (Weavers & Martin, 2020).  \n\nLife stage applicability: This key event is not life stage specific (Kalm et al., 2013; Veeraraghan et al., 2011; Hladik & Tapio, 2016).  \n\nSex applicability:  Most studies conducted were on male models, although sex-dependent differences in pro-inflammatory markers have been previously reported (Cekanaviciute et al., 2018; Parihar et al., 2020).  \n\nEvidence for perturbation by a prototypic stressor: There is evidence of the increase of pro-inflammatory mediators following perturbation from a variety of stressors including exposure to ionizing radiation. (Abdel-Magied et al., 2019; Cho et al., 2017; Gaber et al., 2003; Ismail et al., 2016; Kim et al. 2002; Lee et al., 2010; Parihar et al., 2018)",
+        "sexes": [
+            "Unspecific"
+        ],
+        "life_stages": [
+            "All life stages"
+        ],
+        "taxa": [
+
+        ],
+        "taxa_text": [
+            "WCS_9606",
+            "WikiUser_28"
+        ],
+        "organ": null,
+        "cell_type": null,
+        "biological_events": [
+            {
+                "process": {
+                    "id": "GO:0002526",
+                    "iri": "http://purl.obolibrary.org/obo/GO_0002526",
+                    "title": "acute inflammatory response"
+                },
+                "object": null,
+                "action": "increased"
+            }
+        ],
+        "aops": [
+            {
+                "id": 17,
+                "title": "Binding of electrophilic chemicals to SH(thiol)-group of proteins and /or to seleno-proteins involved in protection against oxidative stress during brain development leads to impairment of learning and memory",
+                "role": "ke"
+            },
+            {
+                "id": 38,
+                "title": "Protein Alkylation leading to Liver Fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 144,
+                "title": "Endocytic lysosomal uptake leading to liver fibrosis",
+                "role": "ke"
+            },
+            {
+                "id": 293,
+                "title": "Increased DNA damage leading to increased risk of breast cancer",
+                "role": "ke"
+            },
+            {
+                "id": 294,
+                "title": "Increased reactive oxygen and nitrogen species (RONS) leading to increased risk of breast cancer",
+                "role": "ke"
+            },
+            {
+                "id": 377,
+                "title": "Dysregulated prolonged Toll Like Receptor 9 (TLR9) activation leading to Multi Organ Failure involving Acute Respiratory Distress Syndrome (ARDS)",
+                "role": "ke"
+            },
+            {
+                "id": 432,
+                "title": "Deposition of Energy by Ionizing Radiation leading to Acute Myeloid Leukemia",
+                "role": "ke"
+            },
+            {
+                "id": 470,
+                "title": "Deposition of energy leads to abnormal vascular remodeling",
+                "role": "ke"
+            }
+        ],
+        "genes": [
+            {
+                "hgnc_id": 15629,
+                "symbol": "B3GNT2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 10618,
+                "symbol": "CCL2",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 1705,
+                "symbol": "CD86",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 2434,
+                "symbol": "CSF2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 4602,
+                "symbol": "CXCL1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 10640,
+                "symbol": "CXCL14",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6025,
+                "symbol": "CXCL8",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 2917,
+                "symbol": "DLX4",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 8568,
+                "symbol": "FURIN",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 5344,
+                "symbol": "ICAM1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 5417,
+                "symbol": "IFNA1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 5438,
+                "symbol": "IFNG",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 5464,
+                "symbol": "IGF1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 5962,
+                "symbol": "IL10",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 5981,
+                "symbol": "IL17A",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 5992,
+                "symbol": "IL1B",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6001,
+                "symbol": "IL2",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 6014,
+                "symbol": "IL4",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 6018,
+                "symbol": "IL6",
+                "detected_by": "both"
+            },
+            {
+                "hgnc_id": 6029,
+                "symbol": "IL9",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 29821,
+                "symbol": "ISYNA1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6286,
+                "symbol": "KCNMB2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6371,
+                "symbol": "KLKB1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6383,
+                "symbol": "KNG1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6714,
+                "symbol": "LTBP1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6871,
+                "symbol": "MAPK1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 8947,
+                "symbol": "PI3",
+                "detected_by": "regex"
+            },
+            {
+                "hgnc_id": 8974,
+                "symbol": "PIK3C3",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6767,
+                "symbol": "SMAD1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6768,
+                "symbol": "SMAD2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6770,
+                "symbol": "SMAD4",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6773,
+                "symbol": "SMAD7",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 6774,
+                "symbol": "SMAD9",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11128,
+                "symbol": "SNAI1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11764,
+                "symbol": "TG",
+                "detected_by": "regex"
+            },
+            {
+                "hgnc_id": 11765,
+                "symbol": "TGFA",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11766,
+                "symbol": "TGFB1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11768,
+                "symbol": "TGFB2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11769,
+                "symbol": "TGFB3",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11772,
+                "symbol": "TGFBR1",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11773,
+                "symbol": "TGFBR2",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 11892,
+                "symbol": "TNF",
+                "detected_by": "ner"
+            },
+            {
+                "hgnc_id": 12680,
+                "symbol": "VEGFA",
+                "detected_by": "both"
+            }
+        ]
+    },
+    "meta": {
+        "total": 1,
+        "dataset_version": "2026.09.19-103c6e9"
+    }
+}

@@ -3,7 +3,7 @@
 **Goal:** Give R users access to AOP-Wiki data through simple functions, so no SPARQL is needed.
 **Data source:** AOP-Wiki REST API: https://aopwiki.rdf.bigcat-bioinformatics.org/api/docs (v1, JSON/CSV, paginated: max 1000 per call, `meta.total` gives the count)
 
-**Scope:** Every function in Sections 1.1 to 1.6 maps to one existing API endpoint. Section 1.7 adds a small number of convenience functions that are built entirely on those endpoints, where doing the same by hand would take many lines of user code. No other functionality is in scope for v1.0.
+**Scope:** Every function in Sections 1.1 to 1.5 maps to one existing API endpoint. Section 1.6 adds a small number of convenience functions that are built entirely on those endpoints, where doing the same by hand would take many lines of user code. No other functionality is in scope for v1.0.
 
 **How to read this file**
 
@@ -65,6 +65,17 @@
 
 \---
 
+### 1.6 Convenience functions (built on the endpoints above)
+
+|ID|Function|Description|Priority|
+|-|-|-|-|
+|FR-25|`aop_gene_summary(aop_id)`|Distinct genes per Key Event and detection method, as a tibble|S|
+|FR-26|`aop_plot_genes(aop_id)`|Bar chart of the same counts, returned as a ggplot object (ggplot2 in Suggests)|S|
+|FR-27|`ke_components(ke_id)`|Key Event Components of a Key Event: biological process, object and action, with their ontology identifiers, flattened from the `biological_events` field of the Key Event record|S|
+|FR-28|`aop_components(aop_id)`|The same for every Key Event of an AOP, with the Key Event title and role added|S|
+
+\---
+
 ## 2\. Technical requirements (how it works)
 
 |ID|Requirement|Priority|
@@ -77,7 +88,7 @@
 |TR-06|Base URL configurable via `options(R4AOP.base\_url = ...)` for testing / future versions|M|
 |TR-07|Uses API version `/v1`; report `dataset\_version` so results are reproducible|S|
 |TR-08|Optional caching of responses within a session (`memoise`)|S|
-|TR-09|Minimal dependencies (`httr2`, `tibble`, `dplyr`; `igraph` only in Suggests)|S|
+|TR-09|Minimal dependencies (`cli`, `httr2`, `memoise`, `tibble`, `vctrs`; `ggplot2` only in Suggests)|S|
 
 \---
 
@@ -97,22 +108,13 @@
 
 \---
 
-### 1.7 Convenience functions (built on the endpoints above)
-
-|ID|Function|Description|Priority|
-|-|-|-|-|
-|FR-25|`aop_gene_summary(aop_id)`|Distinct genes per Key Event and detection method, as a tibble|S|
-|FR-26|`aop_plot_genes(aop_id)`|Bar chart of the same counts, returned as a ggplot object (ggplot2 in Suggests)|S|
-
-\---
-
 ## 4\. Milestones
 
 |Version|Content|
 |-|-|
 |**v0.1**|TR-01 to TR-06, FR-01 to FR-07, QR-01 to QR-03|
 |**v0.2**|All remaining **M** and **S** FRs|
-|**v1.0**|FR-25, FR-26, QR-04 to QR-08 → public release + application note|
+|**v1.0**|FR-25 to FR-28, QR-04 to QR-08 → public release + application note|
 
 \---
 
@@ -127,6 +129,7 @@
 1. How stable is `/v1`? Will endpoints or field names change?
 2. Is a Python client planned (to avoid duplicate work)?
 3. Is there a usage limit on the API?
+4. Could `/v1/key-events` accept a biological process or GO term as a filter? At present such a question needs SPARQL or local filtering of all Key Events.
 
 
 

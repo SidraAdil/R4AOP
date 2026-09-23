@@ -63,6 +63,13 @@ a candidate gene set:
 aop_plot_genes(38)
 ```
 
+Key Events are also described in ontology terms, as a biological process, an
+optional biological object and an action:
+
+```{r components, fig.height = 4}
+aop_plot_components(38)
+```
+
 ## Main functions
 
 | Topic | Functions |
@@ -72,7 +79,7 @@ aop_plot_genes(38)
 | Relationships | `ker_list()`, `ker_get()` |
 | Stressors and chemicals | `stressor_list()`, `stressor_get()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
 | Genes and search | `gene_list()`, `gene_get()`, `aop_search()` |
-| Key Event Components | `ke_components()`, `aop_components()` |
+| Key Event Components | `ke_components()`, `aop_components()`, `aop_plot_components()` |
 | Summaries | `aop_gene_summary()`, `aop_plot_genes()` |
 | Dataset | `aop_dataset_info()`, `aop_data_version()`, `aop_cache_clear()` |
 
@@ -92,7 +99,8 @@ aop_data_version(fibrosis)
 ## Data source and licence
 
 Data come from the [AOP-Wiki RDF](https://aopwiki.rdf.bigcat-bioinformatics.org)
-API, maintained by the BiGCaT group at Maastricht University, and are licensed
+API, maintained by the Department of Translational Genomics (TGX) at Maastricht
+University, and are licensed
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The package
 code is licensed GPL-3.
 

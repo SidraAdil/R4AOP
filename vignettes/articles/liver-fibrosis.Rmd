@@ -87,9 +87,10 @@ aop$title
 aop$oecd_status
 ```
 
-Its Key Events are the biological steps of the pathway. The `role` column marks
-where each event is positioned in the cause-and-effect chain: `mie` is the molecular initiating event, `ao` the adverse
-outcome, and `ke` everything in between.
+Its Key Events (KEs) are the biological steps of the pathway. The `role` column
+marks where each event is positioned in the cause-and-effect chain: `mie` is the
+molecular initiating event (MIE), `ao` the adverse outcome (AO), and `ke`
+everything in between.
 
 ```{r key-events}
 kes <- aop_key_events(aop_id)
@@ -100,8 +101,8 @@ kes[, c("id", "title", "role")]
 table(kes$role)
 ```
 
-The Key Event Relationships are the directed links between those steps. Each
-relationship carries the upstream (cause) and downstream (effect) Key Event.
+The Key Event Relationships (KERs) are the directed links between those steps.
+Each KER carries the upstream (cause) and downstream (effect) KE.
 
 ```{r kers}
 kers <- aop_kers(aop_id)
@@ -120,8 +121,8 @@ already here, in two calls.
 
 ## 3. Retrieve the linked genes
 
-AOP-Wiki genes come from the enriched RDF layer, which links genes to Key Events
-and to Key Event Relationships. The `detected_by` column records how the link
+AOP-Wiki genes come from the enriched RDF layer, which links genes to KEs and to
+KERs. The `detected_by` column records how the link
 was made: `regex` for pattern matching, `ner` for named entity recognition, and
 `both` where the two methods agree.
 
@@ -146,9 +147,9 @@ per_method
 
 ## 4. Genes per Key Event
 
-Gene links are attached to individual Key Events, not only to the AOP as a
-whole, so each Key Event can be treated as a candidate gene set. This is what
-makes the data usable in a transcriptomics analysis.
+Gene links are attached to individual KEs, not only to the AOP as a whole, so
+each KE can be treated as a candidate gene set. This is what makes the data
+usable in a transcriptomics analysis.
 
 `aop_gene_summary()` returns those counts, and `aop_plot_genes()` draws them:
 
@@ -157,14 +158,14 @@ summary_tbl <- aop_gene_summary(aop_id)
 summary_tbl
 ```
 
-```{r fig-ke, fig.height = 4, fig.cap = "Genes linked to each Key Event, split by detection method."}
+```{r fig-ke, fig.height = 4, fig.cap = "Genes linked to each KE, split by detection method."}
 aop_plot_genes(aop_id)
 ```
 
 The plot is an ordinary ggplot object, so it can be adjusted like any other,
 for example with a different theme or colour scale.
 
-A gene set for one Key Event, ready for enrichment analysis, is one line:
+A gene set for one KE, ready for enrichment analysis, is one line:
 
 ```{r gene-set}
 mie_id <- kes$id[kes$role == "mie"]
@@ -173,7 +174,27 @@ length(mie_genes)
 head(mie_genes, 10)
 ```
 
-## 5. Other questions about the same pathway
+## 5. Key Event Components
+
+KEs are also described by Key Event Components (KECs), each a triplet of a
+biological process (BP), a biological object (BO), and an action term. The BP and
+the BO are ontology terms, and the action gives the directionality aspect of the KE.
+Each KE has one or more KECs. Not all KEs in AOP-Wiki are fully described this
+way, so the BP or the BO can be empty. The BP and BO terms carry identifiers from
+a range of ontologies.
+
+```{r components}
+aop_components(aop_id)[, c("ke_id", "process", "process_id", "action")]
+```
+
+```{r fig-kec, fig.height = 5, fig.cap = "KECs of each KE, with their ontology identifiers. Blank cells mark components that AOP-Wiki does not record."}
+aop_plot_components(aop_id)
+```
+
+Blank cells are informative in their own right: they show where the ontology
+annotation of a pathway is still incomplete.
+
+## 6. Other questions about the same pathway
 
 The same pathway can be approached from several directions, each a single call.
 
@@ -191,8 +212,7 @@ Whether a particular gene belongs to this AOP, and how the link was made:
 genes[genes$symbol == "TGFB1", ]
 ```
 
-Key Events can be
-filtered by gene, and each Key Event reports the AOPs it belongs to:
+KEs can be filtered by gene, and each KE reports the AOPs it belongs to:
 
 ```{r gene-to-aop}
 kes_with_gene <- ke_list(gene = "TGFB1")
@@ -204,7 +224,7 @@ aops_with_gene <- unique(unlist(
 aops_with_gene
 ```
 
-## 6. Reproducibility
+## 7. Reproducibility
 
 AOP-Wiki is curated continuously, so results depend on the version of the data
 that was queried. Every R4AOP result carries that version, and it can be
@@ -214,18 +234,17 @@ reported alongside the findings.
 aop_data_version(fibrosis)
 ```
 
-## 7. What this replaces
+## 8. What this replaces
 
 Retrieving the same information directly from the RDF endpoint means one SPARQL
-query per step: declaring prefixes, matching the AOP to its Key Events through
+query per step: declaring prefixes, matching the AOP to its KEs through
 `aopo:has_key_event`, following `aopo:has_key_event_relationship` for the
 topology, and joining the enriched gene links. Each query has to be written
 against the RDF schema and kept in step with it, in every project that needs it.
 
 With R4AOP each of those steps is a single function call. The package covers the
 routine tasks that most analyses begin with: listing AOPs, filtering them,
-following the links to Key Events, Key Event Relationships, stressors,
-chemicals and genes, and pulling the results into tibbles that fit directly
-into an R workflow. These are the steps that are repeated in nearly every
+following the links to KEs, KERs, stressors, chemicals and genes, and pulling the
+results into tibbles that fit directly into an R workflow. These are the steps that are repeated in nearly every
 project, and they are the ones the package makes immediate. SPARQL stays
 available for tailored or complex retrieval that no endpoint covers.

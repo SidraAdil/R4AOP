@@ -22,16 +22,25 @@ aop_plot_components <- function(aop_id, wrap = 26) {
     )
   }
 
+  wrap_text <- function(x, width) {
+    vapply(x, function(s) paste(strwrap(s, width = width), collapse = "\n"),
+           character(1), USE.NAMES = FALSE)
+  }
+
   dat <- aop_components(aop_id)
   if (nrow(dat) == 0) {
     cli::cli_abort("No Key Event Components are recorded for AOP {aop_id}.",
                    call = NULL)
   }
 
+  # A Key Event can have several components, so each gets its own row
+  dat <- dat[order(match(dat$role, c("mie", "ke", "ao")), dat$ke_id), ]
+  dat$comp <- stats::ave(seq_len(nrow(dat)), dat$ke_id, FUN = seq_along)
+
   part_of <- function(term, term_id, part) {
     data.frame(
       ke_id = dat$ke_id, ke_title = dat$ke_title, role = dat$role,
-      part = part, term = term, term_id = term_id,
+      comp = dat$comp, part = part, term = term, term_id = term_id,
       stringsAsFactors = FALSE
     )
   }
@@ -43,22 +52,27 @@ aop_plot_components <- function(aop_id, wrap = 26) {
   )
   long <- long[!is.na(long$term), , drop = FALSE]
 
-  wrap_text <- function(x, width) {
-    vapply(x, function(s) paste(strwrap(s, width = width), collapse = "\n"),
-           character(1), USE.NAMES = FALSE)
-  }
-
   long$label <- ifelse(
     is.na(long$term_id),
     wrap_text(long$term, wrap),
     paste0(wrap_text(long$term, wrap), "\n", long$term_id)
   )
 
-  # Molecular initiating event at the top, adverse outcome at the bottom
-  key <- order(match(long$role, c("ao", "ke", "mie")), -long$ke_id)
-  levels_ke <- unique(paste0(long$ke_title, " (KE ", long$ke_id, ")")[key])
-  long$ke_lab <- factor(paste0(long$ke_title, " (KE ", long$ke_id, ")"),
-                        levels = levels_ke)
+  # Molecular initiating event at the top, adverse outcome at the bottom.
+  # One row per component, with the Key Event named on its first row only.
+  long$row_key <- paste(long$ke_id, long$comp, sep = "-")
+  key <- order(match(long$role, c("ao", "ke", "mie")), -long$ke_id, -long$comp)
+  row_levels <- unique(long$row_key[key])
+
+  row_label <- stats::setNames(rep("", length(row_levels)), row_levels)
+  named <- long[!duplicated(long$row_key), ]
+  row_label[named$row_key] <- ifelse(
+    named$comp == 1,
+    paste0(wrap_text(named$ke_title, wrap + 8), " (KE ", named$ke_id, ")"),
+    ""
+  )
+
+  long$ke_lab <- factor(long$row_key, levels = row_levels)
   long$part <- factor(long$part, levels = c("Process", "Object", "Action"))
 
   ggplot2::ggplot(long, ggplot2::aes(x = part, y = ke_lab, fill = part)) +
@@ -70,6 +84,7 @@ aop_plot_components <- function(aop_id, wrap = 26) {
       values = c(Process = "#2a78d6", Object = "#eb6834", Action = "#1baf7a")
     ) +
     ggplot2::scale_x_discrete(position = "top", drop = FALSE) +
+    ggplot2::scale_y_discrete(labels = row_label) +
     ggplot2::labs(
       x = NULL, y = NULL, fill = NULL,
       title = paste0("Key Event Components of AOP ", aop_id)

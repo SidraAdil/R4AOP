@@ -1,3 +1,22 @@
+# Colour used for the title of a Key Event, by its role in the AOP
+role_colour <- function(role) {
+  ifelse(role == "mie", "#1baf7a",
+         ifelse(role == "ao", "#d1495b", "#3d3d3d"))
+}
+
+# Wrap a label in a coloured HTML span, for ggtext::element_markdown().
+# The colour travels with the label, so it cannot be matched to the wrong axis
+# break, and no vectorised element_text() is needed.
+md_label <- function(text, colour) {
+  text <- gsub("&", "&amp;", text, fixed = TRUE)
+  text <- gsub("<", "&lt;", text, fixed = TRUE)
+  text <- gsub(">", "&gt;", text, fixed = TRUE)
+  text <- gsub("\n", "<br>", text, fixed = TRUE)
+  paste0("<span style='color:", colour, ";'>", text, "</span>")
+}
+
+has_ggtext <- function() requireNamespace("ggtext", quietly = TRUE)
+
 #' Summarise the genes of an AOP per Key Event
 #'
 #' Counts the distinct genes linked to each Key Event of an AOP, separately for
@@ -47,7 +66,10 @@ aop_gene_summary <- function(aop_id) {
 #' Plot the genes of an AOP per Key Event
 #'
 #' Draws a bar chart of the distinct genes linked to each Key Event of an AOP,
-#' coloured by detection method. Requires the ggplot2 package.
+#' coloured by detection method. Every Key Event of the AOP is shown, so a Key
+#' Event without gene links appears with an empty bar. Key Event titles are
+#' printed in green for the molecular initiating event and in red for the
+#' adverse outcome. Requires the ggplot2 package.
 #'
 #' @param aop_id AOP identifier.
 #' @return A ggplot object, which can be further modified in the usual way.
@@ -71,17 +93,44 @@ aop_plot_genes <- function(aop_id) {
                    call = NULL)
   }
 
-  ggplot2::ggplot(
+  # Key Events without gene links are kept, so that the gap stays visible
+  kes <- aop_key_events(aop_id)
+  gap <- kes[!kes$id %in% dat$ke_id, , drop = FALSE]
+  if (nrow(gap) > 0) {
+    dat <- vctrs::vec_rbind(
+      dat,
+      tibble::tibble(
+        ke_id = gap$id, ke_title = gap$title, role = gap$role,
+        detected_by = dat$detected_by[1], n_genes = 0L
+      )
+    )
+  }
+
+  p <- ggplot2::ggplot(
     dat,
     ggplot2::aes(x = stats::reorder(ke_title, n_genes), y = n_genes,
                  fill = detected_by)
   ) +
-    ggplot2::geom_col(width = 0.65) +
+    ggplot2::geom_col(width = 0.65, colour = "grey45", linewidth = 0.2) +
     ggplot2::coord_flip() +
+    ggplot2::scale_fill_manual(
+      values = c(both = "#a8c9ef", ner = "#f6bda4", regex = "#9adcc3")
+    ) +
     ggplot2::labs(
       x = NULL, y = "Distinct genes", fill = "Detected by",
       title = paste0("Genes per Key Event, AOP ", aop_id)
     ) +
     ggplot2::theme_minimal(base_size = 12) +
     ggplot2::theme(legend.position = "bottom")
+
+  # Colour the Key Event titles by role, if ggtext is installed
+  if (has_ggtext()) {
+    p <- p +
+      ggplot2::scale_x_discrete(labels = function(x) {
+        md_label(x, role_colour(dat$role[match(x, dat$ke_title)]))
+      }) +
+      ggplot2::theme(axis.text.y = ggtext::element_markdown())
+  }
+
+  p
 }

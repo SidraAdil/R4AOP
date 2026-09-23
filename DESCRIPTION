@@ -24,6 +24,7 @@ Imports:
     vctrs
 Suggests:
     ggplot2,
+    ggtext,
     httptest2,
     testthat (>= 3.0.0),
     tidyr

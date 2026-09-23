@@ -18,7 +18,9 @@ A ggplot object.
 Shows, for every Key Event of an AOP, the biological process, the biological
 object and the action that describe it, together with their ontology
 identifiers. Key Events are ordered from the molecular initiating event to
-the adverse outcome. Components that AOP-Wiki does not record are left blank.
+the adverse outcome, and their titles are printed in green for the molecular
+initiating event and in red for the adverse outcome. Components that AOP-Wiki
+does not record are left blank.
 }
 \examples{
 \dontrun{

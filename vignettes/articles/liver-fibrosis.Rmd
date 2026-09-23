@@ -158,9 +158,12 @@ summary_tbl <- aop_gene_summary(aop_id)
 summary_tbl
 ```
 
-```{r fig-ke, fig.height = 4, fig.cap = "Genes linked to each KE, split by detection method."}
+```{r fig-ke, fig.height = 4, fig.cap = "Genes linked to each KE, split by detection method. KE titles are printed in green for the MIE and in red for the AO. A KE without gene links is shown with an empty bar."}
 aop_plot_genes(aop_id)
 ```
+
+Six of the seven KEs carry gene links. The MIE of this AOP carries none, and it
+is drawn with an empty bar, so the gap in the annotation stays visible.
 
 The plot is an ordinary ggplot object, so it can be adjusted like any other,
 for example with a different theme or colour scale.
@@ -187,7 +190,7 @@ a range of ontologies.
 aop_components(aop_id)[, c("ke_id", "process", "process_id", "action")]
 ```
 
-```{r fig-kec, fig.height = 5, fig.cap = "KECs of each KE, with their ontology identifiers. Blank cells mark components that AOP-Wiki does not record."}
+```{r fig-kec, fig.height = 5, fig.cap = "KECs of each KE, with their ontology identifiers. KE titles are printed in green for the MIE and in red for the AO. Blank cells mark components that AOP-Wiki does not record."}
 aop_plot_components(aop_id)
 ```
 

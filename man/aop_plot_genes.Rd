@@ -14,7 +14,10 @@ A ggplot object, which can be further modified in the usual way.
 }
 \description{
 Draws a bar chart of the distinct genes linked to each Key Event of an AOP,
-coloured by detection method. Requires the ggplot2 package.
+coloured by detection method. Every Key Event of the AOP is shown, so a Key
+Event without gene links appears with an empty bar. Key Event titles are
+printed in green for the molecular initiating event and in red for the
+adverse outcome. Requires the ggplot2 package.
 }
 \examples{
 \dontrun{

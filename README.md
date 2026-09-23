@@ -68,7 +68,9 @@ table(genes$detected_by)
 ```
 
 Genes are linked to individual Key Events, so each Key Event can be
-treated as a candidate gene set:
+treated as a candidate gene set. Key Event titles are printed in green
+for the molecular initiating event and in red for the adverse outcome,
+and Key Events without gene links are left out:
 
 ``` r
 aop_plot_genes(38)
@@ -77,7 +79,8 @@ aop_plot_genes(38)
 <img src="man/figures/README-plot-1.png" width="100%" />
 
 Key Events are also described in ontology terms, as a biological
-process, an optional biological object and an action:
+process, an optional biological object and an action. Blank cells mark
+components that AOP-Wiki does not record:
 
 ``` r
 aop_plot_components(38)

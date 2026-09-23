@@ -3,7 +3,9 @@
 #' Shows, for every Key Event of an AOP, the biological process, the biological
 #' object and the action that describe it, together with their ontology
 #' identifiers. Key Events are ordered from the molecular initiating event to
-#' the adverse outcome. Components that AOP-Wiki does not record are left blank.
+#' the adverse outcome, and their titles are printed in green for the molecular
+#' initiating event and in red for the adverse outcome. Components that AOP-Wiki
+#' does not record are left blank.
 #'
 #' @param aop_id AOP identifier.
 #' @param wrap Width in characters at which long terms are wrapped.
@@ -72,6 +74,14 @@ aop_plot_components <- function(aop_id, wrap = 26) {
     ""
   )
 
+  # Colour the Key Event titles by role, if ggtext is installed
+  if (has_ggtext()) {
+    nm <- names(row_label)
+    cols <- role_colour(long$role[match(nm, long$row_key)])
+    row_label <- ifelse(nzchar(row_label), md_label(row_label, cols), "")
+    names(row_label) <- nm
+  }
+
   long$ke_lab <- factor(long$row_key, levels = row_levels)
   long$part <- factor(long$part, levels = c("Process", "Object", "Action"))
 
@@ -94,6 +104,10 @@ aop_plot_components <- function(aop_id, wrap = 26) {
       legend.position = "none",
       panel.grid = ggplot2::element_blank(),
       axis.text.x = ggplot2::element_text(face = "bold"),
-      axis.text.y = ggplot2::element_text(hjust = 1)
+      axis.text.y = if (has_ggtext()) {
+        ggtext::element_markdown(hjust = 1)
+      } else {
+        ggplot2::element_text(hjust = 1)
+      }
     )
 }

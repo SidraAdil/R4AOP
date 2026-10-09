@@ -112,7 +112,7 @@ the data it came from, which can be reported alongside an analysis:
 
 ``` r
 aop_data_version(fibrosis)
-#> [1] "2026.09.19-103c6e9"
+#> [1] "2026.10.07-c006903"
 ```
 
 ## Data source and licence
@@ -122,6 +122,6 @@ RDF](https://aopwiki.rdf.bigcat-bioinformatics.org) API, maintained by
 the Department of Translational Genomics (TGX) at Maastricht University,
 and are licensed [CC BY-SA
 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The package code
-is licensed GPL-3.
+is licensed MIT.
 
 When using R4AOP, please cite both the package and AOP-Wiki.

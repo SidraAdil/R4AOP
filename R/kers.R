@@ -32,5 +32,5 @@ ker_list <- function(aop = NULL, upstream = NULL, downstream = NULL,
 #' }
 ker_get <- function(ker_id) {
   check_id(ker_id, "ker_id")
-  as_row(aop_request(paste0("kers/", ker_id))$data)
+  fetch_row(paste0("kers/", ker_id))
 }

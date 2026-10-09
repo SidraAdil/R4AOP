@@ -156,15 +156,32 @@ empty_like <- function(path) {
 
 #' Request an endpoint and return a tibble, keeping columns when empty
 #'
+#' The version of the dataset is taken from the response and attached to the
+#' result, so that every table reports the data it came from (TR-07).
+#'
 #' @keywords internal
 #' @noRd
 fetch_table <- function(path, query = list()) {
-  out <- as_table(aop_request(path, query)$data)
+  res <- aop_request(path, query)
+  out <- as_table(res$data)
   if (ncol(out) == 0) {
     proto <- recall_proto(path)
-    return(if (!is.null(proto)) proto else empty_like(path))
+    out <- if (!is.null(proto)) proto else empty_like(path)
+  } else {
+    remember_proto(path, out)
   }
-  remember_proto(path, out)
+  attr(out, "dataset_version") <- res$meta$dataset_version
+  out
+}
+
+#' Request a single record and return a one-row tibble with its version
+#'
+#' @keywords internal
+#' @noRd
+fetch_row <- function(path, query = list()) {
+  res <- aop_request(path, query)
+  out <- as_row(res$data)
+  attr(out, "dataset_version") <- res$meta$dataset_version
   out
 }
 

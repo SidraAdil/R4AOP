@@ -72,8 +72,7 @@ add_ke_titles <- function(aops) {
 #' }
 aop_get <- function(aop_id, include = NULL) {
   check_id(aop_id, "aop_id")
-  res <- aop_request(paste0("aops/", aop_id), list(include = include))
-  as_row(res$data)
+  fetch_row(paste0("aops/", aop_id), list(include = include))
 }
 
 #' Key Events of an AOP

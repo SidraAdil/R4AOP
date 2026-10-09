@@ -71,7 +71,7 @@ ao_list <- function(q = NULL, level = NULL, aop = NULL, taxon = NULL,
 #' }
 ke_get <- function(ke_id) {
   check_id(ke_id, "ke_id")
-  as_row(aop_request(paste0("key-events/", ke_id))$data)
+  fetch_row(paste0("key-events/", ke_id))
 }
 
 

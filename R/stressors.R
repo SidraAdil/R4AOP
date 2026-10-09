@@ -33,5 +33,5 @@ stressor_list <- function(q = NULL, aop = NULL, chemical = NULL,
 #' }
 stressor_get <- function(stressor_id) {
   check_id(stressor_id, "stressor_id")
-  as_row(aop_request(paste0("stressors/", stressor_id))$data)
+  fetch_row(paste0("stressors/", stressor_id))
 }

@@ -27,5 +27,5 @@ gene_list <- function(q = NULL, aop = NULL, ke = NULL, method = NULL) {
 #' }
 gene_get <- function(gene) {
   check_string(gene, "gene")
-  as_row(aop_request(paste0("genes/", gene))$data)
+  fetch_row(paste0("genes/", gene))
 }

@@ -36,7 +36,7 @@ chemical_list <- function(q = NULL, aop = NULL, stressor = NULL,
 #' }
 chemical_get <- function(cas) {
   check_string(cas, "cas")
-  as_row(aop_request(paste0("chemicals/", cas))$data)
+  fetch_row(paste0("chemicals/", cas))
 }
 
 #' AOPs linked to a chemical

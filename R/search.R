@@ -27,7 +27,7 @@ aop_search <- function(q, types = NULL, limit = 100) {
 #' aop_dataset_info()
 #' }
 aop_dataset_info <- function() {
-  as_row(aop_request("dataset")$data)
+  fetch_row("dataset")
 }
 
 #' Data version of a result

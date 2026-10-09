@@ -59,8 +59,8 @@ table(genes$detected_by)
 
 Genes are linked to individual Key Events, so each Key Event can be treated as
 a candidate gene set. Key Event titles are printed in green for the molecular
-initiating event and in red for the adverse outcome, and Key Events without
-gene links are left out:
+initiating event and in red for the adverse outcome, and a Key Event without
+gene links is shown with an empty bar:
 
 ```{r plot, fig.height = 4}
 aop_plot_genes(38)
@@ -106,6 +106,6 @@ Data come from the [AOP-Wiki RDF](https://aopwiki.rdf.bigcat-bioinformatics.org)
 API, maintained by the Department of Translational Genomics (TGX) at Maastricht
 University, and are licensed
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The package
-code is licensed MIT.
+code is licensed GPL-3.
 
 When using R4AOP, please cite both the package and AOP-Wiki.

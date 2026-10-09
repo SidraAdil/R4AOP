@@ -70,7 +70,7 @@ table(genes$detected_by)
 Genes are linked to individual Key Events, so each Key Event can be
 treated as a candidate gene set. Key Event titles are printed in green
 for the molecular initiating event and in red for the adverse outcome,
-and a Key Event without gene links is shown with an empty bar:
+and Key Events without gene links are left out:
 
 ``` r
 aop_plot_genes(38)
@@ -88,6 +88,18 @@ aop_plot_components(38)
 
 <img src="man/figures/README-components-1.png" width="100%" />
 
+The same data can be entered from the other side. Starting from a
+stressor, `stressor_aops()` returns the AOPs it is used in and the
+adverse outcomes they end in:
+
+``` r
+stressor_aops("hexachlorobenzene")[, c("aop_id", "aop_title", "ao_title")]
+#> # A tibble: 1 × 3
+#>   aop_id aop_title                                                    ao_title  
+#>    <int> <chr>                                                        <chr>     
+#> 1    131 Aryl hydrocarbon receptor activation leading to uroporphyria Uroporphy…
+```
+
 ## Main functions
 
 | Topic | Functions |
@@ -95,7 +107,7 @@ aop_plot_components(38)
 | AOPs | `aop_list()`, `aop_get()`, `aop_key_events()`, `aop_kers()`, `aop_stressors()`, `aop_chemicals()`, `aop_genes()`, `aop_methods()` |
 | Key Events | `ke_list()`, `mie_list()`, `ao_list()`, `ke_get()`, `ke_aops()`, `ke_upstream()`, `ke_downstream()`, `ke_mies()`, `ke_adverse_outcomes()`, `ke_stressors()`, `ke_chemicals()` |
 | Relationships | `ker_list()`, `ker_get()` |
-| Stressors and chemicals | `stressor_list()`, `stressor_get()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
+| Stressors and chemicals | `stressor_list()`, `stressor_get()`, `stressor_aops()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
 | Genes and search | `gene_list()`, `gene_get()`, `aop_search()` |
 | Key Event Components | `ke_components()`, `aop_components()`, `aop_plot_components()` |
 | Summaries | `aop_gene_summary()`, `aop_plot_genes()` |
@@ -122,6 +134,6 @@ RDF](https://aopwiki.rdf.bigcat-bioinformatics.org) API, maintained by
 the Department of Translational Genomics (TGX) at Maastricht University,
 and are licensed [CC BY-SA
 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The package code
-is licensed GPL-3.
+is licensed MIT.
 
 When using R4AOP, please cite both the package and AOP-Wiki.

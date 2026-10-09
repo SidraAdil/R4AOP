@@ -42,19 +42,30 @@ fibrosis[, c("id", "title", "oecd_status")]
 #> 4   494 AhR activation leading to liver fibrosis                     <NA>
 ```
 
+`aop_summary()` gives the overview of one AOP: its Key Events in causal
+order, from the molecular initiating event to the adverse outcome, with
+the OECD status, the taxonomic applicability and the stressors in the
+header.
+
 ``` r
-kes <- aop_key_events(38)
-kes[, c("id", "title", "role")]
-#> # A tibble: 7 × 3
-#>      id title                                      role 
-#>   <int> <chr>                                      <chr>
-#> 1    55 Increase, Cell injury/death                ke   
-#> 2    68 Increase, Collagen accumulation            ke   
-#> 3   244 Alkylation, Protein                        mie  
-#> 4   265 Increase, Hepatic stellate cell activation ke   
-#> 5   344 Increase, Liver fibrosis                   ao   
-#> 6  1492 Tissue resident cell activation            ke   
-#> 7  1493 Increased Pro-inflammatory mediators       ke
+aop_summary(38)
+#> AOP 38: Protein Alkylation leading to Liver Fibrosis
+#> OECD status:  WPHA/WNT Endorsed
+#> Taxa:         Rattus norvegicus (10116)
+#> Taxa (text):  WCS_9606
+#> Stressors:    Allyl Alcohol; Carbon tetrachloride; Dimethyl nitrosamine; Retinol; Thioacetamide
+#> Data version: 2026.10.07-c006903
+#> 
+#> # A tibble: 7 × 5
+#>    step ke_id ke_title                                   level     role 
+#>   <int> <int> <chr>                                      <chr>     <chr>
+#> 1     1   244 Alkylation, Protein                        Molecular mie  
+#> 2     2    55 Increase, Cell injury/death                Cellular  ke   
+#> 3     3  1492 Tissue resident cell activation            Cellular  ke   
+#> 4     4  1493 Increased Pro-inflammatory mediators       Tissue    ke   
+#> 5     5   265 Increase, Hepatic stellate cell activation Cellular  ke   
+#> 6     6    68 Increase, Collagen accumulation            Tissue    ke   
+#> 7     7   344 Increase, Liver fibrosis                   Organ     ao
 ```
 
 ``` r
@@ -110,7 +121,7 @@ stressor_aops("hexachlorobenzene")[, c("aop_id", "aop_title", "ao_title")]
 | Stressors and chemicals | `stressor_list()`, `stressor_get()`, `stressor_aops()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
 | Genes and search | `gene_list()`, `gene_get()`, `aop_search()` |
 | Key Event Components | `ke_components()`, `aop_components()`, `aop_plot_components()` |
-| Summaries | `aop_gene_summary()`, `aop_plot_genes()` |
+| Summaries | `aop_summary()`, `aop_gene_summary()`, `aop_plot_genes()` |
 | Dataset | `aop_dataset_info()`, `aop_data_version()`, `aop_cache_clear()` |
 
 Responses are cached for the session, and list endpoints are paginated

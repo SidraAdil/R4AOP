@@ -74,6 +74,7 @@
 |FR-27|`ke_components(ke_id)`|Key Event Components of a Key Event: biological process, object and action, with their ontology identifiers, flattened from the `biological_events` field of the Key Event record|S|
 |FR-28|`aop_components(aop_id)`|The same for every Key Event of an AOP, with the Key Event title and role added|S|
 |FR-29|`stressor_aops(stressor)`|AOPs in which a stressor is used, with their titles and the adverse outcomes they end in, accepting a stressor identifier or name|S|
+|FR-30|`aop_summary(aop_id)`|Overview of one AOP: Key Events in causal order (topological sort of the KERs) with their biological level and role, plus the title, OECD status, taxonomic applicability, stressors and dataset version|S|
 
 \---
 
@@ -115,7 +116,7 @@
 |-|-|
 |**v0.1**|TR-01 to TR-06, FR-01 to FR-07, QR-01 to QR-03|
 |**v0.2**|All remaining **M** and **S** FRs|
-|**v1.0**|FR-25 to FR-29, QR-04 to QR-08 → public release + application note|
+|**v1.0**|FR-25 to FR-30, QR-04 to QR-08 → public release + application note|
 
 \---
 

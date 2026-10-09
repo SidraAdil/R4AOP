@@ -46,9 +46,12 @@ fibrosis <- aop_list(q = "liver fibrosis")
 fibrosis[, c("id", "title", "oecd_status")]
 ```
 
-```{r key-events}
-kes <- aop_key_events(38)
-kes[, c("id", "title", "role")]
+`aop_summary()` gives the overview of one AOP: its Key Events in causal order,
+from the molecular initiating event to the adverse outcome, with the OECD
+status, the taxonomic applicability and the stressors in the header.
+
+```{r summary}
+aop_summary(38)
 ```
 
 ```{r genes}
@@ -92,7 +95,7 @@ stressor_aops("hexachlorobenzene")[, c("aop_id", "aop_title", "ao_title")]
 | Stressors and chemicals | `stressor_list()`, `stressor_get()`, `stressor_aops()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
 | Genes and search | `gene_list()`, `gene_get()`, `aop_search()` |
 | Key Event Components | `ke_components()`, `aop_components()`, `aop_plot_components()` |
-| Summaries | `aop_gene_summary()`, `aop_plot_genes()` |
+| Summaries | `aop_summary()`, `aop_gene_summary()`, `aop_plot_genes()` |
 | Dataset | `aop_dataset_info()`, `aop_data_version()`, `aop_cache_clear()` |
 
 Responses are cached for the session, and list endpoints are paginated

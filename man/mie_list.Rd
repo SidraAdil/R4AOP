@@ -32,7 +32,5 @@ A tibble with one row per MIE.
 List Molecular Initiating Events
 }
 \examples{
-\dontrun{
 mie_list(q = "receptor")
-}
 }

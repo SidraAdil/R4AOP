@@ -19,10 +19,8 @@
 #' @return A tibble with one row per AOP.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_list(q = "liver")
 #' aop_list(q = "liver fibrosis", resolve_titles = TRUE)
-#' }
 aop_list <- function(q = NULL, status = NULL, taxon = NULL, ke = NULL,
                      mie = NULL, ao = NULL, stressor = NULL,
                      chemical = NULL, modified_since = NULL,
@@ -53,8 +51,12 @@ add_ke_titles <- function(aops) {
     unname(lookup[as.character(ids)])
   }
 
-  if ("mie_ids" %in% names(aops)) aops$mie_titles <- lapply(aops$mie_ids, titles_of)
-  if ("ao_ids" %in% names(aops))  aops$ao_titles  <- lapply(aops$ao_ids, titles_of)
+  if ("mie_ids" %in% names(aops)) {
+    aops$mie_titles <- lapply(aops$mie_ids, titles_of)
+  }
+  if ("ao_ids" %in% names(aops)) {
+    aops$ao_titles <- lapply(aops$ao_ids, titles_of)
+  }
 
   attr(aops, "dataset_version") <- version
   aops
@@ -67,9 +69,7 @@ add_ke_titles <- function(aops) {
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_get(1)
-#' }
 aop_get <- function(aop_id, include = NULL) {
   check_id(aop_id, "aop_id")
   fetch_row(paste0("aops/", aop_id), list(include = include))
@@ -82,10 +82,8 @@ aop_get <- function(aop_id, include = NULL) {
 #' @return A tibble of Key Events.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_key_events(1)
 #' aop_key_events(1, role = "mie")
-#' }
 aop_key_events <- function(aop_id, role = NULL) {
   check_id(aop_id, "aop_id")
   check_choice(role, c("mie", "ke", "ao"), "role")
@@ -98,9 +96,7 @@ aop_key_events <- function(aop_id, role = NULL) {
 #' @return A tibble of KERs.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_kers(1)
-#' }
 aop_kers <- function(aop_id) {
   check_id(aop_id, "aop_id")
   fetch_table(paste0("aops/", aop_id, "/kers"))
@@ -112,9 +108,7 @@ aop_kers <- function(aop_id) {
 #' @return A tibble of stressors.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_stressors(1)
-#' }
 aop_stressors <- function(aop_id) {
   check_id(aop_id, "aop_id")
   fetch_table(paste0("aops/", aop_id, "/stressors"))
@@ -126,9 +120,7 @@ aop_stressors <- function(aop_id) {
 #' @return A tibble of chemicals.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_chemicals(1)
-#' }
 aop_chemicals <- function(aop_id) {
   check_id(aop_id, "aop_id")
   fetch_table(paste0("aops/", aop_id, "/chemicals"))
@@ -141,9 +133,7 @@ aop_chemicals <- function(aop_id) {
 #' @return A tibble of genes.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_genes(1)
-#' }
 aop_genes <- function(aop_id, method = NULL) {
   check_id(aop_id, "aop_id")
   check_choice(method, c("any", "regex", "ner", "both"), "method")
@@ -159,9 +149,7 @@ aop_genes <- function(aop_id, method = NULL) {
 #' @return A tibble of measurement methods.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_methods(1)
-#' }
 aop_methods <- function(aop_id) {
   check_id(aop_id, "aop_id")
   fetch_table("methods", list(aop = aop_id))

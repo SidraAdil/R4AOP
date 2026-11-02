@@ -6,13 +6,35 @@
 \alias{R4AOP-package}
 \title{R4AOP: Access the AOP-Wiki Through Its REST API}
 \description{
-Provides functions to retrieve Adverse Outcome Pathways (AOPs), Key Events, Key Event Relationships, stressors, chemicals and genes from the AOP-Wiki through its REST API, without writing SPARQL queries.
+Provides functions to retrieve Adverse Outcome Pathways (AOPs), Key Events, Key Event Relationships, stressors, chemicals and genes from the AOP-Wiki through its REST API, without writing SPARQL queries. Each exported function corresponds to one API endpoint, and results are returned as tibbles that fit directly into an R workflow. Pagination, input validation and session caching are handled internally, and every result carries the version of the AOP-Wiki data it came from, so that analyses can be reported reproducibly.
+}
+\section{Options}{
+
+\describe{
+\item{\code{R4AOP.base_url}}{Base URL of the AOP-Wiki API. Defaults to
+\code{"https://aopwiki.rdf.bigcat-bioinformatics.org/api/v1"}. Change it to
+point the package at a different server or API version, e.g.
+\code{options(R4AOP.base_url = "https://example.org/api/v1")}.}
+\item{\code{R4AOP.cache}}{If \code{TRUE} (the default), API responses are cached for
+the current session. Set to \code{FALSE} to always fetch fresh data, or call
+\code{\link[=aop_cache_clear]{aop_cache_clear()}} to empty the cache.}
+}
+}
+
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/SidraAdil/R4AOP}
+  \item Report bugs at \url{https://github.com/SidraAdil/R4AOP/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Sidra Adil \email{sidra.adil@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0002-3044-3561}{ORCID})
+\strong{Maintainer}: Sidra Adil \email{sidraadil009@gmail.com} (\href{https://orcid.org/0000-0002-3044-3561}{ORCID})
 
 Authors:
 \itemize{
+  \item Sidra Adil \email{sidraadil009@gmail.com} (\href{https://orcid.org/0000-0002-3044-3561}{ORCID})
   \item Marvin Martens \email{marvin.martens@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0003-2230-0840}{ORCID})
 }
 

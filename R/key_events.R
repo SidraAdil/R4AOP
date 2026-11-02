@@ -9,10 +9,8 @@
 #' @return A tibble with one row per Key Event.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_list(q = "apoptosis")
 #' ke_list(aop = 1)
-#' }
 ke_list <- function(q = NULL, role = NULL, level = NULL, aop = NULL,
                     taxon = NULL, organ = NULL, cell_type = NULL,
                     gene = NULL) {
@@ -30,9 +28,7 @@ ke_list <- function(q = NULL, role = NULL, level = NULL, aop = NULL,
 #' @return A tibble with one row per MIE.
 #' @export
 #' @examples
-#' \dontrun{
 #' mie_list(q = "receptor")
-#' }
 mie_list <- function(q = NULL, level = NULL, aop = NULL, taxon = NULL,
                      organ = NULL, cell_type = NULL, gene = NULL) {
   aop_request_all(
@@ -48,9 +44,7 @@ mie_list <- function(q = NULL, level = NULL, aop = NULL, taxon = NULL,
 #' @return A tibble with one row per Adverse Outcome.
 #' @export
 #' @examples
-#' \dontrun{
 #' ao_list(q = "carcinoma")
-#' }
 ao_list <- function(q = NULL, level = NULL, aop = NULL, taxon = NULL,
                     organ = NULL, cell_type = NULL, gene = NULL) {
   aop_request_all(
@@ -66,9 +60,7 @@ ao_list <- function(q = NULL, level = NULL, aop = NULL, taxon = NULL,
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_get(334)
-#' }
 ke_get <- function(ke_id) {
   check_id(ke_id, "ke_id")
   fetch_row(paste0("key-events/", ke_id))
@@ -82,9 +74,7 @@ ke_get <- function(ke_id) {
 #' @return A tibble of AOPs.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_aops(334)
-#' }
 ke_aops <- function(ke_id, role = NULL) {
   check_id(ke_id, "ke_id")
   check_choice(role, c("mie", "ke", "ao"), "role")
@@ -101,9 +91,7 @@ ke_aops <- function(ke_id, role = NULL) {
 #' @return A tibble of Key Events.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_downstream(334, depth = 2)
-#' }
 ke_downstream <- function(ke_id, depth = 1) {
   check_id(ke_id, "ke_id")
   check_range(depth, 1, 3, "depth")
@@ -119,9 +107,7 @@ ke_downstream <- function(ke_id, depth = 1) {
 #' @return A tibble of Key Events.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_upstream(334, depth = 2)
-#' }
 ke_upstream <- function(ke_id, depth = 1) {
   check_id(ke_id, "ke_id")
   check_range(depth, 1, 3, "depth")
@@ -137,9 +123,7 @@ ke_upstream <- function(ke_id, depth = 1) {
 #' @return A tibble of Adverse Outcomes.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_adverse_outcomes(334)
-#' }
 ke_adverse_outcomes <- function(ke_id, as = NULL) {
   check_id(ke_id, "ke_id")
   check_choice(as, c("mie", "any"), "as")
@@ -155,9 +139,7 @@ ke_adverse_outcomes <- function(ke_id, as = NULL) {
 #' @return A tibble of MIEs.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_mies(334)
-#' }
 ke_mies <- function(ke_id, as = NULL) {
   check_id(ke_id, "ke_id")
   check_choice(as, c("ao", "any"), "as")
@@ -172,9 +154,7 @@ ke_mies <- function(ke_id, as = NULL) {
 #' @return A tibble of stressors.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_stressors(334)
-#' }
 ke_stressors <- function(ke_id) {
   check_id(ke_id, "ke_id")
   fetch_table(paste0("key-events/", ke_id, "/stressors"))
@@ -186,9 +166,7 @@ ke_stressors <- function(ke_id) {
 #' @return A tibble of chemicals.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_chemicals(334)
-#' }
 ke_chemicals <- function(ke_id) {
   check_id(ke_id, "ke_id")
   fetch_table(paste0("key-events/", ke_id, "/chemicals"))

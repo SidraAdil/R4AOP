@@ -12,9 +12,7 @@
 #'   `object_id`.
 #' @export
 #' @examples
-#' \dontrun{
 #' ke_components(55)
-#' }
 ke_components <- function(ke_id) {
   check_id(ke_id, "ke_id")
 
@@ -75,9 +73,7 @@ ke_components <- function(ke_id) {
 #'   `ke_title` and `role` added.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_components(38)
-#' }
 aop_components <- function(aop_id) {
   check_id(aop_id, "aop_id")
 

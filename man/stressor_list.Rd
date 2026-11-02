@@ -22,8 +22,6 @@ A tibble with one row per stressor.
 List stressors
 }
 \examples{
-\dontrun{
 stressor_list(q = "benzene")
 stressor_list(aop = 1)
-}
 }

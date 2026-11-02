@@ -7,7 +7,7 @@
 chemical_key_events(cas, role = NULL)
 }
 \arguments{
-\item{cas}{CAS registry number, e.g. "71-43-2".}
+\item{cas}{CAS registry number, e.g. "56-23-5".}
 
 \item{role}{Optional filter: one of "mie", "ke" or "ao".}
 }
@@ -18,7 +18,5 @@ A tibble of Key Events.
 Key Events linked to a chemical
 }
 \examples{
-\dontrun{
-chemical_key_events("71-43-2")
-}
+chemical_key_events("56-23-5")
 }

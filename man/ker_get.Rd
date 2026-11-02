@@ -16,7 +16,5 @@ A tibble with one row.
 Get a single Key Event Relationship
 }
 \examples{
-\dontrun{
 ker_get(158)
-}
 }

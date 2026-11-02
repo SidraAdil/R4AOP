@@ -18,7 +18,5 @@ Counts the distinct genes linked to each Key Event of an AOP, separately for
 each detection method (\code{regex}, \code{ner} or \code{both}).
 }
 \examples{
-\dontrun{
 aop_gene_summary(38)
-}
 }

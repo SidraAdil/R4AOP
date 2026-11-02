@@ -1,0 +1,94 @@
+{
+    "data": {
+        "id": 244,
+        "iri": "https://identifiers.org/aop.events/244",
+        "label": "KE 244",
+        "title": "Alkylation, Protein",
+        "short_name": "Alkylation, Protein",
+        "level": "Molecular",
+        "aop_ids": [
+            38,
+            258
+        ],
+        "mie_in_aop_ids": [
+            38,
+            258
+        ],
+        "ao_in_aop_ids": [
+
+        ],
+        "is_mie": true,
+        "is_ao": false,
+        "aopwiki_url": "https://aopwiki.org/events/244",
+        "description": "Alkylation is the transfer of an alkyl group from one molecule to another. The alkyl group may be transferred as an alkyl carbocation, a free radical, a carbanion or a carbene (or their equivalents). Protein alkylation is the addition of an alkyl group to a protein amino acid. An alkyl group is any group derived from an alkane by removal of one hydrogen atom.\nAlkylating agents are highly reactive chemicals that introduce alkyl groups into biologically active molecules and thereby prevent their proper functioning. Alkylating agents are classified according to their nucleophilic or electrophilic character. Nucleophilic alkylating agents deliver the equivalent of an alkyl anion (carbanion). These compounds typically can add to an electron-deficient carbon atom such as at a carbonyl group. Electrophilic alkylating agents deliver the equivalent of an alkyl cation. Alkyl halides can also react directly with amines to form C-N bonds; the same holds true for other nucleophiles such as alcohols, carboxylic acids, thiols, etc. Alkylation with only one carbon is termed methylation. [1]  [2]\nCovalent protein alkylation by reactive electrophiles was identified as a key triggering event in chemical toxicity over 40 years ago and these reactions remain a major cause of chemical-induced toxicity. Interestingly, some chemical molecules produce significant protein covalent binding without causing toxicity, which suggests that only a critical subset of protein alkylation events contributes to injury. \nThe  study  by Codreanu et al. (2014) describes an inventory of electrophile- mediated protein damage in intact cells and suggests that non-toxic covalent binding may largely be survivable damage to cytoskeletal components, whereas toxic covalent binding produces lethal injury by targeting protein synthesis and catabolism and possibly mitochondrial electron transport. [3]\n[4] [5] \n[6]   \n[7]",
+        "measurement_methods": "HPLC-ESI-MS/MS analysis\nHigh Performance Liquid Chromatography – electrospray tandem mass spectrometry (HPLC-ESI-MS/MS) is the most popular MS technique. It combines the separation ability of HPLC along with the sensitivity and specificity of detection from MS. One of the advantages of HPLC-MS is that it allows samples to be rapidly desalted online, so no sample preparation is required unlike samples for GC-MS. Electrospray ionisation can produce singly or multiply charged ions. Typically high molecular weight compounds have multiple charges i.e. peptides and proteins. This technique is particularly suited to analysing polar molecules of mass <2000 Dalton and requires no prior derivatisation in most applications.\n[8] [3] [9] \nMALDI-TOF/MS (Matrix Assisted Laser Desorption/Ionization Time of Flight Mass Spectrometry) \nMatrix-assisted laser desorption/ionization (MALDI) is a soft ionization technique used in mass spectrometry, allowing the analysis of biomolecules (biopolymers such as DNA, proteins, peptides and sugars) and large organic molecules (such as polymers, dendrimers and other macromolecules), which tend to be fragile and fragment when ionized by more conventional ionization methods. MALDI methodology is a three-step process. First, the sample is mixed with a suitable matrix material and applied to a metal plate. Second, a pulsed laser irradiates the sample, triggering ablation and desorption of the sample and matrix material. Finally, the analyte molecules are ionized by being protonated or deprotonated in the hot plume of ablated gases, and can then be accelerated into whichever mass spectrometer is used to analyse them. [10]",
+        "domain_of_applicability": "Human, rat and mouse [11]",
+        "sexes": [
+
+        ],
+        "life_stages": [
+
+        ],
+        "taxa": [
+            {
+                "id": 10090,
+                "iri": "http://purl.bioontology.org/ontology/NCBITAXON/10090",
+                "names": [
+                    "CD-1 mouse",
+                    "Mus musculus",
+                    "mouse"
+                ]
+            },
+            {
+                "id": 10116,
+                "iri": "http://purl.bioontology.org/ontology/NCBITAXON/10116",
+                "names": [
+                    "F344 rat",
+                    "Rattus norvegicus",
+                    "SD rat",
+                    "rat",
+                    "rats"
+                ]
+            }
+        ],
+        "taxa_text": [
+            "WCS_9606"
+        ],
+        "organ": null,
+        "cell_type": {
+            "id": "CL:0000255",
+            "iri": "http://purl.obolibrary.org/obo/CL_0000255",
+            "title": "eukaryotic cell"
+        },
+        "biological_events": [
+            {
+                "process": {
+                    "id": "GO:0008213",
+                    "iri": "http://purl.obolibrary.org/obo/GO_0008213",
+                    "title": "protein alkylation"
+                },
+                "object": null,
+                "action": "increased"
+            }
+        ],
+        "aops": [
+            {
+                "id": 38,
+                "title": "Protein Alkylation leading to Liver Fibrosis",
+                "role": "mie"
+            },
+            {
+                "id": 258,
+                "title": "Renal protein alkylation leading to kidney toxicity",
+                "role": "mie"
+            }
+        ],
+        "genes": [
+
+        ]
+    },
+    "meta": {
+        "total": 1,
+        "dataset_version": "2026.10.31-ca48500"
+    }
+}

@@ -7,7 +7,7 @@
 chemical_pathways(cas)
 }
 \arguments{
-\item{cas}{CAS registry number, e.g. "71-43-2".}
+\item{cas}{CAS registry number, e.g. "56-23-5".}
 }
 \value{
 A tibble of pathways.
@@ -16,7 +16,5 @@ A tibble of pathways.
 WikiPathways containing a chemical
 }
 \examples{
-\dontrun{
-chemical_pathways("71-43-2")
-}
+chemical_pathways("56-23-5")
 }

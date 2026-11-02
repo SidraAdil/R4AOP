@@ -19,7 +19,5 @@ them in a single table. One request is made per Key Event, so the first call
 for a large AOP takes a few seconds. Responses are cached for the session.
 }
 \examples{
-\dontrun{
 aop_components(38)
-}
 }

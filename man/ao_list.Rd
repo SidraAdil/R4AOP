@@ -32,7 +32,5 @@ A tibble with one row per Adverse Outcome.
 List Adverse Outcomes
 }
 \examples{
-\dontrun{
 ao_list(q = "carcinoma")
-}
 }

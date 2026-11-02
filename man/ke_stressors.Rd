@@ -16,7 +16,5 @@ A tibble of stressors.
 Stressors of a Key Event
 }
 \examples{
-\dontrun{
 ke_stressors(334)
-}
 }

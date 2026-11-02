@@ -18,7 +18,5 @@ A tibble with one row.
 Get a single Adverse Outcome Pathway
 }
 \examples{
-\dontrun{
 aop_get(1)
-}
 }

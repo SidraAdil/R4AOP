@@ -54,7 +54,7 @@ aop_summary(38)
 #> Taxa:         Rattus norvegicus (10116)
 #> Taxa (text):  WCS_9606
 #> Stressors:    Allyl Alcohol; Carbon tetrachloride; Dimethyl nitrosamine; Retinol; Thioacetamide
-#> Data version: 2026.10.07-c006903
+#> Data version: 2026.10.31-ca48500
 #> 
 #> # A tibble: 7 × 5
 #>    step ke_id ke_title                                   level     role 
@@ -75,7 +75,7 @@ nrow(genes)
 table(genes$detected_by)
 #> 
 #>  both   ner regex 
-#>    52   184     9
+#>    54   182     9
 ```
 
 Genes are linked to individual Key Events, so each Key Event can be
@@ -87,7 +87,7 @@ and Key Events without gene links are left out:
 aop_plot_genes(38)
 ```
 
-<img src="man/figures/README-plot-1.png" width="100%" />
+<img src="man/figures/README-plot-1.png" alt="" width="100%" />
 
 Key Events are also described in ontology terms, as a biological
 process, an optional biological object and an action. Blank cells mark
@@ -97,7 +97,7 @@ components that AOP-Wiki does not record:
 aop_plot_components(38)
 ```
 
-<img src="man/figures/README-components-1.png" width="100%" />
+<img src="man/figures/README-components-1.png" alt="" width="100%" />
 
 The same data can be entered from the other side. Starting from a
 stressor, `stressor_aops()` returns the AOPs it is used in and the
@@ -111,6 +111,16 @@ stressor_aops("hexachlorobenzene")[, c("aop_id", "aop_title", "ao_title")]
 #> 1    131 Aryl hydrocarbon receptor activation leading to uroporphyria Uroporphy…
 ```
 
+The gene links can also be returned as a `GeneSetCollection`, one gene
+set per Key Event, which passes straight to Bioconductor enrichment
+tools:
+
+``` r
+gsc <- ke_gene_sets(38)
+names(gsc)
+#> [1] "KE_55"   "KE_68"   "KE_265"  "KE_344"  "KE_1492" "KE_1493"
+```
+
 ## Main functions
 
 | Topic | Functions |
@@ -119,7 +129,7 @@ stressor_aops("hexachlorobenzene")[, c("aop_id", "aop_title", "ao_title")]
 | Key Events | `ke_list()`, `mie_list()`, `ao_list()`, `ke_get()`, `ke_aops()`, `ke_upstream()`, `ke_downstream()`, `ke_mies()`, `ke_adverse_outcomes()`, `ke_stressors()`, `ke_chemicals()` |
 | Relationships | `ker_list()`, `ker_get()` |
 | Stressors and chemicals | `stressor_list()`, `stressor_get()`, `stressor_aops()`, `chemical_list()`, `chemical_get()`, `chemical_aops()`, `chemical_key_events()`, `chemical_pathways()` |
-| Genes and search | `gene_list()`, `gene_get()`, `aop_search()` |
+| Genes and search | `gene_list()`, `gene_get()`, `ke_gene_sets()`, `aop_search()` |
 | Key Event Components | `ke_components()`, `aop_components()`, `aop_plot_components()` |
 | Summaries | `aop_summary()`, `aop_gene_summary()`, `aop_plot_genes()` |
 | Dataset | `aop_dataset_info()`, `aop_data_version()`, `aop_cache_clear()` |
@@ -135,7 +145,7 @@ the data it came from, which can be reported alongside an analysis:
 
 ``` r
 aop_data_version(fibrosis)
-#> [1] "2026.10.07-c006903"
+#> [1] "2026.10.31-ca48500"
 ```
 
 ## Data source and licence

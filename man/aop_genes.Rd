@@ -18,7 +18,5 @@ A tibble of genes.
 Genes linked to an AOP
 }
 \examples{
-\dontrun{
 aop_genes(1)
-}
 }

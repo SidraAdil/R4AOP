@@ -16,7 +16,5 @@ A tibble of KERs.
 Key Event Relationships of an AOP
 }
 \examples{
-\dontrun{
 aop_kers(1)
-}
 }

@@ -16,7 +16,5 @@ A tibble with one row.
 Get a single Key Event
 }
 \examples{
-\dontrun{
 ke_get(334)
-}
 }

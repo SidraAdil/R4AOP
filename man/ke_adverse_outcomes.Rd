@@ -19,7 +19,5 @@ A tibble of Adverse Outcomes.
 Adverse Outcomes linked to a Key Event
 }
 \examples{
-\dontrun{
 ke_adverse_outcomes(334)
-}
 }

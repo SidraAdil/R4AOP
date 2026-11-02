@@ -40,10 +40,8 @@ resolve_stressor <- function(stressor) {
 #'   in the two `ao` columns. A stressor used in no AOP gives zero rows.
 #' @export
 #' @examples
-#' \dontrun{
 #' stressor_aops(150)
 #' stressor_aops("hexachlorobenzene")
-#' }
 stressor_aops <- function(stressor) {
   info <- resolve_stressor(stressor)
 
@@ -55,7 +53,9 @@ stressor_aops <- function(stressor) {
 
   ids <- if ("aop_ids" %in% names(info)) unlist(info$aop_ids[1]) else integer(0)
   if (length(ids) == 0) {
-    cli::cli_inform("{.val {info$title[1]}} (id {info$id[1]}) is used in no AOP.")
+    cli::cli_inform(
+      "{.val {info$title[1]}} (id {info$id[1]}) is used in no AOP."
+    )
     return(empty)
   }
 

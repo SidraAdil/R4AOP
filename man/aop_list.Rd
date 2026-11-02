@@ -47,8 +47,6 @@ Retrieve AOPs from the AOP-Wiki, optionally filtered. All filters are
 optional; unused ones are not sent to the API.
 }
 \examples{
-\dontrun{
 aop_list(q = "liver")
 aop_list(q = "liver fibrosis", resolve_titles = TRUE)
-}
 }

@@ -16,7 +16,5 @@ A tibble with one row.
 Get a single stressor
 }
 \examples{
-\dontrun{
-stressor_get(1)
-}
+stressor_get(150)
 }

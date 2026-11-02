@@ -1,40 +1,17 @@
-#' Plot the Key Event Components of an AOP
+#' Wrap long text at a given width
 #'
-#' Shows, for every Key Event of an AOP, the biological process, the biological
-#' object and the action that describe it, together with their ontology
-#' identifiers. Key Events are ordered from the molecular initiating event to
-#' the adverse outcome, and their titles are printed in green for the molecular
-#' initiating event and in red for the adverse outcome. Components that AOP-Wiki
-#' does not record are left blank.
+#' @keywords internal
+#' @noRd
+wrap_text <- function(x, width) {
+  vapply(x, function(s) paste(strwrap(s, width = width), collapse = "\n"),
+         character(1), USE.NAMES = FALSE)
+}
+
+#' Reshape Key Event Components into one row per component and part
 #'
-#' @param aop_id AOP identifier.
-#' @param wrap Width in characters at which long terms are wrapped.
-#' @return A ggplot object.
-#' @export
-#' @examples
-#' \dontrun{
-#' aop_plot_components(38)
-#' }
-aop_plot_components <- function(aop_id, wrap = 26) {
-  if (!requireNamespace("ggplot2", quietly = TRUE)) {
-    cli::cli_abort(
-      c("The {.pkg ggplot2} package is needed for {.fn aop_plot_components}.",
-        "i" = 'Install it with install.packages("ggplot2").'),
-      call = NULL
-    )
-  }
-
-  wrap_text <- function(x, width) {
-    vapply(x, function(s) paste(strwrap(s, width = width), collapse = "\n"),
-           character(1), USE.NAMES = FALSE)
-  }
-
-  dat <- aop_components(aop_id)
-  if (nrow(dat) == 0) {
-    cli::cli_abort("No Key Event Components are recorded for AOP {aop_id}.",
-                   call = NULL)
-  }
-
+#' @keywords internal
+#' @noRd
+component_long_table <- function(dat, wrap) {
   # A Key Event can have several components, so each gets its own row
   dat <- dat[order(match(dat$role, c("mie", "ke", "ao")), dat$ke_id), ]
   dat$comp <- stats::ave(seq_len(nrow(dat)), dat$ke_id, FUN = seq_along)
@@ -59,13 +36,18 @@ aop_plot_components <- function(aop_id, wrap = 26) {
     wrap_text(long$term, wrap),
     paste0(wrap_text(long$term, wrap), "\n", long$term_id)
   )
-
-  # Molecular initiating event at the top, adverse outcome at the bottom.
-  # One row per component, with the Key Event named on its first row only.
   long$row_key <- paste(long$ke_id, long$comp, sep = "-")
-  key <- order(match(long$role, c("ao", "ke", "mie")), -long$ke_id, -long$comp)
-  row_levels <- unique(long$row_key[key])
+  long
+}
 
+#' Axis labels for the component plot
+#'
+#' One row per component, with the Key Event named on its first row only, and
+#' the title coloured by role when ggtext is installed.
+#'
+#' @keywords internal
+#' @noRd
+component_row_labels <- function(long, row_levels, wrap) {
   row_label <- stats::setNames(rep("", length(row_levels)), row_levels)
   named <- long[!duplicated(long$row_key), ]
   row_label[named$row_key] <- ifelse(
@@ -74,13 +56,51 @@ aop_plot_components <- function(aop_id, wrap = 26) {
     ""
   )
 
-  # Colour the Key Event titles by role, if ggtext is installed
   if (has_ggtext()) {
     nm <- names(row_label)
     cols <- role_colour(long$role[match(nm, long$row_key)])
     row_label <- ifelse(nzchar(row_label), md_label(row_label, cols), "")
     names(row_label) <- nm
   }
+  row_label
+}
+
+#' Plot the Key Event Components of an AOP
+#'
+#' Shows, for every Key Event of an AOP, the biological process, the biological
+#' object and the action that describe it, together with their ontology
+#' identifiers. Key Events are ordered from the molecular initiating event to
+#' the adverse outcome, and their titles are printed in green for the molecular
+#' initiating event and in red for the adverse outcome. Components that AOP-Wiki
+#' does not record are left blank.
+#'
+#' @param aop_id AOP identifier.
+#' @param wrap Width in characters at which long terms are wrapped.
+#' @return A ggplot object.
+#' @export
+#' @examples
+#' aop_plot_components(38)
+aop_plot_components <- function(aop_id, wrap = 26) {
+  if (!requireNamespace("ggplot2", quietly = TRUE)) {
+    cli::cli_abort(
+      c("The {.pkg ggplot2} package is needed for {.fn aop_plot_components}.",
+        "i" = 'Install it with install.packages("ggplot2").'),
+      call = NULL
+    )
+  }
+
+  dat <- aop_components(aop_id)
+  if (nrow(dat) == 0) {
+    cli::cli_abort("No Key Event Components are recorded for AOP {aop_id}.",
+                   call = NULL)
+  }
+
+  long <- component_long_table(dat, wrap)
+
+  # Molecular initiating event at the top, adverse outcome at the bottom
+  key <- order(match(long$role, c("ao", "ke", "mie")), -long$ke_id, -long$comp)
+  row_levels <- unique(long$row_key[key])
+  row_label <- component_row_labels(long, row_levels, wrap)
 
   long$ke_lab <- factor(long$row_key, levels = row_levels)
   long$part <- factor(long$part, levels = c("Process", "Object", "Action"))

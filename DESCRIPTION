@@ -1,32 +1,48 @@
 Package: R4AOP
 Title: Access the AOP-Wiki Through Its REST API
-Version: 0.2.0
+Version: 0.99.0
 Authors@R: c(
-    person("Sidra", "Adil", email = "sidra.adil@maastrichtuniversity.nl",
+    person("Sidra", "Adil", email = "sidraadil009@gmail.com",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3044-3561")),
     person("Marvin", "Martens", email = "marvin.martens@maastrichtuniversity.nl",
            role = "aut",
            comment = c(ORCID = "0000-0003-2230-0840"))
   )
-Description: Provides functions to retrieve Adverse Outcome Pathways (AOPs), Key Events, Key Event Relationships, stressors, chemicals and genes from the AOP-Wiki through its REST API, without writing SPARQL queries.
+Description: Provides functions to retrieve Adverse Outcome Pathways (AOPs),
+    Key Events, Key Event Relationships, stressors, chemicals and genes from
+    the AOP-Wiki through its REST API, without writing SPARQL queries. Each
+    exported function corresponds to one API endpoint, and results are
+    returned as tibbles that fit directly into an R workflow. Pagination,
+    input validation and session caching are handled internally, and every
+    result carries the version of the AOP-Wiki data it came from, so that
+    analyses can be reported reproducibly.
 License: MIT + file LICENSE
+URL: https://github.com/SidraAdil/R4AOP
+BugReports: https://github.com/SidraAdil/R4AOP/issues
+biocViews: Software, ThirdPartyClient, Pathways, GeneSetEnrichment,
+    Annotation, DataImport
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Depends:
-    R (>= 4.1)
+    R (>= 4.6.0)
 Imports:
     cli,
+    GSEABase,
     httr2,
     memoise,
     tibble,
     vctrs
 Suggests:
+    BiocStyle,
     ggplot2,
     ggtext,
     httptest2,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0),
     tidyr
+VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/Needs/website: rmarkdown
+Config/roxygen2/version: 8.1.1

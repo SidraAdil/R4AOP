@@ -13,7 +13,5 @@ A tibble with one row.
 Version, license, data dumps and entity counts of the AOP-Wiki RDF dataset.
 }
 \examples{
-\dontrun{
 aop_dataset_info()
-}
 }

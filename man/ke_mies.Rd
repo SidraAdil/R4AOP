@@ -19,7 +19,5 @@ A tibble of MIEs.
 Molecular Initiating Events linked to a Key Event
 }
 \examples{
-\dontrun{
 ke_mies(334)
-}
 }

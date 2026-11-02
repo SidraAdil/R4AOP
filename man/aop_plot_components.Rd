@@ -23,7 +23,5 @@ initiating event and in red for the adverse outcome. Components that AOP-Wiki
 does not record are left blank.
 }
 \examples{
-\dontrun{
 aop_plot_components(38)
-}
 }

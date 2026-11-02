@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "id": 294,
+            "title": "N/A, Unknown",
+            "level": "Molecular",
+            "role": "mie"
+        }
+    ],
+    "meta": {
+        "total": 1,
+        "dataset_version": "2026.10.31-ca48500"
+    }
+}

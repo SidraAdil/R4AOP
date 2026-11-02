@@ -16,7 +16,5 @@ A tibble of measurement methods.
 Methods described for measuring the Key Events of an AOP.
 }
 \examples{
-\dontrun{
 aop_methods(1)
-}
 }

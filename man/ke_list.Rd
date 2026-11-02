@@ -35,8 +35,6 @@ A tibble with one row per Key Event.
 List Key Events
 }
 \examples{
-\dontrun{
 ke_list(q = "apoptosis")
 ke_list(aop = 1)
-}
 }

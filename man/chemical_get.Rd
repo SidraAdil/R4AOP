@@ -7,7 +7,7 @@
 chemical_get(cas)
 }
 \arguments{
-\item{cas}{CAS registry number, e.g. "71-43-2".}
+\item{cas}{CAS registry number, e.g. "56-23-5".}
 }
 \value{
 A tibble with one row.
@@ -16,7 +16,5 @@ A tibble with one row.
 Get a single chemical
 }
 \examples{
-\dontrun{
-chemical_get("71-43-2")
-}
+chemical_get("56-23-5")
 }

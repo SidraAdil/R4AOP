@@ -7,10 +7,8 @@
 #' @return A tibble with one row per gene.
 #' @export
 #' @examples
-#' \dontrun{
 #' gene_list(q = "TP53")
 #' gene_list(aop = 37)
-#' }
 gene_list <- function(q = NULL, aop = NULL, ke = NULL, method = NULL) {
   check_choice(method, c("any", "regex", "ner", "both"), "method")
   aop_request_all("genes", list(q = q, aop = aop, ke = ke, method = method))
@@ -22,9 +20,7 @@ gene_list <- function(q = NULL, aop = NULL, ke = NULL, method = NULL) {
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
 #' gene_get("TP53")
-#' }
 gene_get <- function(gene) {
   check_string(gene, "gene")
   fetch_row(paste0("genes/", gene))

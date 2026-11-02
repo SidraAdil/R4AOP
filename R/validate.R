@@ -21,7 +21,8 @@ check_range <- function(x, min, max, arg = "value") {
   if (!is.numeric(x) || length(x) != 1 || is.na(x) ||
       x != round(x) || x < min || x > max) {
     cli::cli_abort(
-      "{.arg {arg}} must be a whole number between {min} and {max}, not {.val {x}}.",
+      paste("{.arg {arg}} must be a whole number between {min} and {max},",
+            "not {.val {x}}."),
       call = NULL
     )
   }

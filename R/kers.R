@@ -8,10 +8,8 @@
 #' @return A tibble with one row per KER.
 #' @export
 #' @examples
-#' \dontrun{
 #' ker_list(aop = 1)
 #' ker_list(ke = 334)
-#' }
 ker_list <- function(aop = NULL, upstream = NULL, downstream = NULL,
                      ke = NULL, gene = NULL) {
   aop_request_all(
@@ -27,9 +25,7 @@ ker_list <- function(aop = NULL, upstream = NULL, downstream = NULL,
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
 #' ker_get(158)
-#' }
 ker_get <- function(ker_id) {
   check_id(ker_id, "ker_id")
   fetch_row(paste0("kers/", ker_id))

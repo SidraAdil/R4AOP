@@ -20,7 +20,5 @@ printed in green for the molecular initiating event and in red for the
 adverse outcome. Requires the ggplot2 package.
 }
 \examples{
-\dontrun{
 aop_plot_genes(38)
-}
 }

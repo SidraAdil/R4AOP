@@ -18,7 +18,5 @@ A tibble of AOPs.
 AOPs containing a Key Event
 }
 \examples{
-\dontrun{
 ke_aops(334)
-}
 }

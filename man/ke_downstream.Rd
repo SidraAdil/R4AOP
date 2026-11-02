@@ -18,7 +18,5 @@ A tibble of Key Events.
 Follows Key Event Relationships forwards.
 }
 \examples{
-\dontrun{
 ke_downstream(334, depth = 2)
-}
 }

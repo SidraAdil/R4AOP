@@ -3,14 +3,13 @@
 #' @param q Free-text search term.
 #' @param aop Only chemicals used in this AOP id.
 #' @param stressor Only chemicals linked to this stressor id.
-#' @param inchikey,chebi,pubchem,chemspider,wikidata,chembl,drugbank,kegg,hmdb,lipidmaps
+#' @param inchikey,chebi,pubchem,chemspider,wikidata Identifier filters.
+#' @param chembl,drugbank,kegg,hmdb,lipidmaps Further identifier filters.
 #'   Look the chemical up by an identifier in that database.
 #' @return A tibble with one row per chemical.
 #' @export
 #' @examples
-#' \dontrun{
 #' chemical_list(q = "benzene")
-#' }
 chemical_list <- function(q = NULL, aop = NULL, stressor = NULL,
                           inchikey = NULL, chebi = NULL, pubchem = NULL,
                           chemspider = NULL, wikidata = NULL, chembl = NULL,
@@ -27,13 +26,11 @@ chemical_list <- function(q = NULL, aop = NULL, stressor = NULL,
 
 #' Get a single chemical
 #'
-#' @param cas CAS registry number, e.g. "71-43-2".
+#' @param cas CAS registry number, e.g. "56-23-5".
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
-#' chemical_get("71-43-2")
-#' }
+#' chemical_get("56-23-5")
 chemical_get <- function(cas) {
   check_string(cas, "cas")
   fetch_row(paste0("chemicals/", cas))
@@ -45,9 +42,7 @@ chemical_get <- function(cas) {
 #' @return A tibble of AOPs.
 #' @export
 #' @examples
-#' \dontrun{
-#' chemical_aops("71-43-2")
-#' }
+#' chemical_aops("56-23-5")
 chemical_aops <- function(cas) {
   check_string(cas, "cas")
   fetch_table(paste0("chemicals/", cas, "/aops"))
@@ -60,9 +55,7 @@ chemical_aops <- function(cas) {
 #' @return A tibble of Key Events.
 #' @export
 #' @examples
-#' \dontrun{
-#' chemical_key_events("71-43-2")
-#' }
+#' chemical_key_events("56-23-5")
 chemical_key_events <- function(cas, role = NULL) {
   check_string(cas, "cas")
   check_choice(role, c("mie", "ke", "ao"), "role")
@@ -76,9 +69,7 @@ chemical_key_events <- function(cas, role = NULL) {
 #' @return A tibble of pathways.
 #' @export
 #' @examples
-#' \dontrun{
-#' chemical_pathways("71-43-2")
-#' }
+#' chemical_pathways("56-23-5")
 chemical_pathways <- function(cas) {
   check_string(cas, "cas")
   fetch_table(paste0("chemicals/", cas, "/pathways"))

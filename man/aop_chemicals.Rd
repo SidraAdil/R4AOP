@@ -16,7 +16,5 @@ A tibble of chemicals.
 Chemicals of an AOP
 }
 \examples{
-\dontrun{
 aop_chemicals(1)
-}
 }

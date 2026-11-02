@@ -22,8 +22,6 @@ A tibble with one row per gene.
 List genes
 }
 \examples{
-\dontrun{
 gene_list(q = "TP53")
 gene_list(aop = 37)
-}
 }

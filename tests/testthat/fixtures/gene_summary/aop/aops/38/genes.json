@@ -1,0 +1,1723 @@
+{
+    "data": [
+        {
+            "hgnc_id": 129,
+            "symbol": "ACTA1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 270,
+            "symbol": "PARP1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 333,
+            "symbol": "AGT",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 352,
+            "symbol": "AIF1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 352,
+            "symbol": "AIF1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 391,
+            "symbol": "AKT1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 399,
+            "symbol": "ALB",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 550,
+            "symbol": "AOC3",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 576,
+            "symbol": "APAF1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 663,
+            "symbol": "ARG1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 959,
+            "symbol": "BAX",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 990,
+            "symbol": "BCL2",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 992,
+            "symbol": "BCL2L1",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1044,
+            "symbol": "BGN",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1050,
+            "symbol": "BID",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1050,
+            "symbol": "BID",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1241,
+            "symbol": "C1QA",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1382,
+            "symbol": "CA8",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1437,
+            "symbol": "CALCA",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1476,
+            "symbol": "CAPN1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1499,
+            "symbol": "CASP1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1499,
+            "symbol": "CASP1",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1499,
+            "symbol": "CASP1",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1499,
+            "symbol": "CASP1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1504,
+            "symbol": "CASP3",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1504,
+            "symbol": "CASP3",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1504,
+            "symbol": "CASP3",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1511,
+            "symbol": "CASP9",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1628,
+            "symbol": "CD14",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1678,
+            "symbol": "CD4",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1681,
+            "symbol": "CD44",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1693,
+            "symbol": "CD68",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1705,
+            "symbol": "CD86",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 1705,
+            "symbol": "CD86",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 1950,
+            "symbol": "CHRM1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2197,
+            "symbol": "COL1A1",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2197,
+            "symbol": "COL1A1",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2197,
+            "symbol": "COL1A1",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2197,
+            "symbol": "COL1A1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2197,
+            "symbol": "COL1A1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2198,
+            "symbol": "COL1A2",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2198,
+            "symbol": "COL1A2",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2198,
+            "symbol": "COL1A2",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "key_event",
+            "entity_id": 344,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "ker",
+            "entity_id": 82,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2200,
+            "symbol": "COL2A1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2202,
+            "symbol": "COL4A1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2432,
+            "symbol": "CSF1",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2434,
+            "symbol": "CSF2",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2434,
+            "symbol": "CSF2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2438,
+            "symbol": "CSF3",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 2500,
+            "symbol": "CCN2",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 2527,
+            "symbol": "CTSB",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2631,
+            "symbol": "CYP2E1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2705,
+            "symbol": "DCN",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 2714,
+            "symbol": "DCX",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 2917,
+            "symbol": "DLX4",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 2978,
+            "symbol": "DNMT3A",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 3157,
+            "symbol": "EDA",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 3176,
+            "symbol": "EDN1",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 3778,
+            "symbol": "FN1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 3778,
+            "symbol": "FN1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4012,
+            "symbol": "FUT1",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 4012,
+            "symbol": "FUT1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 4086,
+            "symbol": "GABRG1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4235,
+            "symbol": "GFAP",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4235,
+            "symbol": "GFAP",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 4432,
+            "symbol": "GOT1",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4602,
+            "symbol": "CXCL1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 4739,
+            "symbol": "H2AX",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 4893,
+            "symbol": "HGF",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 4893,
+            "symbol": "HGF",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 4927,
+            "symbol": "SLC39A7",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5013,
+            "symbol": "HMOX1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5249,
+            "symbol": "HSPB7",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5318,
+            "symbol": "TNC",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5344,
+            "symbol": "ICAM1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5417,
+            "symbol": "IFNA1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5438,
+            "symbol": "IFNG",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5438,
+            "symbol": "IFNG",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5438,
+            "symbol": "IFNG",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5464,
+            "symbol": "IGF1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5962,
+            "symbol": "IL10",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5973,
+            "symbol": "IL13",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 5973,
+            "symbol": "IL13",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 5981,
+            "symbol": "IL17A",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 5986,
+            "symbol": "IL18",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 5991,
+            "symbol": "IL1A",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5991,
+            "symbol": "IL1A",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5992,
+            "symbol": "IL1B",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5992,
+            "symbol": "IL1B",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5992,
+            "symbol": "IL1B",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 5992,
+            "symbol": "IL1B",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6001,
+            "symbol": "IL2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6014,
+            "symbol": "IL4",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6014,
+            "symbol": "IL4",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6014,
+            "symbol": "IL4",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6016,
+            "symbol": "IL5",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6018,
+            "symbol": "IL6",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6018,
+            "symbol": "IL6",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6018,
+            "symbol": "IL6",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6018,
+            "symbol": "IL6",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 6018,
+            "symbol": "IL6",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6025,
+            "symbol": "CXCL8",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6026,
+            "symbol": "CXCR1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6029,
+            "symbol": "IL9",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6036,
+            "symbol": "FOXK2",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6040,
+            "symbol": "ILK",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6149,
+            "symbol": "ITGAM",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6205,
+            "symbol": "JUNB",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6286,
+            "symbol": "KCNMB2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6371,
+            "symbol": "KLKB1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6383,
+            "symbol": "KNG1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6487,
+            "symbol": "LAMB2",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6487,
+            "symbol": "LAMB2",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6535,
+            "symbol": "LDHA",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6601,
+            "symbol": "LIG4",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6664,
+            "symbol": "LOX",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6692,
+            "symbol": "LRP1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6714,
+            "symbol": "LTBP1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6767,
+            "symbol": "SMAD1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6767,
+            "symbol": "SMAD1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6768,
+            "symbol": "SMAD2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6768,
+            "symbol": "SMAD2",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6770,
+            "symbol": "SMAD4",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6773,
+            "symbol": "SMAD7",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6773,
+            "symbol": "SMAD7",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6774,
+            "symbol": "SMAD9",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6774,
+            "symbol": "SMAD9",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6839,
+            "symbol": "MAP2",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 6847,
+            "symbol": "MAP2K7",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6871,
+            "symbol": "MAPK1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6871,
+            "symbol": "MAPK1",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6871,
+            "symbol": "MAPK1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6876,
+            "symbol": "MAPK14",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6877,
+            "symbol": "MAPK3",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6881,
+            "symbol": "MAPK8",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6881,
+            "symbol": "MAPK8",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 6886,
+            "symbol": "MAPK9",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 7155,
+            "symbol": "MMP1",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7155,
+            "symbol": "MMP1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7155,
+            "symbol": "MMP1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7203,
+            "symbol": "CD200",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 7228,
+            "symbol": "MRC1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 7785,
+            "symbol": "NFIB",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7794,
+            "symbol": "NFKB1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7794,
+            "symbol": "NFKB1",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7794,
+            "symbol": "NFKB1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7794,
+            "symbol": "NFKB1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7872,
+            "symbol": "NOS1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 7872,
+            "symbol": "NOS1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7873,
+            "symbol": "NOS2",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 7889,
+            "symbol": "NOX1",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7889,
+            "symbol": "NOX1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 7889,
+            "symbol": "NOX1",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8543,
+            "symbol": "P2RY6",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8568,
+            "symbol": "FURIN",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8729,
+            "symbol": "PCNA",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 8768,
+            "symbol": "AIFM1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8799,
+            "symbol": "PDGFA",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8799,
+            "symbol": "PDGFA",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8804,
+            "symbol": "PDGFRB",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8947,
+            "symbol": "PI3",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 8947,
+            "symbol": "PI3",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 8974,
+            "symbol": "PIK3C3",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 8974,
+            "symbol": "PIK3C3",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9253,
+            "symbol": "PPIA",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9358,
+            "symbol": "PREP",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9612,
+            "symbol": "PTK2B",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9955,
+            "symbol": "RELA",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9955,
+            "symbol": "RELA",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 9969,
+            "symbol": "RFC1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 10498,
+            "symbol": "S100A8",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 10500,
+            "symbol": "S100B",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 10618,
+            "symbol": "CCL2",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 10618,
+            "symbol": "CCL2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 10618,
+            "symbol": "CCL2",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 10640,
+            "symbol": "CXCL14",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 10640,
+            "symbol": "CXCL14",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 10640,
+            "symbol": "CXCL14",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11068,
+            "symbol": "SLC8A1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11128,
+            "symbol": "SNAI1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11764,
+            "symbol": "TG",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 11765,
+            "symbol": "TGFA",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11765,
+            "symbol": "TGFA",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11765,
+            "symbol": "TGFA",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11766,
+            "symbol": "TGFB1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11768,
+            "symbol": "TGFB2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11769,
+            "symbol": "TGFB3",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11772,
+            "symbol": "TGFBR1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11772,
+            "symbol": "TGFBR1",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11773,
+            "symbol": "TGFBR2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11782,
+            "symbol": "TH",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11820,
+            "symbol": "TIMP1",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11847,
+            "symbol": "TLR1",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11848,
+            "symbol": "TLR2",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11848,
+            "symbol": "TLR2",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11849,
+            "symbol": "TLR3",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11850,
+            "symbol": "TLR4",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11892,
+            "symbol": "TNF",
+            "entity_type": "ker",
+            "entity_id": 1764,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11919,
+            "symbol": "CD40",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11920,
+            "symbol": "FAS",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 11925,
+            "symbol": "TNFSF10",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11936,
+            "symbol": "FASLG",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 11936,
+            "symbol": "FASLG",
+            "entity_type": "ker",
+            "entity_id": 1763,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 12680,
+            "symbol": "VEGFA",
+            "entity_type": "key_event",
+            "entity_id": 265,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 12680,
+            "symbol": "VEGFA",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 12680,
+            "symbol": "VEGFA",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 13273,
+            "symbol": "DUOX2",
+            "entity_type": "ker",
+            "entity_id": 1718,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 14542,
+            "symbol": "WNK2",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 14922,
+            "symbol": "PLAAT1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 15629,
+            "symbol": "B3GNT2",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 15633,
+            "symbol": "TLR9",
+            "entity_type": "ker",
+            "entity_id": 68,
+            "detected_by": "both"
+        },
+        {
+            "hgnc_id": 16815,
+            "symbol": "PHOSPHO1",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 16824,
+            "symbol": "HCAR3",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 16830,
+            "symbol": "IL32",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 16961,
+            "symbol": "CD226",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 18315,
+            "symbol": "RND2",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 19235,
+            "symbol": "AATF",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 19986,
+            "symbol": "CYCS",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 19986,
+            "symbol": "CYCS",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 23696,
+            "symbol": "TIPARP",
+            "entity_type": "key_event",
+            "entity_id": 55,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 24994,
+            "symbol": "INIP",
+            "entity_type": "ker",
+            "entity_id": 269,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 29175,
+            "symbol": "WDTC1",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "regex"
+        },
+        {
+            "hgnc_id": 29821,
+            "symbol": "ISYNA1",
+            "entity_type": "key_event",
+            "entity_id": 1493,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 32479,
+            "symbol": "BOLA2B",
+            "entity_type": "key_event",
+            "entity_id": 1492,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 34072,
+            "symbol": "C1QTNF9B",
+            "entity_type": "key_event",
+            "entity_id": 68,
+            "detected_by": "ner"
+        },
+        {
+            "hgnc_id": 54872,
+            "symbol": "ACTG1P25",
+            "entity_type": "ker",
+            "entity_id": 295,
+            "detected_by": "ner"
+        }
+    ],
+    "meta": {
+        "total": 245,
+        "dataset_version": "2026.10.31-ca48500"
+    }
+}

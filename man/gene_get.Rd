@@ -16,7 +16,5 @@ A tibble with one row.
 Get a single gene
 }
 \examples{
-\dontrun{
 gene_get("TP53")
-}
 }

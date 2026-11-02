@@ -7,10 +7,8 @@
 #' @return A tibble with one row per stressor.
 #' @export
 #' @examples
-#' \dontrun{
 #' stressor_list(q = "benzene")
 #' stressor_list(aop = 1)
-#' }
 stressor_list <- function(q = NULL, aop = NULL, chemical = NULL,
                           has_chemical = NULL) {
   if (!is.null(has_chemical)) {
@@ -28,9 +26,7 @@ stressor_list <- function(q = NULL, aop = NULL, chemical = NULL,
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
-#' stressor_get(1)
-#' }
+#' stressor_get(150)
 stressor_get <- function(stressor_id) {
   check_id(stressor_id, "stressor_id")
   fetch_row(paste0("stressors/", stressor_id))

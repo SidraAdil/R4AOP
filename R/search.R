@@ -1,6 +1,7 @@
 #' Search across AOP-Wiki entities
 #'
-#' Free-text search over AOPs, Key Events, KERs, stressors and chemicals at once.
+#' Free-text search over AOPs, Key Events, KERs, stressors and chemicals
+#' at once.
 #'
 #' @param q Search term (1 to 200 characters).
 #' @param types Restrict to certain entity types, e.g. "aop" or "key_event".
@@ -8,9 +9,7 @@
 #' @return A tibble of matches, with a `type` column and a relevance `score`.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_search("liver")
-#' }
 aop_search <- function(q, types = NULL, limit = 100) {
   check_string(q, "q")
   fetch_table("search", list(q = q, types = types, limit = limit))
@@ -23,9 +22,7 @@ aop_search <- function(q, types = NULL, limit = 100) {
 #' @return A tibble with one row.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_dataset_info()
-#' }
 aop_dataset_info <- function() {
   fetch_row("dataset")
 }
@@ -40,11 +37,9 @@ aop_dataset_info <- function() {
 #' @return A version string, e.g. "2026.09.12".
 #' @export
 #' @examples
-#' \dontrun{
 #' aops <- aop_list(q = "liver")
 #' aop_data_version(aops)
 #' aop_data_version()
-#' }
 aop_data_version <- function(x = NULL) {
   if (is.null(x)) return(aop_dataset_info()$version)
   v <- attr(x, "dataset_version")

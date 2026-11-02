@@ -92,9 +92,7 @@ taxon_labels <- function(taxa) {
 #'   `role`, of class `aop_summary`.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_summary(38)
-#' }
 aop_summary <- function(aop_id) {
   check_id(aop_id, "aop_id")
 

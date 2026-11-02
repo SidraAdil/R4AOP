@@ -22,7 +22,5 @@ API returns them nested inside a single Key Event record, and this function
 returns them as one row per component.
 }
 \examples{
-\dontrun{
 ke_components(55)
-}
 }

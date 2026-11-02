@@ -30,8 +30,6 @@ A tibble with one row per KER.
 List Key Event Relationships
 }
 \examples{
-\dontrun{
 ker_list(aop = 1)
 ker_list(ke = 334)
-}
 }

@@ -18,8 +18,6 @@ A tibble of Key Events.
 Key Events of an AOP
 }
 \examples{
-\dontrun{
 aop_key_events(1)
 aop_key_events(1, role = "mie")
-}
 }

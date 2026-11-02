@@ -24,8 +24,6 @@ given as an identifier or as a name, in which case the name is looked up
 with \code{\link[=stressor_list]{stressor_list()}}.
 }
 \examples{
-\dontrun{
 stressor_aops(150)
 stressor_aops("hexachlorobenzene")
-}
 }

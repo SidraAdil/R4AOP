@@ -14,7 +14,5 @@ Responses are cached for the current R session. Clear the cache to force
 fresh requests, for example after the AOP-Wiki data has been updated.
 }
 \examples{
-\dontrun{
 aop_cache_clear()
-}
 }

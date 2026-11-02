@@ -16,7 +16,5 @@ A tibble of chemicals.
 Chemicals of a Key Event
 }
 \examples{
-\dontrun{
 ke_chemicals(334)
-}
 }

@@ -7,7 +7,7 @@
 chemical_aops(cas)
 }
 \arguments{
-\item{cas}{CAS registry number, e.g. "71-43-2".}
+\item{cas}{CAS registry number, e.g. "56-23-5".}
 }
 \value{
 A tibble of AOPs.
@@ -16,7 +16,5 @@ A tibble of AOPs.
 AOPs linked to a chemical
 }
 \examples{
-\dontrun{
-chemical_aops("71-43-2")
-}
+chemical_aops("56-23-5")
 }

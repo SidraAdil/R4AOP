@@ -16,7 +16,5 @@ A tibble of stressors.
 Stressors of an AOP
 }
 \examples{
-\dontrun{
 aop_stressors(1)
-}
 }

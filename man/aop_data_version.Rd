@@ -18,9 +18,7 @@ Reports which version of the AOP-Wiki dataset a result came from. Use it
 when reporting results, so an analysis can be reproduced later.
 }
 \examples{
-\dontrun{
 aops <- aop_list(q = "liver")
 aop_data_version(aops)
 aop_data_version()
-}
 }

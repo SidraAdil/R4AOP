@@ -27,7 +27,10 @@ chemical_list(
 
 \item{stressor}{Only chemicals linked to this stressor id.}
 
-\item{inchikey, chebi, pubchem, chemspider, wikidata, chembl, drugbank, kegg, hmdb, lipidmaps}{Look the chemical up by an identifier in that database.}
+\item{inchikey, chebi, pubchem, chemspider, wikidata}{Identifier filters.}
+
+\item{chembl, drugbank, kegg, hmdb, lipidmaps}{Further identifier filters.
+Look the chemical up by an identifier in that database.}
 }
 \value{
 A tibble with one row per chemical.
@@ -36,7 +39,5 @@ A tibble with one row per chemical.
 List or search chemicals
 }
 \examples{
-\dontrun{
 chemical_list(q = "benzene")
-}
 }

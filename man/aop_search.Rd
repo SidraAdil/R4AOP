@@ -17,10 +17,9 @@ aop_search(q, types = NULL, limit = 100)
 A tibble of matches, with a \code{type} column and a relevance \code{score}.
 }
 \description{
-Free-text search over AOPs, Key Events, KERs, stressors and chemicals at once.
+Free-text search over AOPs, Key Events, KERs, stressors and chemicals
+at once.
 }
 \examples{
-\dontrun{
 aop_search("liver")
-}
 }

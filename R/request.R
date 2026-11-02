@@ -57,16 +57,16 @@ aop_request_impl <- function(path, query = list()) {
   httr2::resp_body_json(resp, simplifyVector = TRUE)
 }
 
-# Filled in by .onLoad()
-aop_request_cached <- NULL
+# Memoised request function, filled in by .onLoad()
+.aop_memo <- new.env(parent = emptyenv())
 
 #' Perform a request, using the session cache when enabled
 #'
 #' @keywords internal
 #' @noRd
 aop_request <- function(path, query = list()) {
-  if (isTRUE(getOption("R4AOP.cache", TRUE))) {
-    aop_request_cached(path, query)
+  if (isTRUE(getOption("R4AOP.cache", TRUE)) && !is.null(.aop_memo$request)) {
+    .aop_memo$request(path, query)
   } else {
     aop_request_impl(path, query)
   }
@@ -80,11 +80,9 @@ aop_request <- function(path, query = list()) {
 #' @return Invisibly TRUE.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_cache_clear()
-#' }
 aop_cache_clear <- function() {
-  memoise::forget(aop_request_cached)
+  if (!is.null(.aop_memo$request)) memoise::forget(.aop_memo$request)
   invisible(TRUE)
 }
 ######### TR-02 (pagination)
@@ -148,7 +146,8 @@ as_table <- function(x) {
 #' @noRd
 empty_like <- function(path) {
   res <- try(aop_request(path, list(limit = 1)), silent = TRUE)
-  if (inherits(res, "try-error") || is.null(res$data) || length(res$data) == 0) {
+  failed <- inherits(res, "try-error")
+  if (failed || is.null(res$data) || length(res$data) == 0) {
     return(tibble::tibble())
   }
   tibble::as_tibble(res$data)[0, ]

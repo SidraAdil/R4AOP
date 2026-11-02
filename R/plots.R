@@ -27,9 +27,7 @@ has_ggtext <- function() requireNamespace("ggtext", quietly = TRUE)
 #'   `detected_by` and `n_genes`.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_gene_summary(38)
-#' }
 aop_gene_summary <- function(aop_id) {
   check_id(aop_id, "aop_id")
 
@@ -63,6 +61,27 @@ aop_gene_summary <- function(aop_id) {
   tibble::as_tibble(out[order(out$ke_id, out$detected_by), ])
 }
 
+#' Add the Key Events of an AOP that carry no gene links
+#'
+#' They are given a count of zero, so that the gap stays visible in the plot
+#' instead of the Key Event disappearing from it.
+#'
+#' @keywords internal
+#' @noRd
+add_gene_free_kes <- function(dat, aop_id) {
+  kes <- aop_key_events(aop_id)
+  gap <- kes[!kes$id %in% dat$ke_id, , drop = FALSE]
+  if (nrow(gap) == 0) return(dat)
+
+  vctrs::vec_rbind(
+    dat,
+    tibble::tibble(
+      ke_id = gap$id, ke_title = gap$title, role = gap$role,
+      detected_by = dat$detected_by[1], n_genes = 0L
+    )
+  )
+}
+
 #' Plot the genes of an AOP per Key Event
 #'
 #' Draws a bar chart of the distinct genes linked to each Key Event of an AOP,
@@ -75,9 +94,7 @@ aop_gene_summary <- function(aop_id) {
 #' @return A ggplot object, which can be further modified in the usual way.
 #' @export
 #' @examples
-#' \dontrun{
 #' aop_plot_genes(38)
-#' }
 aop_plot_genes <- function(aop_id) {
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
     cli::cli_abort(
@@ -93,18 +110,7 @@ aop_plot_genes <- function(aop_id) {
                    call = NULL)
   }
 
-  # Key Events without gene links are kept, so that the gap stays visible
-  kes <- aop_key_events(aop_id)
-  gap <- kes[!kes$id %in% dat$ke_id, , drop = FALSE]
-  if (nrow(gap) > 0) {
-    dat <- vctrs::vec_rbind(
-      dat,
-      tibble::tibble(
-        ke_id = gap$id, ke_title = gap$title, role = gap$role,
-        detected_by = dat$detected_by[1], n_genes = 0L
-      )
-    )
-  }
+  dat <- add_gene_free_kes(dat, aop_id)
 
   p <- ggplot2::ggplot(
     dat,

@@ -1,0 +1,272 @@
+---
+title: "Exploring liver fibrosis AOPs with R4AOP"
+author: "Sidra Adil"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Exploring liver fibrosis AOPs with R4AOP}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 4.5,
+  fig.path = "figures/",
+  dpi = 300,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+The output in this vignette was generated once against the dataset version
+reported in the Reproducibility section, rather than at build time, because
+every call queries the live AOP-Wiki API. The code is shown exactly as it ran.
+
+AOP-Wiki is published as RDF and is normally queried with SPARQL. That is a
+barrier for some people, and it means that questions which are conceptually
+simple ("which genes belong to this Adverse Outcome Pathway (AOP)?") require a
+query language.
+
+This article answers one such question end to end, using only R4AOP functions.
+The question is:
+
+> What does AOP-Wiki store about liver fibrosis, and which genes are involved?
+
+```{r setup}
+library(R4AOP)
+library(ggplot2)
+```
+
+## 1. Find the relevant pathways
+
+`aop_list()` retrieves AOPs and accepts a free-text filter, which searches the
+AOP title and short name.
+
+```{r find}
+fibrosis <- aop_list(q = "liver fibrosis")
+fibrosis[, c("id", "title", "oecd_status")]
+```
+
+The result is an ordinary tibble, so the returned set can be narrowed by any
+column, according to the context of the question. Development stage, last
+modification date, or the identifiers of the events a pathway contains are all
+available:
+
+```{r filtering}
+# by development stage
+fibrosis[which(fibrosis$oecd_status == "WPHA/WNT Endorsed"), c("id", "title")]
+
+# by recency of curation
+fibrosis[fibrosis$modified > "2023-01-01", c("id", "title", "modified")]
+```
+
+AOPs are living documents: most are still under development and are revised as
+evidence accumulates, so no single column defines a "correct" subset. Which
+filter is appropriate depends on the question being asked. Here we continue with
+OECD endorsed AOP:
+
+```{r pick}
+aop_id <- 38
+aop_id
+```
+
+The `mie_ids` and `ao_ids` columns hold identifiers rather than text. Setting
+`resolve_titles = TRUE` looks those up, so the start and end points of each
+pathway can be read directly:
+
+```{r resolve-titles}
+titled <- aop_list(q = "liver fibrosis", resolve_titles = TRUE)
+
+data.frame(
+  id  = titled$id,
+  mie = vapply(titled$mie_titles, function(x) paste(x, collapse = "; "), ""),
+  ao  = vapply(titled$ao_titles,  function(x) paste(x, collapse = "; "), "")
+)
+```
+
+## 2. Inspect the structure of the pathway
+
+A single AOP record gives the descriptive metadata.
+
+```{r single-aop}
+aop <- aop_get(aop_id)
+aop$title
+aop$oecd_status
+```
+
+Its Key Events (KEs) are the biological steps of the pathway. The `role` column
+marks where each event is positioned in the cause-and-effect chain: `mie` is the
+molecular initiating event (MIE), `ao` the adverse outcome (AO), and `ke`
+everything in between.
+
+```{r key-events}
+kes <- aop_key_events(aop_id)
+kes[, c("id", "title", "role")]
+```
+
+```{r roles}
+table(kes$role)
+```
+
+The Key Event Relationships (KERs) are the directed links between those steps.
+Each KER carries the upstream (cause) and downstream (effect) KE.
+
+```{r kers}
+kers <- aop_kers(aop_id)
+
+edges <- data.frame(
+  ker_id = kers$id,
+  from   = kers$upstream$title,
+  to     = kers$downstream$title
+)
+edges
+```
+
+Read together, `kes` and `edges` are the full topology of the pathway: nodes and
+directed edges. Everything needed to build a graph object or a diagram is
+already here, in two calls.
+
+## 3. Retrieve the linked genes
+
+AOP-Wiki genes come from the enriched RDF layer, which links genes to KEs and to
+KERs. The `detected_by` column records how the link
+was made: `regex` for pattern matching, `ner` for named entity recognition, and
+`both` where the two methods agree.
+
+```{r genes}
+genes <- aop_genes(aop_id)
+nrow(genes)
+head(genes)
+```
+
+```{r by-method}
+table(genes$detected_by)
+```
+
+The `detected_by` column lets the three groups be compared directly.
+
+```{r fig-methods, fig.cap = "Distinct genes per detection method."}
+per_method <- aggregate(symbol ~ detected_by, data = genes,
+                        FUN = function(x) length(unique(x)))
+names(per_method)[2] <- "n_genes"
+per_method
+```
+
+## 4. Genes per Key Event
+
+Gene links are attached to individual KEs, not only to the AOP as a whole, so
+each KE can be treated as a candidate gene set. This is what makes the data
+usable in a transcriptomics analysis.
+
+`aop_gene_summary()` returns those counts, and `aop_plot_genes()` draws them:
+
+```{r ke-summary}
+summary_tbl <- aop_gene_summary(aop_id)
+summary_tbl
+```
+
+```{r fig-ke, fig.height = 4, fig.cap = "Genes linked to each KE, split by detection method. KE titles are printed in green for the MIE and in red for the AO. A KE without gene links is shown with an empty bar."}
+aop_plot_genes(aop_id)
+```
+
+Six of the seven KEs carry gene links. The MIE of this AOP carries none, and it
+is drawn with an empty bar, so the gap in the annotation stays visible.
+
+The plot is an ordinary ggplot object, so it can be adjusted like any other,
+for example with a different theme or colour scale.
+
+A gene set for one KE, ready for enrichment analysis, is one line:
+
+```{r gene-set}
+mie_id <- kes$id[kes$role == "mie"]
+mie_genes <- unique(genes$symbol[genes$entity_id == mie_id])
+length(mie_genes)
+head(mie_genes, 10)
+```
+
+## 5. Key Event Components
+
+KEs are also described by Key Event Components (KECs), each a triplet of a
+biological process (BP), a biological object (BO), and an action term. The BP and
+the BO are ontology terms, and the action gives the directionality aspect of the KE.
+Each KE has one or more KECs. Not all KEs in AOP-Wiki are fully described this
+way, so the BP or the BO can be empty. The BP and BO terms carry identifiers from
+a range of ontologies.
+
+```{r components}
+aop_components(aop_id)[, c("ke_id", "process", "process_id", "action")]
+```
+
+```{r fig-kec, fig.height = 5, fig.cap = "KECs of each KE, with their ontology identifiers. KE titles are printed in green for the MIE and in red for the AO. Blank cells mark components that AOP-Wiki does not record."}
+aop_plot_components(aop_id)
+```
+
+Blank cells are informative in their own right: they show where the ontology
+annotation of a pathway is still incomplete.
+
+## 6. Other questions about the same pathway
+
+The same pathway can be approached from several directions, each a single call.
+
+What is known to trigger it:
+
+```{r triggers}
+aop_stressors(aop_id)[, c("id", "title")]
+aop_chemicals(aop_id)
+```
+
+Whether a particular gene belongs to this AOP, and how the link was made:
+
+```{r one-gene}
+"TGFB1" %in% genes$symbol
+genes[genes$symbol == "TGFB1", ]
+```
+
+KEs can be filtered by gene, and each KE reports the AOPs it belongs to:
+
+```{r gene-to-aop}
+kes_with_gene <- ke_list(gene = "TGFB1")
+nrow(kes_with_gene)
+
+aops_with_gene <- unique(unlist(
+  lapply(head(kes_with_gene$id, 5), function(i) ke_aops(i)$id)
+))
+aops_with_gene
+```
+
+## 7. Reproducibility
+
+AOP-Wiki is curated continuously, so results depend on the version of the data
+that was queried. Every R4AOP result carries that version, and it can be
+reported alongside the findings.
+
+```{r version}
+aop_data_version(fibrosis)
+```
+
+## 8. What this replaces
+
+Retrieving the same information directly from the RDF endpoint means one SPARQL
+query per step: declaring prefixes, matching the AOP to its KEs through
+`aopo:has_key_event`, following `aopo:has_key_event_relationship` for the
+topology, and joining the enriched gene links. Each query has to be written
+against the RDF schema and kept in step with it, in every project that needs it.
+
+With R4AOP each of those steps is a single function call. The package covers the
+routine tasks that most analyses begin with: listing AOPs, filtering them,
+following the links to KEs, KERs, stressors, chemicals and genes, and pulling the
+results into tibbles that fit directly into an R workflow. These are the steps that are repeated in nearly every
+project, and they are the ones the package makes immediate. SPARQL stays
+available for tailored or complex retrieval that no endpoint covers.
+
+# Session information
+
+```{r session-info}
+sessionInfo()
+```

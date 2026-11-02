@@ -27,7 +27,5 @@ chain, so the order is then one valid sequence among several, and the
 printed output says so.
 }
 \examples{
-\dontrun{
 aop_summary(38)
-}
 }

@@ -42,26 +42,18 @@ component_long_table <- function(dat, wrap) {
 
 #' Axis labels for the component plot
 #'
-#' One row per component, with the Key Event named on its first row only, and
-#' the title coloured by role when ggtext is installed.
+#' One row per component, with the Key Event named on its first row only.
 #'
 #' @keywords internal
 #' @noRd
 component_row_labels <- function(long, row_levels, wrap) {
   row_label <- stats::setNames(rep("", length(row_levels)), row_levels)
   named <- long[!duplicated(long$row_key), ]
-  row_label[named$row_key] <- ifelse(
-    named$comp == 1,
-    paste0(wrap_text(named$ke_title, wrap + 8), " (KE ", named$ke_id, ")"),
-    ""
-  )
+  titled <- role_label(named$ke_title, named$role)
+  full <- paste0(wrap_text(titled, wrap + 8), " (KE ", named$ke_id, ")")
+  full <- colour_by_role(full, named$role)
+  row_label[named$row_key] <- ifelse(named$comp == 1, full, "")
 
-  if (has_ggtext()) {
-    nm <- names(row_label)
-    cols <- role_colour(long$role[match(nm, long$row_key)])
-    row_label <- ifelse(nzchar(row_label), md_label(row_label, cols), "")
-    names(row_label) <- nm
-  }
   row_label
 }
 
@@ -70,9 +62,9 @@ component_row_labels <- function(long, row_levels, wrap) {
 #' Shows, for every Key Event of an AOP, the biological process, the biological
 #' object and the action that describe it, together with their ontology
 #' identifiers. Key Events are ordered from the molecular initiating event to
-#' the adverse outcome, and their titles are printed in green for the molecular
-#' initiating event and in red for the adverse outcome. Components that AOP-Wiki
-#' does not record are left blank.
+#' the adverse outcome, and those two are marked in their titles, coloured
+#' green and red when the marquee package is installed. Components that
+#' AOP-Wiki does not record are left blank.
 #'
 #' @param aop_id AOP identifier.
 #' @param wrap Width in characters at which long terms are wrapped.
@@ -119,15 +111,15 @@ aop_plot_components <- function(aop_id, wrap = 26) {
       x = NULL, y = NULL, fill = NULL,
       title = paste0("Key Event Components of AOP ", aop_id)
     ) +
-    ggplot2::theme_minimal(base_size = 11) +
+    # theme_bw() rather than theme_minimal(), because a marquee axis element
+    # is not honoured on top of theme_minimal()
+    ggplot2::theme_bw(base_size = 11) +
     ggplot2::theme(
       legend.position = "none",
       panel.grid = ggplot2::element_blank(),
+      panel.border = ggplot2::element_blank(),
+      axis.ticks = ggplot2::element_blank(),
       axis.text.x = ggplot2::element_text(face = "bold"),
-      axis.text.y = if (has_ggtext()) {
-        ggtext::element_markdown(hjust = 1)
-      } else {
-        ggplot2::element_text(hjust = 1)
-      }
+      axis.text.y = role_axis_text(hjust = 1)
     )
 }

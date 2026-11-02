@@ -35,7 +35,13 @@ Useful links:
 Authors:
 \itemize{
   \item Sidra Adil \email{sidraadil009@gmail.com} (\href{https://orcid.org/0000-0002-3044-3561}{ORCID})
-  \item Marvin Martens \email{marvin.martens@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0003-2230-0840}{ORCID})
+  \item Marvin Martens \email{marvin.martens@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0003-2230-0840}{ORCID}) [contributor]
+}
+
+Other contributors:
+\itemize{
+  \item Egon Willighagen \email{egon.willighagen@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0001-7542-0286}{ORCID}) [contributor]
+  \item Tooba Abbassi-Daloii \email{t.abbassidaloii@amsterdamumc.nl} (\href{https://orcid.org/0000-0002-4904-3269}{ORCID}) [contributor]
 }
 
 }

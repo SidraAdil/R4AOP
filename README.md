@@ -79,9 +79,9 @@ table(genes$detected_by)
 ```
 
 Genes are linked to individual Key Events, so each Key Event can be
-treated as a candidate gene set. Key Event titles are printed in green
-for the molecular initiating event and in red for the adverse outcome,
-and Key Events without gene links are left out:
+treated as a candidate gene set. The molecular initiating event and the
+adverse outcome are marked in the titles, in green and red, and a Key
+Event without gene links is shown with an empty bar:
 
 ``` r
 aop_plot_genes(38)

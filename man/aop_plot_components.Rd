@@ -18,9 +18,9 @@ A ggplot object.
 Shows, for every Key Event of an AOP, the biological process, the biological
 object and the action that describe it, together with their ontology
 identifiers. Key Events are ordered from the molecular initiating event to
-the adverse outcome, and their titles are printed in green for the molecular
-initiating event and in red for the adverse outcome. Components that AOP-Wiki
-does not record are left blank.
+the adverse outcome, and those two are marked in their titles, coloured
+green and red when the marquee package is installed. Components that
+AOP-Wiki does not record are left blank.
 }
 \examples{
 aop_plot_components(38)

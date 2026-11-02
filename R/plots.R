@@ -1,21 +1,46 @@
 # Colour used for the title of a Key Event, by its role in the AOP
 role_colour <- function(role) {
   ifelse(role == "mie", "#1baf7a",
-         ifelse(role == "ao", "#d1495b", "#3d3d3d"))
+         ifelse(role == "ao", "#d1495b", NA_character_))
 }
 
-# Wrap a label in a coloured HTML span, for ggtext::element_markdown().
-# The colour travels with the label, so it cannot be matched to the wrong axis
-# break, and no vectorised element_text() is needed.
-md_label <- function(text, colour) {
-  text <- gsub("&", "&amp;", text, fixed = TRUE)
-  text <- gsub("<", "&lt;", text, fixed = TRUE)
-  text <- gsub(">", "&gt;", text, fixed = TRUE)
-  text <- gsub("\n", "<br>", text, fixed = TRUE)
-  paste0("<span style='color:", colour, ";'>", text, "</span>")
+has_marquee <- function() requireNamespace("marquee", quietly = TRUE)
+
+# Mark the molecular initiating event and the adverse outcome in a title.
+#
+# The role is written into the label, so the figure stays informative without
+# any extra package.
+role_label <- function(title, role) {
+  suffix <- ifelse(role == "mie", " (MIE)",
+                   ifelse(role == "ao", " (AO)", ""))
+  paste0(title, suffix)
 }
 
-has_ggtext <- function() requireNamespace("ggtext", quietly = TRUE)
+# Colour a label by role, using marquee's {#rrggbb text} span syntax.
+#
+# Each line is wrapped separately, because marquee does not parse a span that
+# is broken across a line break, and the labels may already be wrapped.
+colour_by_role <- function(label, role) {
+  if (!has_marquee()) return(label)
+  col <- role_colour(role)
+
+  span <- function(text, colour) {
+    if (is.na(colour)) return(text)
+    lines <- strsplit(text, "\n", fixed = TRUE)[[1]]
+    paste0("{", colour, " ", lines, "}", collapse = "\n")
+  }
+  vapply(seq_along(label), function(i) span(label[i], col[i]),
+         character(1), USE.NAMES = FALSE)
+}
+
+# Axis text element that renders those spans, when marquee is available
+role_axis_text <- function(...) {
+  if (has_marquee()) {
+    marquee::element_marquee(...)
+  } else {
+    ggplot2::element_text(...)
+  }
+}
 
 #' Summarise the genes of an AOP per Key Event
 #'
@@ -86,9 +111,10 @@ add_gene_free_kes <- function(dat, aop_id) {
 #'
 #' Draws a bar chart of the distinct genes linked to each Key Event of an AOP,
 #' coloured by detection method. Every Key Event of the AOP is shown, so a Key
-#' Event without gene links appears with an empty bar. Key Event titles are
-#' printed in green for the molecular initiating event and in red for the
-#' adverse outcome. Requires the ggplot2 package.
+#' Event without gene links appears with an empty bar. The molecular
+#' initiating event and the adverse outcome are marked in the Key Event
+#' titles, and coloured green and red when the marquee package is installed.
+#' Requires the ggplot2 package.
 #'
 #' @param aop_id AOP identifier.
 #' @return A ggplot object, which can be further modified in the usual way.
@@ -111,6 +137,9 @@ aop_plot_genes <- function(aop_id) {
   }
 
   dat <- add_gene_free_kes(dat, aop_id)
+  dat$ke_title <- colour_by_role(
+    role_label(dat$ke_title, dat$role), dat$role
+  )
 
   p <- ggplot2::ggplot(
     dat,
@@ -126,17 +155,17 @@ aop_plot_genes <- function(aop_id) {
       x = NULL, y = "Distinct genes", fill = "Detected by",
       title = paste0("Genes per Key Event, AOP ", aop_id)
     ) +
-    ggplot2::theme_minimal(base_size = 12) +
-    ggplot2::theme(legend.position = "bottom")
-
-  # Colour the Key Event titles by role, if ggtext is installed
-  if (has_ggtext()) {
-    p <- p +
-      ggplot2::scale_x_discrete(labels = function(x) {
-        md_label(x, role_colour(dat$role[match(x, dat$ke_title)]))
-      }) +
-      ggplot2::theme(axis.text.y = ggtext::element_markdown())
-  }
+    # theme_bw() rather than theme_minimal(), because a marquee axis element
+    # is not honoured on top of theme_minimal()
+    ggplot2::theme_bw(base_size = 12) +
+    ggplot2::theme(
+      legend.position = "bottom",
+      panel.border = ggplot2::element_blank(),
+      panel.grid.minor = ggplot2::element_blank(),
+      axis.ticks = ggplot2::element_blank(),
+      axis.text.x = role_axis_text(),
+      axis.text.y = role_axis_text()
+    )
 
   p
 }

@@ -43,12 +43,12 @@ AOP title and short name.
 fibrosis <- aop_list(q = "liver fibrosis")
 fibrosis[, c("id", "title", "oecd_status")]
 #> # A tibble: 4 × 3
-#>      id title                                          oecd_status
-#>   <int> <chr>                                          <chr>      
-#> 1    38 Protein Alkylation leading to Liver Fibrosis   WPHA/WNT E…
-#> 2   144 Endocytic lysosomal uptake leading to liver f… Under Revi…
-#> 3   383 Inhibition of Angiotensin-converting enzyme 2… Under Deve…
-#> 4   494 AhR activation leading to liver fibrosis       <NA>
+#>      id title                                                       oecd_status
+#>   <int> <chr>                                                       <chr>      
+#> 1    38 Protein Alkylation leading to Liver Fibrosis                WPHA/WNT E…
+#> 2   144 Endocytic lysosomal uptake leading to liver fibrosis        Under Revi…
+#> 3   383 Inhibition of Angiotensin-converting enzyme 2 leading to l… Under Deve…
+#> 4   494 AhR activation leading to liver fibrosis                    <NA>
 ```
 
 The result is an ordinary tibble, so the returned set can be narrowed by any
@@ -68,12 +68,12 @@ fibrosis[which(fibrosis$oecd_status == "WPHA/WNT Endorsed"), c("id", "title")]
 # by recency of curation
 fibrosis[fibrosis$modified > "2023-01-01", c("id", "title", "modified")]
 #> # A tibble: 4 × 3
-#>      id title                                             modified
-#>   <int> <chr>                                             <chr>   
-#> 1    38 Protein Alkylation leading to Liver Fibrosis      2025-10…
-#> 2   144 Endocytic lysosomal uptake leading to liver fibr… 2023-04…
-#> 3   383 Inhibition of Angiotensin-converting enzyme 2 le… 2023-04…
-#> 4   494 AhR activation leading to liver fibrosis          2026-08…
+#>      id title                                                          modified
+#>   <int> <chr>                                                          <chr>   
+#> 1    38 Protein Alkylation leading to Liver Fibrosis                   2025-10…
+#> 2   144 Endocytic lysosomal uptake leading to liver fibrosis           2023-04…
+#> 3   383 Inhibition of Angiotensin-converting enzyme 2 leading to live… 2023-04…
+#> 4   494 AhR activation leading to liver fibrosis                       2026-08…
 ```
 
 AOPs are living documents: most are still under development and are revised as
@@ -244,22 +244,22 @@ usable in a transcriptomics analysis.
 summary_tbl <- aop_gene_summary(aop_id)
 summary_tbl
 #> # A tibble: 14 × 5
-#>    ke_id ke_title                        role  detected_by n_genes
-#>    <int> <chr>                           <chr> <chr>         <int>
-#>  1    55 Increase, Cell injury/death     ke    both              5
-#>  2    55 Increase, Cell injury/death     ke    ner              20
-#>  3    55 Increase, Cell injury/death     ke    regex             1
-#>  4    68 Increase, Collagen accumulation ke    both              1
-#>  5    68 Increase, Collagen accumulation ke    ner               6
-#>  6   265 Increase, Hepatic stellate cel… ke    both              4
-#>  7   265 Increase, Hepatic stellate cel… ke    ner               8
-#>  8   344 Increase, Liver fibrosis        ao    ner               1
-#>  9  1492 Tissue resident cell activation ke    both             10
-#> 10  1492 Tissue resident cell activation ke    ner              25
-#> 11  1492 Tissue resident cell activation ke    regex             2
-#> 12  1493 Increased Pro-inflammatory med… ke    both              7
-#> 13  1493 Increased Pro-inflammatory med… ke    ner              34
-#> 14  1493 Increased Pro-inflammatory med… ke    regex             2
+#>    ke_id ke_title                                   role  detected_by n_genes
+#>    <int> <chr>                                      <chr> <chr>         <int>
+#>  1    55 Increase, Cell injury/death                ke    both              5
+#>  2    55 Increase, Cell injury/death                ke    ner              20
+#>  3    55 Increase, Cell injury/death                ke    regex             1
+#>  4    68 Increase, Collagen accumulation            ke    both              1
+#>  5    68 Increase, Collagen accumulation            ke    ner               6
+#>  6   265 Increase, Hepatic stellate cell activation ke    both              4
+#>  7   265 Increase, Hepatic stellate cell activation ke    ner               8
+#>  8   344 Increase, Liver fibrosis                   ao    ner               1
+#>  9  1492 Tissue resident cell activation            ke    both             10
+#> 10  1492 Tissue resident cell activation            ke    ner              25
+#> 11  1492 Tissue resident cell activation            ke    regex             2
+#> 12  1493 Increased Pro-inflammatory mediators       ke    both              7
+#> 13  1493 Increased Pro-inflammatory mediators       ke    ner              34
+#> 14  1493 Increased Pro-inflammatory mediators       ke    regex             2
 ```
 
 
@@ -267,7 +267,7 @@ summary_tbl
 aop_plot_genes(aop_id)
 ```
 
-![Genes linked to each KE, split by detection method. KE titles are printed in green for the MIE and in red for the AO. A KE without gene links is shown with an empty bar.](figures/fig-ke-1.png)
+![Genes linked to each KE, split by detection method. The MIE and the AO are marked in the titles, in green and red. A KE without gene links is shown with an empty bar.](figures/fig-ke-1.png)
 
 Six of the seven KEs carry gene links. The MIE of this AOP carries none, and it
 is drawn with an empty bar, so the gap in the annotation stays visible.
@@ -300,15 +300,15 @@ a range of ontologies.
 ``` r
 aop_components(aop_id)[, c("ke_id", "process", "process_id", "action")]
 #> # A tibble: 7 × 4
-#>   ke_id process                                  process_id action
-#>   <int> <chr>                                    <chr>      <chr> 
-#> 1    55 cell death                               GO:0008219 incre…
-#> 2    68 collagen biosynthetic process            GO:0032964 incre…
-#> 3   244 protein alkylation                       GO:0008213 incre…
-#> 4   265 hepatic stellate cell activation         GO:0035733 incre…
-#> 5   344 liver fibrosis                           MP:0003333 occur…
-#> 6  1492 cell activation involved in immune resp… GO:0002263 incre…
-#> 7  1493 acute inflammatory response              GO:0002526 incre…
+#>   ke_id process                                     process_id action    
+#>   <int> <chr>                                       <chr>      <chr>     
+#> 1    55 cell death                                  GO:0008219 increased 
+#> 2    68 collagen biosynthetic process               GO:0032964 increased 
+#> 3   244 protein alkylation                          GO:0008213 increased 
+#> 4   265 hepatic stellate cell activation            GO:0035733 increased 
+#> 5   344 liver fibrosis                              MP:0003333 occurrence
+#> 6  1492 cell activation involved in immune response GO:0002263 increased 
+#> 7  1493 acute inflammatory response                 GO:0002526 increased
 ```
 
 
@@ -316,7 +316,7 @@ aop_components(aop_id)[, c("ke_id", "process", "process_id", "action")]
 aop_plot_components(aop_id)
 ```
 
-![KECs of each KE, with their ontology identifiers. KE titles are printed in green for the MIE and in red for the AO. Blank cells mark components that AOP-Wiki does not record.](figures/fig-kec-1.png)
+![KECs of each KE, with their ontology identifiers. The MIE and the AO are marked in the titles, in green and red. Blank cells mark components that AOP-Wiki does not record.](figures/fig-kec-1.png)
 
 Blank cells are informative in their own right: they show where the ontology
 annotation of a pathway is still incomplete.
@@ -340,13 +340,13 @@ aop_stressors(aop_id)[, c("id", "title")]
 #> 5    63 Thioacetamide
 aop_chemicals(aop_id)
 #> # A tibble: 5 × 4
-#>   cas      title                  inchikey             stressor_id
-#>   <chr>    <chr>                  <chr>                      <int>
-#> 1 107-18-6 Allyl alcohol          XXROGKLTLUQVRX-UHFF…           9
-#> 2 56-23-5  Carbon tetrachloride   VZGDMQKNWNREIO-UHFF…          13
-#> 3 62-75-9  N-Nitrosodimethylamine UMFJAHHVKNCGLG-UHFF…          18
-#> 4 68-26-8  Retinol                FPIPGXGPPPQFEQ-OVSJ…          60
-#> 5 62-55-5  Thioacetamide          YUKQRDCYNOVPGJ-UHFF…          63
+#>   cas      title                  inchikey                    stressor_id
+#>   <chr>    <chr>                  <chr>                             <int>
+#> 1 107-18-6 Allyl alcohol          XXROGKLTLUQVRX-UHFFFAOYSA-N           9
+#> 2 56-23-5  Carbon tetrachloride   VZGDMQKNWNREIO-UHFFFAOYSA-N          13
+#> 3 62-75-9  N-Nitrosodimethylamine UMFJAHHVKNCGLG-UHFFFAOYSA-N          18
+#> 4 68-26-8  Retinol                FPIPGXGPPPQFEQ-OVSJKPMPSA-N          60
+#> 5 62-55-5  Thioacetamide          YUKQRDCYNOVPGJ-UHFFFAOYSA-N          63
 ```
 
 Whether a particular gene belongs to this AOP, and how the link was made:
@@ -380,9 +380,8 @@ aops_with_gene <- unique(unlist(
   lapply(head(kes_with_gene$id, 5), function(i) ke_aops(i)$id)
 ))
 aops_with_gene
-#>  [1]  21  57 131 150 151 310 414 415 416 417 418 419 420 439 455
-#> [16] 456 458 459 494 563 577 578  27 303 377 412 638  43 624 625
-#> [31] 626 627 628 629  38 144
+#>  [1]  21  57 131 150 151 310 414 415 416 417 418 419 420 439 455 456 458 459
+#> [19] 494 563 577 578  27 303 377 412 638  43 624 625 626 627 628 629  38 144
 ```
 
 ## 7. Reproducibility
@@ -425,58 +424,53 @@ sessionInfo()
 #>   LAPACK version 3.12.1
 #> 
 #> locale:
-#> [1] LC_COLLATE=English_Netherlands.utf8 
-#> [2] LC_CTYPE=English_Netherlands.utf8   
-#> [3] LC_MONETARY=English_Netherlands.utf8
-#> [4] LC_NUMERIC=C                        
+#> [1] LC_COLLATE=English_Netherlands.utf8  LC_CTYPE=English_Netherlands.utf8   
+#> [3] LC_MONETARY=English_Netherlands.utf8 LC_NUMERIC=C                        
 #> [5] LC_TIME=English_Netherlands.utf8    
 #> 
 #> time zone: Europe/Amsterdam
 #> tzcode source: internal
 #> 
 #> attached base packages:
-#> [1] stats     graphics  grDevices utils     datasets  methods  
-#> [7] base     
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] ggplot2_4.0.3  R4AOP_0.99.0   testthat_3.3.2
+#> [1] R4AOP_0.99.0   ggplot2_4.0.3  testthat_3.3.2
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] KEGGREST_1.53.6      gtable_0.3.6        
-#>  [3] xfun_0.62            httr2_1.3.0         
-#>  [5] devtools_2.5.2       Biobase_2.73.2      
-#>  [7] vctrs_0.7.3          tools_4.6.2         
-#>  [9] generics_0.1.4       stats4_4.6.2        
-#> [11] curl_8.1.0           tibble_3.3.1        
-#> [13] AnnotationDbi_1.75.2 RSQLite_3.53.3      
-#> [15] blob_1.3.0           pkgconfig_2.0.3     
-#> [17] BiocBaseUtils_1.15.1 RColorBrewer_1.1-3  
-#> [19] S7_0.2.2             desc_1.4.3          
-#> [21] S4Vectors_0.51.10    graph_1.91.0        
-#> [23] lifecycle_1.0.5      compiler_4.6.2      
-#> [25] farver_2.1.2         Biostrings_2.81.9   
-#> [27] brio_1.1.5           Seqinfo_1.3.2       
-#> [29] usethis_3.2.2        pillar_1.11.1       
-#> [31] crayon_1.5.3         ellipsis_0.3.3      
-#> [33] cachem_1.1.0         sessioninfo_1.2.4   
-#> [35] tidyselect_1.2.1     dplyr_1.2.1         
-#> [37] purrr_1.2.2          labeling_0.4.3      
-#> [39] rprojroot_2.1.1      fastmap_1.2.0       
-#> [41] grid_4.6.2           cli_3.6.6           
-#> [43] magrittr_2.0.5       XML_3.99-0.25       
-#> [45] pkgbuild_1.4.8       utf8_1.2.6          
-#> [47] GSEABase_1.75.0      withr_3.0.3         
-#> [49] scales_1.4.0         bit64_4.8.6         
-#> [51] XVector_0.53.0       httr_1.4.9          
-#> [53] bit_4.6.0            otel_0.2.0          
-#> [55] ggtext_0.2.0         png_0.1-9           
-#> [57] memoise_2.0.1        evaluate_1.0.5      
-#> [59] knitr_1.52           IRanges_2.47.5      
-#> [61] rlang_1.3.0          Rcpp_1.1.2          
-#> [63] gridtext_0.1.6       xtable_1.8-8        
-#> [65] glue_1.8.1           DBI_1.3.0           
-#> [67] xml2_1.6.0           BiocGenerics_0.59.12
-#> [69] pkgload_1.5.3        rstudioapi_0.19.0   
-#> [71] annotate_1.91.0      jsonlite_2.0.0      
-#> [73] R6_2.6.1             fs_2.1.0
+#>   [1] DBI_1.3.0            bitops_1.1-0         RBGL_1.89.0         
+#>   [4] httr2_1.3.0          GSEABase_1.75.0      rlang_1.3.0         
+#>   [7] magrittr_2.0.5       rdtools_0.1.0        otel_0.2.0          
+#>  [10] compiler_4.6.2       RSQLite_3.53.3       roxygen2_8.1.1      
+#>  [13] png_0.1-9            systemfonts_1.3.2    callr_3.8.0         
+#>  [16] vctrs_0.7.3          pkgconfig_2.0.3      crayon_1.5.3        
+#>  [19] fastmap_1.2.0        dbplyr_2.6.0         XVector_0.53.0      
+#>  [22] ellipsis_0.3.3       labeling_0.4.3       utf8_1.2.6          
+#>  [25] biocViews_1.81.1     rmarkdown_2.32       sessioninfo_1.2.4   
+#>  [28] graph_1.91.0         purrr_1.2.2          bit_4.6.0           
+#>  [31] xfun_0.62            gert_2.5.0           cachem_1.1.0        
+#>  [34] jsonlite_2.0.0       pak_0.11.1           blob_1.3.0          
+#>  [37] parallel_4.6.2       prettyunits_1.2.0    R6_2.6.1            
+#>  [40] stringi_1.8.9        RColorBrewer_1.1-3   pkgload_1.5.3       
+#>  [43] brio_1.1.5           Seqinfo_1.3.2        knitr_1.52          
+#>  [46] usethis_3.2.2        IRanges_2.47.5       BiocBaseUtils_1.15.1
+#>  [49] marquee_1.2.1        tidyselect_1.2.1     rstudioapi_0.19.0   
+#>  [52] stringdist_0.9.17    codetools_0.2-20     RUnit_0.4.33.1      
+#>  [55] curl_8.1.0           processx_3.9.0       pkgbuild_1.4.8      
+#>  [58] tibble_3.3.1         Biobase_2.73.2       withr_3.0.3         
+#>  [61] KEGGREST_1.53.6      S7_0.2.2             askpass_1.2.1       
+#>  [64] evaluate_1.0.5       desc_1.4.3           BiocFileCache_3.3.0 
+#>  [67] xml2_1.6.0           Biostrings_2.81.9    pillar_1.11.1       
+#>  [70] BiocManager_1.30.27  filelock_1.0.3       stats4_4.6.2        
+#>  [73] generics_0.1.4       rprojroot_2.1.1      credentials_2.0.3   
+#>  [76] xopen_1.0.1          RCurl_1.98-1.20      S4Vectors_0.51.10   
+#>  [79] BiocCheck_1.49.37    commonmark_2.0.0     scales_1.4.0        
+#>  [82] xtable_1.8-8         glue_1.8.1           tools_4.6.2         
+#>  [85] sys_3.4.3            annotate_1.91.0      fs_2.1.0            
+#>  [88] XML_3.99-0.25        grid_4.6.2           devtools_2.5.2      
+#>  [91] AnnotationDbi_1.75.2 cli_3.6.6            textshaping_1.0.5   
+#>  [94] rcmdcheck_1.4.0      dplyr_1.2.1          gtable_0.3.6        
+#>  [97] digest_0.6.39        BiocGenerics_0.59.12 farver_2.1.2        
+#> [100] memoise_2.0.1        htmltools_0.5.9      lifecycle_1.0.5     
+#> [103] httr_1.4.9           openssl_2.4.2        bit64_4.8.6
 ```

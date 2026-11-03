@@ -35,7 +35,7 @@ Useful links:
 Authors:
 \itemize{
   \item Sidra Adil \email{sidraadil009@gmail.com} (\href{https://orcid.org/0000-0002-3044-3561}{ORCID})
-  \item Marvin Martens \email{marvin.martens@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0003-2230-0840}{ORCID}) [contributor]
+  \item Marvin Martens \email{marvin.martens@maastrichtuniversity.nl} (\href{https://orcid.org/0000-0003-2230-0840}{ORCID})
 }
 
 Other contributors:

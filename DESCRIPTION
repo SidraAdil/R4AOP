@@ -4,15 +4,15 @@ Version: 0.99.0
 Authors@R: c(
     person("Sidra", "Adil", email = "sidraadil009@gmail.com",
            role = c("aut", "cre"),
-           comment = c(ORCID = " 0000-0002-3044-3561")),
+           comment = c(ORCID = "0000-0002-3044-3561")),
     person("Egon", "Willighagen", email = "egon.willighagen@maastrichtuniversity.nl",
            role = "ctb",
            comment = c(ORCID = "0000-0001-7542-0286")),
-    person("Tooba ", "Abbassi-Daloii", email = "t.abbassidaloii@amsterdamumc.nl",
+    person("Tooba", "Abbassi-Daloii", email = "t.abbassidaloii@amsterdamumc.nl",
            role = "ctb",
            comment = c(ORCID = "0000-0002-4904-3269")),
     person("Marvin", "Martens", email = "marvin.martens@maastrichtuniversity.nl",
-           role = c("aut", "ctb"),
+           role = "aut",
            comment = c(ORCID = "0000-0003-2230-0840"))
   )
 Description: Provides functions to retrieve Adverse Outcome Pathways (AOPs),
